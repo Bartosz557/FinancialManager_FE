@@ -4,18 +4,28 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {ProfilePageComponent} from "./profilePage/profilePage.component";
+import {MainPageComponent} from "./mainPage/mainPage.component";
+import {MainPageService} from "./mainPage/mainPage.service";
+import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
+import {FormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
-    ProfilePageComponent, // Declare the component here
-    AppComponent
+    ProfilePageComponent,
+    MainPageComponent,
+    AppComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ {provide: MainPageService, useClass: MainPageService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
