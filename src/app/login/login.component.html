@@ -10,15 +10,17 @@
   <h1>Login</h1>
   <form (ngSubmit)="login()" #loginForm="ngForm">
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required>
+    <input type="text" id="username" name="username" [(ngModel)]="username" required>
     <br>
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required>
+    <input type="password" id="password" name="password" [(ngModel)]="password" required>
     <br>
     <div class="button-container">
       <button type="button" class="button register-button" (click)="register()">Register</button>
       <button type="submit" class="button" >Login</button>
     </div>
+
+
   </form>
 </div>
 
