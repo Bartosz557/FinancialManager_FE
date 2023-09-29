@@ -10,6 +10,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {FormsModule} from "@angular/forms";
 import {LoginService} from "./login/login.service";
+import {RegisterService} from "./register/register.service";
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import {LoginService} from "./login/login.service";
     MainPageComponent,
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     FormsModule,
@@ -27,7 +28,8 @@ import {LoginService} from "./login/login.service";
     HttpClientModule
   ],
   providers: [ {provide: MainPageService, useClass: MainPageService },
-               {provide: LoginService, useClass: LoginService }],
+               {provide: LoginService, useClass: LoginService },
+               {provide: RegisterService, useClass: RegisterService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
