@@ -34,7 +34,6 @@ export class LoginService{
   {
     return this.http.post('/api/v1/login', requestBody)
   }
-
   navigateToProfile()
   {
     this.router.navigate(['/profile']);
