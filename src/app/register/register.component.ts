@@ -8,15 +8,16 @@ import {RegisterService} from "./register.service";
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  password: any;
   username: any;
+  email: any;
+  password: any;
   confirmPassword: any;
   constructor(private router: Router,private registerService: RegisterService) {}
 
   registerUser()
   {
     if(this.checkPasswordSimilarity())
-      this.registerService.registerUser(this.password, this.username)
+      this.registerService.registerUser(this.username, this.email, this.password)
     else
       this.differentPasswordMsg()
   }
