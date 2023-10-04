@@ -40,11 +40,11 @@ export class RegisterService{
   }
 
   successRegistration(){
+    this.router.navigate(['/login']);
     //TODO SUCCESS REGISTRATION MESSAGEBOX
   }
   error500Msg() {
     //TODO 500 ERROR MESSAGEBOX
-
   }
   unknownErrorMsg(){
     //TODO UNKNOWN ERROR MESSAGEBOX
