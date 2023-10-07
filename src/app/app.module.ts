@@ -11,6 +11,7 @@ import {RegisterComponent} from "./register/register.component";
 import {FormsModule} from "@angular/forms";
 import {LoginService} from "./login/login.service";
 import {RegisterService} from "./register/register.service";
+import {ProfilePageService} from "./profilePage/profilePage.service";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {RegisterService} from "./register/register.service";
   ],
   providers: [ {provide: MainPageService, useClass: MainPageService },
                {provide: LoginService, useClass: LoginService },
-               {provide: RegisterService, useClass: RegisterService }],
+               {provide: RegisterService, useClass: RegisterService },
+               {provide: ProfilePageService, useClass: ProfilePageService }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

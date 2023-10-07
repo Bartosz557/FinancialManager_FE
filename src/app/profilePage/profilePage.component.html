@@ -1,16 +1,15 @@
-<!-- profile-page.component.html -->
-
-<div class="profile">
-  <h1>Your Profile</h1>
-  <div class="profile-details">
-    <div class="profile-info">
-      <h2>Name: John Doe</h2>
-      <p>Email: john.doe@example.com</p>
-      <p>Username: johndoe123</p>
+<link rel="stylesheet" type="text/css" href="profilePage.component.css">
+<section class="layout">
+  <div class="center">
+    <div class="header">
+      <div class="header-buttons">
+        <button class="button">Profile</button>
+        <button class="button">History</button>
+        <button class="button">Settings</button>
+        <button class="button logout-button" (click)="logout()">Log Out</button>
+      </div>
     </div>
-    <div class="button-container">
-      <button class="button" (click)="fetchData()">Proceed to your profile</button>
-    </div>
-    <div>{{ data }}</div>
   </div>
-</div>
+  <div class="main">
+  </div>
+</section>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {ProfilePageService} from "./profilePage.service";
 
 
 @Component({
@@ -12,14 +13,27 @@ import {Observable} from "rxjs";
 
 export class ProfilePageComponent {
 
-  data: string = '';
-  constructor(private http: HttpClient) {}
+  constructor(private profilePageService: ProfilePageService,private router: Router) {
+  }
+  logout() {
+    this.profilePageService.logoutRequest().subscribe(
+        (response: boolean) => {
+            console.log(response)
+          if(response)
+            this.succesLogout()
+            else
+              this.unexpectedError()
+        }
+    )
 
-  fetchData()
-  {
-    return this.http.get<string>('api/v1/fetchdata',  { responseType: 'text' as 'json'}).subscribe(
-    (response) => {
-      this.data = response;
-  })
+  }
+
+  succesLogout(){
+    console.log("logout successfully")
+      this.router.navigate(["/login"])
+  }
+
+  unexpectedError(){
+    console.log("error has occurred")
   }
 }
