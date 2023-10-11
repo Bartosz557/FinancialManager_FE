@@ -1,14 +1,24 @@
 .header {
-  background-color: #808080;
+  background-color: #C2C1C1;
   padding: 15px 10px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   width: 100%;
 }
 
+.large-box {
+  background-color: #E5E5E5;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 830px;
+  margin-top: 10px;
+}
+
 .center {
   display: flex;
-  justify-content: center; /* Horizontal centering */
+  justify-content: center;
 }
 
 .button {
@@ -23,9 +33,13 @@
   flex-grow: 1;
   margin: 0 5px;
 }
+
 .button:hover {
   background-color: #0056b3;
 }
-.logout-button{
+
+.logout-button {
   float: right;
 }
+
+
