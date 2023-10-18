@@ -1,0 +1,112 @@
+body {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+  margin: 0;
+}
+
+.left {
+  width: 60%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.user-header {
+  margin-left: -250px;
+  margin-top: 150px;
+  font-weight: bold;
+}
+
+.user-buttons {
+  margin-left: 20px;
+}
+
+.buttons {
+  margin-bottom: 50px;
+  margin-left: 200px;
+  display: grid;
+  grid-template-columns: repeat(2, 200px);
+  grid-gap: 20px;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  background-color: #0074d9;
+  color: white;
+  border: none;
+}
+
+#add-spent {
+  margin-top: 10px;
+}
+
+.right {
+  width: 40%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.circles {
+  margin-top: 100px;
+}
+
+.mickey-head {
+  width: 450px;
+  height: 450px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  position: relative;
+}
+.left-ear {
+  width: 160px;
+  height: 160px;
+  background-color: #FF7F27;
+  left: -70px;
+  top: -40px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: -1;
+}
+.right-ear {
+  z-index: -1;
+  width: 140px;
+  height: 140px;
+  background-color: #3F48CC;
+  top: -4px;
+  right: -65px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.account-info {
+  margin-bottom: 60px;
+  text-align: center;
+  background-color: #007BFF;
+}
+
+.user-info {
+  margin-top: 120px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.welcome-text, .date-text, .days-left-text {
+  font-size: 44px; /* Adjust the font size as needed */
+  text-align: center;
+}
+
+.days-left-text {
+  margin-left: 150px;
+}

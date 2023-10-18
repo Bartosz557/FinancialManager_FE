@@ -12,6 +12,7 @@ import {FormsModule} from "@angular/forms";
 import {LoginService} from "./login/login.service";
 import {RegisterService} from "./register/register.service";
 import {ProfilePageService} from "./profilePage/profilePage.service";
+import { DashboardComponent } from './profilePage/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import {ProfilePageService} from "./profilePage/profilePage.service";
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    DashboardComponent,
   ],
   imports: [
     FormsModule,

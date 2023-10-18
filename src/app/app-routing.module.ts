@@ -5,10 +5,17 @@ import { MainPageComponent } from "./mainPage/mainPage.component";
 import {AppComponent} from "./app.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
+import {DashboardComponent} from "./profilePage/dashboard/dashboard.component";
 
 const routes: Routes = [
   { path: '', component: MainPageComponent},
-  { path: 'profile', component: ProfilePageComponent },
+  { path: 'profile', component: ProfilePageComponent,
+    children: [
+      {
+        path: 'test',
+        component: DashboardComponent
+      }
+    ]},
   { path: 'appComponent', component: AppComponent },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent}
