@@ -16,11 +16,11 @@ export class ProfilePageComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.router.navigate(["/profile/test"])
+    this.router.navigate(["/profile/dashboard"])
   }
 
   navigateToProfile(){
-    this.router.navigate(["/profile/test"])
+    this.router.navigate(["/profile/dashboard"])
   }
 
   logout() {
