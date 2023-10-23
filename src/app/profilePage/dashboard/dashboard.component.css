@@ -131,6 +131,7 @@ body {
 }
 
 #add-spent{
+  right: 800px;
   position: absolute;
   z-index: 3;
 }
@@ -194,7 +195,6 @@ body {
   background-color: transparent; /* Make the box invisible */
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
-
 
 .account-info {
   padding: 20px;
