@@ -15,10 +15,22 @@ export class DashboardComponent {
   timeout2: any;
 
 
+  // green circle goes up
+  // dashboard.component.ts:37 green circle goes down
+  // dashboard.component.ts:79 2circle goes down
+  // dashboard.component.ts:66 2circle goes up
+  // dashboard.component.ts:70 2box goes up
+  // dashboard.component.ts:66 2circle goes up
+  // dashboard.component.ts:70 2box goes up
+  // dashboard.component.ts:41 green circle index goes to 1
+  // dashboard.component.ts:79 2circle goes down
+  // dashboard.component.ts:92 2circle index goes 2
+
   mouseEnter(targetId: string)
   {
     clearTimeout(this.timeout)
     setTimeout(() => {
+      console.log("green circle goes up")
       const id = parseInt(targetId)
       const target = document.getElementById(this.IDs[id]);
       const circle = document.getElementById(targetId);
@@ -33,9 +45,11 @@ export class DashboardComponent {
     const id = parseInt(targetId)
     const circle = document.getElementById(targetId);
     const target = document.getElementById(this.IDs[id]);
+    console.log("green circle goes down")
     if (target && circle) {
       this.timeout = setTimeout(() => {
         target.style.zIndex = '1' //setting the green box's z-Index to 1, so it doesn't block the instant hover detection for 2 other circles and add-spent button
+        console.log("green circle index goes to 1")
       }, 200);
     }
     setTimeout(() => {
@@ -60,9 +74,11 @@ export class DashboardComponent {
     else
       clearTimeout(this.timeout2)
     setTimeout(() => {
+      console.log(targetId + "circle goes up")
       const target = document.getElementById(this.IDs[id]);
       const circle = document.getElementById(targetId);
       if (target && circle) {
+        console.log(targetId + "box goes up")
         target.style.backgroundColor = this.colors[id];
         target.style.transform = 'scale(2)';
         circle.style.zIndex = '4';  //puts the current circle on top of the green circle (otherwise the green circle remains on top)
@@ -71,24 +87,26 @@ export class DashboardComponent {
     }, 50);
   }
   resetBtn2(targetId: string) {
+    console.log(targetId + "circle goes down")
     const id = parseInt(targetId)
     const circle = document.getElementById(targetId);
     const target = document.getElementById(this.IDs[id]);
     if (target && circle) {
       if(id==1) {
         this.timeout1 = setTimeout(() => {
+          console.log(targetId + "circle index goes 2")
             circle.style.zIndex = '2'; //putting the x-index to the correct one, behind the green circle
             target.style.zIndex = '2'; //(otherwise the circles remains on top breaking interaction mechanics)
         }, 220);
       }else {
         this.timeout2 = setTimeout(() => {
-            circle.style.zIndex = '2'; //putting the x-index to the correct one, behind the green circle
+          console.log(targetId + "circle index goes 2")
+          circle.style.zIndex = '2'; //putting the x-index to the correct one, behind the green circle
             target.style.zIndex = '2'; //(otherwise the circles remains on top breaking interaction mechanics)
         }, 220);
       }
     }
     setTimeout(() => {
-      console.log(id)
       if (target && circle) {
         target.style.backgroundColor = 'transparent';
         target.style.transition = 'transform 0.9s ease, background-color 0.3s ease';
