@@ -14,7 +14,6 @@ export class DashboardComponent {
   timeout1: any;
   timeout2: any;
 
-
   // green circle goes up
   // dashboard.component.ts:37 green circle goes down
   // dashboard.component.ts:79 2circle goes down

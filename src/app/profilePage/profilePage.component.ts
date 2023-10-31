@@ -12,11 +12,25 @@ import {ProfilePageService} from "./profilePage.service";
 
 export class ProfilePageComponent implements OnInit{
 
-  constructor(private profilePageService: ProfilePageService,private router: Router) {
+  constructor(private profilePageService: ProfilePageService,private router: Router, private http: HttpClient) {
   }
 
   ngOnInit() {
-    this.router.navigate(["/profile/dashboard"])
+
+    this.http.get<boolean>('/api/v1/profile/is-configured').subscribe(
+      (configurated: boolean) => {
+        console.log(`Configuration status: ${configurated}`);
+        if(configurated)
+          this.router.navigate(["/profile/dashboard"])
+        else
+          this.router.navigate(["/profile/dashboard"])
+
+      },
+      (error) => {
+        console.error('Error:', error);
+        // TODO error messagebox
+      }
+    );
   }
 
   navigateToProfile(){

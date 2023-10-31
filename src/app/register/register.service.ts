@@ -10,7 +10,7 @@ export class RegisterService{
   registerUser(username: string, email: string, password: string)
   {
     const requestBody = {
-      "firstName": username,
+      "username": username,
       "email": email,
       "password": password
     }
