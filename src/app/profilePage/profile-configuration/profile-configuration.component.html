@@ -1,10 +1,25 @@
 <div class="container">
   <div class="configuration-viewbox">
-    <div class="welcome-text">
-      <p class=" upper">Welcome, <span id="username">username</span>!</p> <!-- TODO: PLACEHOLDER -->
-      <p class="lower">Let's configure your profile.</p>
+    <div class="center-box">
+      <div class="welcome-text" id="welcome-div">
+        <p class=" upper">Welcome, <span id="username">username</span>!</p> <!-- TODO: PLACEHOLDER -->
+        <p class="lower">Let's configure your profile first.</p>
+      </div>
+      <div class="carousel">
+        <div *ngIf="step === 1" class="box" id="box1">
+          <button id="lets-configure" (click)="nextStep(); checkVisibility()" >Let's start!</button>
+        </div>
+        <div *ngIf="step === 2" class="box" >Box 2</div>
+        <div *ngIf="step === 3" class="box">Box 3</div>
+        <div *ngIf="step === 4" class="box">Box 4</div>
+        <div *ngIf="step === 5" class="box">
+          <button id="lets-finish" >Confirm the configuration.</button>
+        </div>
+      </div>
     </div>
-    <div class="configuration-form">
+    <div class="step-buttons">
+      <button id="next-button" (click)="nextStep(); checkVisibility()" >Next</button>
+      <button id="prev-button" (click)="prevStep(); checkVisibility()" >Back</button>
     </div>
   </div>
 </div>
