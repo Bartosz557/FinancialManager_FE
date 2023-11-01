@@ -16,21 +16,21 @@ export class ProfilePageComponent implements OnInit{
   }
 
   ngOnInit() {
-
-    this.http.get<boolean>('/api/v1/profile/is-configured').subscribe(
-      (configurated: boolean) => {
-        console.log(`Configuration status: ${configurated}`);
-        if(configurated)
-          this.router.navigate(["/profile/dashboard"])
-        else
-          this.router.navigate(["/profile/dashboard"])
-
-      },
-      (error) => {
-        console.error('Error:', error);
-        // TODO error messagebox
-      }
-    );
+           this.router.navigate(["/profile/configure"])
+    // this.http.get<boolean>('/api/v1/profile/is-configured').subscribe(
+    //   (configurated: boolean) => {
+    //     console.log(`Configuration status: ${configurated}`);
+    //     if(configurated)
+    //       this.router.navigate(["/profile/dashboard"])
+    //     else
+    //       this.router.navigate(["/profile/configure"])
+    //
+    //   },
+    //   (error) => {
+    //     console.error('Error:', error);
+    //     // TODO error messagebox
+    //   }
+    // );
   }
 
   navigateToProfile(){

@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.configuration-viewbox {
+  width: 90%; /* Adjust the width to your preference */
+  height: 90%; /* Adjust the height to your preference */
+  background-color: #527b8a;
+  border-radius: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.configuration-form {
+  margin-top: 50px;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+}
+
+.welcome-text {
+  text-align: center;
+  color: white;
+  font-family: "Gill Sans MT";
+  font-weight: bold;
+}
+
+.upper {
+  font-size: 40px;
+  margin-top: 80px;
+}
+
+.lower {
+  font-size: 35px;
+  margin-top: -20px;
+}
+
+
+
+
+

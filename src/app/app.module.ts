@@ -13,7 +13,7 @@ import {LoginService} from "./login/login.service";
 import {RegisterService} from "./register/register.service";
 import {ProfilePageService} from "./profilePage/profilePage.service";
 import { DashboardComponent } from './profilePage/dashboard/dashboard.component';
-import { ProfileConfigurationComponent } from './profilePage/configurationView/profile-configuration/profile-configuration.component';
+import {ProfileConfigurationComponent} from "./profilePage/profile-configuration/profile-configuration.component";
 
 
 @NgModule({
@@ -24,7 +24,7 @@ import { ProfileConfigurationComponent } from './profilePage/configurationView/p
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    ProfileConfigurationComponent,
+    ProfileConfigurationComponent
   ],
   imports: [
     FormsModule,

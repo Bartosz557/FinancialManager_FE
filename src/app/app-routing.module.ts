@@ -6,6 +6,7 @@ import {AppComponent} from "./app.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {DashboardComponent} from "./profilePage/dashboard/dashboard.component";
+import {ProfileConfigurationComponent} from "./profilePage/profile-configuration/profile-configuration.component";
 
 const routes: Routes = [
   { path: '', component: MainPageComponent},
@@ -14,6 +15,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
+      },
+      {
+        path: 'configure',
+        component: ProfileConfigurationComponent
       }
     ]},
   { path: 'appComponent', component: AppComponent },
