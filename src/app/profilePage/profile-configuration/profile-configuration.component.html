@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" xmlns="http://www.w3.org/1999/html">
   <div class="configuration-viewbox">
     <div class="center-box">
       <div class="welcome-text" id="welcome-div">
@@ -6,20 +6,40 @@
         <p class="lower">Let's configure your profile first.</p>
       </div>
       <div class="carousel">
+
         <div *ngIf="step === 1" class="box" id="box1">
           <button id="lets-configure" (click)="nextStep(); checkVisibility()" >Let's start!</button>
         </div>
-        <div *ngIf="step === 2" class="box" >Box 2</div>
-        <div *ngIf="step === 3" class="box">Box 3</div>
-        <div *ngIf="step === 4" class="box">Box 4</div>
-        <div *ngIf="step === 5" class="box">
+
+        <div *ngIf="step === 2" class="box form" id="box2">
+          <p class="guide-text" >Provide the details to manage better your finances</p>
+          <p class="data-text" >What day of the month will be the settlement date?</p>
+          <input type="text" class="input" name="date" id="date">
+          <p class="data-text" >How much is your monthly income?</p>
+          <input type="number" class="input" name="income" id="income">
+          <p class="data-text" >What will be your monthly expense limit?</p>
+          <input type="number" class="input" name="limit" id="limit">
+          <p class="data-text" >What is you current bank account balance?</p>
+          <input type="number" class="input" name="balance" id="balance">
+        </div>
+
+        <div *ngIf="step === 3" class="box form" id="box3">
+
+        </div>
+
+        <div *ngIf="step === 4" class="box form" id="box4">
+
+        </div>
+
+        <div *ngIf="step === 5" class="box" id="box5">
           <button id="lets-finish" >Confirm the configuration.</button>
         </div>
+
       </div>
     </div>
     <div class="step-buttons">
-      <button id="next-button" (click)="nextStep(); checkVisibility()" >Next</button>
-      <button id="prev-button" (click)="prevStep(); checkVisibility()" >Back</button>
+      <button class="step-button" id="next-button" (click)="nextStep(); checkVisibility()" >Next</button>
+      <button class="step-button" id="prev-button" (click)="prevStep(); checkVisibility()" >Back</button>
     </div>
   </div>
 </div>

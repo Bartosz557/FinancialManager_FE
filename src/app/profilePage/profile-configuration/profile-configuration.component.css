@@ -46,7 +46,7 @@
 
 .carousel {
   position: absolute;
-  margin-top: 100px;
+  margin-top: 50px;
   display: flex;
   overflow: hidden;
 }
@@ -56,10 +56,50 @@
   width: 550px;
   height: 300px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 24px;
-  transition: transform 0.5s;
+}
+
+.guide-text{
+  margin-top: -80px;
+  font-family: "Gill Sans MT";
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.input {
+  border-radius: 10px;
+  height: 30px;
+  width: 200px;
+  font-family: "Gill Sans MT";
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  border-color: transparent;
+  background-color: #3f3e3e;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form {
+  margin-top: 23px;
+  height: 600px;
+  width: 1000px;
+  background-color: #333333;
+  border-radius: 30px;
+  animation: appear-and-grow 0.7s ease;
+  transform-origin: center;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes appear-and-grow {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 #box1 {
@@ -91,9 +131,22 @@
 .step-buttons {
   margin-top: 400px;
   display: grid;
-  align-items: center; /* Center the items vertically */
+  align-items: center;
 }
 
+.step-button {
+  font-family: "Gill Sans MT";
+  font-weight: bold;
+  border-color: transparent;
+  border-radius: 10px;
+  background-color: #3F48CC;
+  transition: transform 0.3s ease, background-color 0.5s ease; /* Add transitions for transform and background-color */
+}
+.step-button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: #09107a;
+}
 
 #lets-configure, #lets-finish {
   height: 70px;
@@ -119,4 +172,15 @@
 }
 
 
+#box2 { /*date*/
+
+}
+
+#box3 { /**/
+
+}
+
+#box4 {
+
+}
 
