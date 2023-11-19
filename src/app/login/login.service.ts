@@ -6,10 +6,10 @@ import {Router} from "@angular/router";
 export class LoginService{
   constructor(private http: HttpClient,private router: Router) {}
 
-  loginUser(username: string, password: string) {
+  loginUser(email: string, password: string) {
     console.log("try to login")
     const requestBody = {
-      "username": username,
+      "email": email,
       "password": password
     };
     console.log(requestBody)

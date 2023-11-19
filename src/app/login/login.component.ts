@@ -9,7 +9,7 @@ import {LoginService} from "./login.service";
 })
 export class LoginComponent {
   password: any;
-  username: any;
+  email: any;
   constructor(private router: Router,
               private loginService: LoginService) {}
 
@@ -20,7 +20,7 @@ export class LoginComponent {
   }
   login()
   {
-    this.loginService.loginUser(this.username, this.password);
+    this.loginService.loginUser(this.email, this.password);
   }
 
 }
