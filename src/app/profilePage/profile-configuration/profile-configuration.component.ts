@@ -8,11 +8,21 @@ import { Component } from '@angular/core';
 export class ProfileConfigurationComponent {
   step: number = 1;
 
+
+
   nextStep() {
-    if (this.step < 5) {
+    if (this.step < 7) {
       this.step++;
     }
   }
+
+  byTwo() {
+    if (this.step < 6) {
+      this.step+=2;
+    }
+  }
+
+  // TODO EDIT THE METHOD, SO APP REMEMBERS WHETHER IT HAS TO GO TO FORM OR QUESTION (STEPS 3,4 AND 5,6)
   prevStep() {
     if (this.step > 1) {
       this.step--;
@@ -27,18 +37,18 @@ export class ProfileConfigurationComponent {
       welcomeText.style.display = 'inline';
     switch (this.step) {
       case 1:
+      case 3:
+      case 5:
         this.checkButton(false,false)
         break;
       case 2:
         this.checkButton(false,true)
         break;
-      case 3:
-        this.checkButton(true,true)
-        break;
       case 4:
+      case 6:
         this.checkButton(true,true)
         break;
-      case 5:
+      case 7:
         this.checkButton(true,false)
         break;
     }

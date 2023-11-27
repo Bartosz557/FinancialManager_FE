@@ -5,6 +5,8 @@
   height: 100%;
 }
 
+
+
 .configuration-viewbox {
   width: 90%; /* Adjust the width to your preference */
   height: 90%; /* Adjust the height to your preference */
@@ -51,34 +53,11 @@
 }
 
 .box {
-  margin-top: -50px;
-  width: 550px;
-  height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 24px;
-}
-
-.guide-text{
-  margin-top: -80px;
-  font-family: "Gill Sans MT";
-  font-weight: bold;
-  font-size: 30px;
-}
-
-.input {
-  border-radius: 10px;
-  height: 30px;
-  width: 200px;
-  font-family: "Gill Sans MT";
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
-  border-color: transparent;
-  background-color: #3f3e3e;
-  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
 }
 
 .form {
@@ -101,13 +80,104 @@
   }
 }
 
-#box1 {
-  margin-top: 200px;
-}
 
 .box:nth-child(2) {
   background-color: #f0f0f0;
 }
+
+#box1 {
+  margin-top: 200px;
+}
+
+.question-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#box3, #box5{
+  display: inline;
+  margin-top: 148px;
+  height: 350px;
+  width: 600px;
+}
+
+.dec-button{
+  border: none;
+  margin-top: 50px;
+  height: 60px;
+  width: 100px;
+  border-radius: 10px;
+  font-family: "Gill Sans MT";
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.yes-button{
+  background-color: #2bb707;
+  transition: transform 0.3s ease, background-color 0.5s ease; /* Add transitions for transform and background-color */
+  margin-right: 20px;
+}
+.no-button{
+  background-color: #cc0f0f;
+  transition: transform 0.3s ease, background-color 0.5s ease; /* Add transitions for transform and background-color */
+  margin-left: 20px;
+}
+
+.yes-button:hover{
+  background-color: #1a7205;
+  transform: scale(1.1);
+
+}
+.no-button:hover{
+  background-color: #a60a0a;
+  transform: scale(1.1);
+
+}
+
+
+.question-text{
+  font-family: "Gill Sans MT";
+  line-height: 35px;
+  font-weight: bold;
+  font-size: 27px;
+  margin-top: 60px;
+}
+
+.guide-text{
+  margin-top: -20px;
+  font-family: "Gill Sans MT";
+  font-weight: bold;
+  font-size: 37px;
+}
+
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.data{
+  text-align: center;
+  margin-top: -15px;
+}
+
+.input {
+  border-radius: 10px;
+  height: 30px;
+  width: 200px;
+  font-family: "Gill Sans MT";
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  border-color: transparent;
+  background-color: #3f3e3e;
+  box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+
 
 #prev-button {
   justify-self: left;
@@ -170,16 +240,4 @@
   background-color: #1aa655;
 }
 
-
-#box2 { /*date*/
-
-}
-
-#box3 { /**/
-
-}
-
-#box4 {
-
-}
 

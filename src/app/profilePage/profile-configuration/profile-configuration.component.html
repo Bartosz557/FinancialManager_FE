@@ -13,25 +13,40 @@
 
         <div *ngIf="step === 2" class="box form" id="box2">
           <p class="guide-text" >Provide the details to manage better your finances</p>
-          <p class="data-text" >What day of the month will be the settlement date?</p>
-          <input type="text" class="input" name="date" id="date">
-          <p class="data-text" >How much is your monthly income?</p>
-          <input type="number" class="input" name="income" id="income">
-          <p class="data-text" >What will be your monthly expense limit?</p>
-          <input type="number" class="input" name="limit" id="limit">
-          <p class="data-text" >What is you current bank account balance?</p>
-          <input type="number" class="input" name="balance" id="balance">
+          <div class="data">
+            <p class="data-text" >What day of the month will be the settlement date?</p>
+            <input type="date" class="input" name="date" id="date">
+            <p class="data-text" >How much will be your monthly income?</p>
+            <input type="number" class="input" name="income" id="income">
+            <p class="data-text" >What will be your monthly expense limit?</p>
+            <input type="number" class="input" name="limit" id="limit">
+            <p class="data-text" >What will be the account balance?</p>
+            <input type="number" class="input" name="balance" id="balance">
+          </div>
         </div>
 
-        <div *ngIf="step === 3" class="box form" id="box3">
-
+        <div *ngIf="step === 3" class="box form question-box" id="box3">
+          <p class="question-text" >Would you like to divide monthly<br>limit into expense categories?</p>
+          <button class="dec-button yes-button" id="yes-btn1" (click)="nextStep(); checkVisibility()" >YES</button>
+          <button class="dec-button no-button" id="no-btn1" (click)="byTwo(); checkVisibility()" >NO</button>
         </div>
 
         <div *ngIf="step === 4" class="box form" id="box4">
+          <p>box4</p>
+        </div>
+
+        <div *ngIf="step === 5" class="box form question-box" id="box5">
+          <p class="question-text" >Would you like to add repeating expenses?</p>
+          <button class="dec-button yes-button" id="yes-btn2" (click)="nextStep(); checkVisibility()" >YES</button>
+          <button class="dec-button no-button" id="no-btn2" (click)="byTwo(); checkVisibility()" >NO</button>
+        </div>
+
+        <div *ngIf="step === 6" class="box form" id="box6">
+          <p>box6</p>
 
         </div>
 
-        <div *ngIf="step === 5" class="box" id="box5">
+        <div *ngIf="step === 7" class="box form" id="box7">
           <button id="lets-finish" >Confirm the configuration.</button>
         </div>
 
