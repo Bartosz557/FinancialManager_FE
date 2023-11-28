@@ -12,18 +12,19 @@
         </div>
 
         <div *ngIf="step === 2" class="box form" id="box2">
-          <p class="guide-text" >Provide the details to manage better your finances</p>
+          <p class="guide-text">Provide the details to manage better your finances</p>
           <div class="data">
-            <p class="data-text" >What day of the month will be the settlement date?</p>
-            <input type="date" class="input" name="date" id="date">
-            <p class="data-text" >How much will be your monthly income?</p>
-            <input type="number" class="input" name="income" id="income">
-            <p class="data-text" >What will be your monthly expense limit?</p>
-            <input type="number" class="input" name="limit" id="limit">
-            <p class="data-text" >What will be the account balance?</p>
-            <input type="number" class="input" name="balance" id="balance">
+            <p class="data-text">What day of the month will be the settlement date?</p>
+            <input type="date" class="input" name="date" id="date" [(ngModel)]="settlementDate">
+            <p class="data-text">How much will be your monthly income?</p>
+            <input type="number" class="input" name="income" id="income" min="0" [(ngModel)]="monthlyIncome">
+            <p class="data-text">What will be your monthly expense limit?</p>
+            <input type="number" class="input" name="limit" id="limit" min="0" [(ngModel)]="monthlyLimit">
+            <p class="data-text">What will be the account balance?</p>
+            <input type="number" class="input" name="balance" id="balance" min="0" [(ngModel)]="accountBalance">
           </div>
         </div>
+
 
         <div *ngIf="step === 3" class="box form question-box" id="box3">
           <p class="question-text" >Would you like to divide monthly<br>limit into expense categories?</p>
@@ -31,9 +32,57 @@
           <button class="dec-button no-button" id="no-btn1" (click)="byTwo(); checkVisibility()" >NO</button>
         </div>
 
+        <!-- your-component.component.html -->
+
         <div *ngIf="step === 4" class="box form" id="box4">
-          <p>box4</p>
+          <p class="limit-text">Your limit is: 10000</p>
+          <div class="row">
+            <div class="column">
+              <label for="groceries">Groceries:</label>
+              <input type="number" class="input input1" id="groceries" name="groceries" min="0" [(ngModel)]="groceries">
+            </div>
+
+            <div class="column">
+              <label for="dining-out">Dining Out:</label>
+              <input type="number" class="input input1" id="dining-out" name="dining-out" min="0" [(ngModel)]="diningOut">
+            </div>
+
+            <div class="column">
+              <label for="transport">Transport:</label>
+              <input type="number" class="input input1" id="transport" name="transport" min="0" [(ngModel)]="transport">
+            </div>
+
+            <div class="column">
+              <label for="entertainment">Entertainment:</label>
+              <input type="number" class="input input1" id="entertainment" name="entertainment" min="0" [(ngModel)]="entertainment">
+            </div>
+          </div>
+
+          <!-- Second Row -->
+          <div class="row">
+            <div class="column">
+              <label for="clothes">Clothes:</label>
+              <input type="number" class="input input1" id="clothes" name="clothes" min="0" [(ngModel)]="clothes">
+            </div>
+
+            <div class="column">
+              <label for="traveling">Traveling:</label>
+              <input type="number" class="input input1" id="traveling" name="traveling" min="0" [(ngModel)]="traveling">
+            </div>
+
+            <div class="column">
+              <label for="hobby">Hobby:</label>
+              <input type="number" class="input input1" id="hobby" name="hobby" min="0" [(ngModel)]="hobby">
+            </div>
+
+            <div class="column">
+              <label for="miscellaneous">Miscellaneous:</label>
+              <input type="number" class="input input1" id="miscellaneous" name="miscellaneous" min="0" [(ngModel)]="miscellaneous">
+            </div>
+          </div>
+          <button class="accept-button" id="accept-limit" (click)="nextStep(); checkVisibility()">ACCEPT</button>
         </div>
+
 
         <div *ngIf="step === 5" class="box form question-box" id="box5">
           <p class="question-text" >Would you like to add repeating expenses?</p>
@@ -42,7 +91,33 @@
         </div>
 
         <div *ngIf="step === 6" class="box form" id="box6">
-          <p>box6</p>
+          <p>Write the name of the expense and the amount</p>
+          <!-- expense-tracker.component.html -->
+
+          <div id="addExpense">
+            <div class="expense-form">
+              <label for="expenseName">Name:</label>
+              <input type="text" id="expenseName" [(ngModel)]="newExpense.name" name="expenseName">
+
+              <label for="expenseAmount">Amount:</label>
+              <input type="number" id="expenseAmount" [(ngModel)]="newExpense.amount" name="expenseAmount" min="0">
+
+              <button (click)="addExpense()">Add Expense</button>
+            </div>
+          </div>
+
+          <div id="expensesList" class="list-container">
+            <div class="list-content">
+              <h2>Expenses List</h2>
+              <div class="expense-list" id="expenseListContainer">
+                <p *ngFor="let expense of expenses">{{ expense.name }}: ${{ expense.amount }}</p>
+              </div>
+            </div>
+            <div class="button-container">
+              <button (click)="xdd()">Your Button</button>
+            </div>
+          </div>
+
 
         </div>
 

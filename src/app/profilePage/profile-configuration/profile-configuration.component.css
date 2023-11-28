@@ -89,6 +89,12 @@
   margin-top: 200px;
 }
 
+#box4{
+  width: 1100px;
+}
+
+
+
 .question-box{
   display: flex;
   flex-direction: column;
@@ -133,7 +139,57 @@
 .no-button:hover{
   background-color: #a60a0a;
   transform: scale(1.1);
+}
 
+/* expense-tracker.component.css */
+
+#expensesList {
+  margin-top: 20px;
+}
+
+.list-container {
+  display: flex;
+}
+
+.list-content {
+  flex: 3; /* Takes 3/4 of the width */
+}
+
+.expense-list {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.button-container {
+  flex: 1; /* Takes 1/4 of the width */
+  margin-left: 10px; /* Adjust margin as needed */
+}
+
+.button-container button {
+  /* Style your button as needed */
+}
+
+
+.accept-button{
+  margin-top: 50px;
+  margin-bottom: -100px;
+  background-color: #2bb707;
+  transition: transform 0.3s ease, background-color 0.5s ease; /* Add transitions for transform and background-color */
+  height: 50px;
+  width: 170px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: "Gill Sans MT";
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+}
+
+.accept-button:hover{
+  background-color: #1a7205;
+  transform: scale(1.1);
 }
 
 
@@ -152,6 +208,14 @@
   font-size: 37px;
 }
 
+.limit-text {
+  margin-top: -100px;
+  margin-bottom: 10px;
+  font-family: "Gill Sans MT";
+  font-weight: bold;
+  font-size: 50px;
+}
+
 
 
 input::-webkit-outer-spin-button,
@@ -162,6 +226,24 @@ input::-webkit-inner-spin-button {
 .data{
   text-align: center;
   margin-top: -15px;
+}
+
+.row {
+  width: 90%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.column {
+  font-family: "Gill Sans MT";
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 45px;
+  text-align: center;
+  flex: 1;
+  margin-right: 10px;
 }
 
 .input {
@@ -177,7 +259,11 @@ input::-webkit-inner-spin-button {
   box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
 }
 
-
+.input1{
+  width: 150px;
+  height: 50px;
+  font-size: 30px;
+}
 
 #prev-button {
   justify-self: left;

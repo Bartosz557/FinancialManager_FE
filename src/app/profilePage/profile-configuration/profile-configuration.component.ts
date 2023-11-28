@@ -6,9 +6,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./profile-configuration.component.css']
 })
 export class ProfileConfigurationComponent {
+  //TODO HTTP REQUEST TO SAVE THE CONFIG IN DATABASE
+
   step: number = 1;
 
+  settlementDate: string = '';
+  monthlyIncome: number = 0;
+  monthlyLimit: number = 0;
+  accountBalance: number = 0;
 
+  groceries: number = 0;
+  diningOut: number = 0;
+  transport: number = 0;
+  entertainment: number = 0;
+  clothes: number = 0;
+  traveling: number = 0;
+  hobby: number = 0;
+  miscellaneous: number = 0;
+
+  expenses: { name: string, amount: number }[] = [];
+  newExpense: { name: string, amount: number } = { name: '', amount: 0 };
 
   nextStep() {
     if (this.step < 7) {
@@ -25,6 +42,8 @@ export class ProfileConfigurationComponent {
   // TODO EDIT THE METHOD, SO APP REMEMBERS WHETHER IT HAS TO GO TO FORM OR QUESTION (STEPS 3,4 AND 5,6)
   prevStep() {
     if (this.step > 1) {
+      if(this.step == 5 || this.step == 7)
+        this.step--;
       this.step--;
     }
   }
@@ -37,8 +56,6 @@ export class ProfileConfigurationComponent {
       welcomeText.style.display = 'inline';
     switch (this.step) {
       case 1:
-      case 3:
-      case 5:
         this.checkButton(false,false)
         break;
       case 2:
@@ -48,11 +65,15 @@ export class ProfileConfigurationComponent {
       case 6:
         this.checkButton(true,true)
         break;
+      case 3:
+      case 5:
       case 7:
         this.checkButton(true,false)
         break;
     }
   }
+  xdd()
+  {}
 
   checkButton(first: any, second: any) {
     let visibility = first;
@@ -72,4 +93,12 @@ export class ProfileConfigurationComponent {
     }
   }
 
+  addExpense() {
+    if (this.newExpense.name.trim() === '' || isNaN(this.newExpense.amount) || this.newExpense.amount < 0) {
+      alert('Please enter valid expense details.');
+      return;
+    }
+    this.expenses.push({ name: this.newExpense.name, amount: this.newExpense.amount });
+    this.newExpense = { name: '', amount: 0 };
+  }
 }
