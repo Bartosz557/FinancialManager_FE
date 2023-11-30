@@ -14,7 +14,7 @@ import {RegisterService} from "./register/register.service";
 import {ProfilePageService} from "./profilePage/profilePage.service";
 import { DashboardComponent } from './profilePage/dashboard/dashboard.component';
 import {ProfileConfigurationComponent} from "./profilePage/profile-configuration/profile-configuration.component";
-
+import {ProfileConfigurationService} from "./profilePage/profile-configuration/profile-configuration.service";
 
 @NgModule({
   declarations: [
@@ -34,6 +34,7 @@ import {ProfileConfigurationComponent} from "./profilePage/profile-configuration
   ],
   providers: [ {provide: MainPageService, useClass: MainPageService },
                {provide: LoginService, useClass: LoginService },
+               {provide: ProfileConfigurationService, useClass: ProfileConfigurationService },
                {provide: RegisterService, useClass: RegisterService },
                {provide: ProfilePageService, useClass: ProfilePageService }],
   bootstrap: [AppComponent]

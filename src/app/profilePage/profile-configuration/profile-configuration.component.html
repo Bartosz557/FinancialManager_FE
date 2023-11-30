@@ -122,7 +122,7 @@
         </div>
 
         <div *ngIf="step === 7" class="box form" id="box7">
-          <button id="lets-finish" >Confirm the configuration.</button>
+          <button id="lets-finish" (click)="confirmConfiguration($event)" >Confirm the configuration.</button>
         </div>
 
       </div>

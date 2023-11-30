@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ProfileConfigurationService} from "./profile-configuration.service";
 
 @Component({
   selector: 'app-profile-configuration',
@@ -7,6 +8,8 @@ import { Component } from '@angular/core';
 })
 export class ProfileConfigurationComponent {
   //TODO HTTP REQUEST TO SAVE THE CONFIG IN DATABASE
+
+  constructor(private profileConfigurationService: ProfileConfigurationService) {}
 
   step: number = 1;
 
@@ -100,5 +103,25 @@ export class ProfileConfigurationComponent {
     }
     this.expenses.push({ name: this.newExpense.name, amount: this.newExpense.amount });
     this.newExpense = { name: '', amount: 0 };
+  }
+
+  confirmConfiguration(event: Event) {
+    event.preventDefault();
+    this.profileConfigurationService.initializeConfiguration(
+      true, true,  // TODO set the actual variables to this
+      this.settlementDate,
+      this.monthlyIncome,
+      this.monthlyLimit,
+      this.accountBalance,
+      this.groceries,
+      this.diningOut,
+      this.transport,
+      this.entertainment,
+      this.clothes,
+      this.traveling,
+      this.hobby,
+      this.miscellaneous,
+      this.expenses)
+    this.profileConfigurationService.setConfiguration();
   }
 }
