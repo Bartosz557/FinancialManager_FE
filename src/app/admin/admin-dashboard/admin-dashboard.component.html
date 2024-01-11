@@ -1,0 +1,28 @@
+<!-- admin-dashboard.component.html -->
+
+<div class="admin-dashboard">
+  <div class="user-table">
+    <div class="table-header">
+      <div class="column">Username</div>
+      <div class="column">Mail</div>
+      <div class="column">Configured</div>
+      <div class="column">Enabled</div>
+      <div class="column">Actions</div>
+    </div>
+
+    <div class="table-body">
+      <!-- Replace this ngFor loop with your actual data binding -->
+      <div *ngFor="let user of users" class="table-row">
+        <div class="column">{{ user.username }}</div>
+        <div class="column">{{ user.mail }}</div>
+        <div class="column">{{ user.configured ? 'Yes' : 'No' }}</div>
+        <div class="column">{{ user.enabled ? 'Yes' : 'No' }}</div>
+        <div class="column">
+          <button (click)="editUser(user)">Edit</button>
+          <button (click)="deleteUser(user)">Delete</button>
+          <button (click)="viewDetails(user)">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
