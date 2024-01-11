@@ -16,10 +16,18 @@ export class LoginService{
     this.authenticateRequest(requestBody).subscribe(
       (response) => {
         console.log('Successfully logged in:', response)
-        this.navigateToProfile()
+        this.getUserRole().subscribe(
+          (response) => {
+            console.log(response)
+            if(response=='USER')
+              this.navigateToProfile()
+            else
+              this.navigateToAdminDashboard()
+          }
+        )
       },
       (error) => {
-          if (error.status === 401) {
+        if (error.status === 401) {
           console.log('Invalid credentials', error)
           this.credentialsErrorMsg()
         }
@@ -49,5 +57,11 @@ export class LoginService{
     // TODO error messagebox
   }
 
+  private getUserRole() {
+    return this.http.get('/api/v1/profile/get-user-role')
+  }
 
+  private navigateToAdminDashboard() {
+    this.router.navigate(['/admin/dashboard']);
+  }
 }

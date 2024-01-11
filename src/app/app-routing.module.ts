@@ -7,6 +7,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {DashboardComponent} from "./profilePage/dashboard/dashboard.component";
 import {ProfileConfigurationComponent} from "./profilePage/profile-configuration/profile-configuration.component";
+import {AdminDashboardComponent} from "./admin/admin-dashboard/admin-dashboard.component";
 
 const routes: Routes = [
   { path: '', component: MainPageComponent},
@@ -23,7 +24,8 @@ const routes: Routes = [
     ]},
   { path: 'appComponent', component: AppComponent },
   { path: 'login', component: LoginComponent},
-  { path: 'register', component: RegisterComponent}
+  { path: 'register', component: RegisterComponent},
+  { path: 'admin/dashboard', component: AdminDashboardComponent}
 ];
 
 @NgModule({

@@ -15,6 +15,8 @@ import {ProfilePageService} from "./profilePage/profilePage.service";
 import { DashboardComponent } from './profilePage/dashboard/dashboard.component';
 import {ProfileConfigurationComponent} from "./profilePage/profile-configuration/profile-configuration.component";
 import {ProfileConfigurationService} from "./profilePage/profile-configuration/profile-configuration.service";
+import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
+import {AdminDashboardService} from "./admin/admin-dashboard/admin-dashboard.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import {ProfileConfigurationService} from "./profilePage/profile-configuration/p
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    ProfileConfigurationComponent
+    ProfileConfigurationComponent,
+    AdminDashboardComponent
   ],
   imports: [
     FormsModule,
@@ -36,7 +39,9 @@ import {ProfileConfigurationService} from "./profilePage/profile-configuration/p
                {provide: LoginService, useClass: LoginService },
                {provide: ProfileConfigurationService, useClass: ProfileConfigurationService },
                {provide: RegisterService, useClass: RegisterService },
+               {provide: AdminDashboardService, useClass: AdminDashboardService },
                {provide: ProfilePageService, useClass: ProfilePageService }],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
