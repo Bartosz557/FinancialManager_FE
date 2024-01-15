@@ -19,4 +19,8 @@ export class AdminDashboardService {
   fetchUsersData(){
     return this.http.get('/api/v1/profile/get-user-role')
   }
+
+  isAdmin(){
+    return this.http.get('/admin/get-status');
+  }
 }

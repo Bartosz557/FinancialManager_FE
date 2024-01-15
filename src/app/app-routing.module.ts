@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: 'appComponent', component: AppComponent },
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'admin/dashboard', component: AdminDashboardComponent}
+  { path: 'cockpit/admin-dashboard', component: AdminDashboardComponent},
 ];
 
 @NgModule({

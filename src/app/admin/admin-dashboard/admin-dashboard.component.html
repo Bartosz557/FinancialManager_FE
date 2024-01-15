@@ -1,5 +1,13 @@
 <!-- admin-dashboard.component.html -->
-
+<div class="center">
+  <div class="cockpit">
+    <div class="header-buttons">
+      <button class="button" >Admin cockpit</button>
+      <button class="button" (click)="registerNewUser()" >Register new user </button>
+      <button class="button logout-button" (click)="logout()">Log Out</button>
+    </div>
+  </div>
+</div>
 <div class="admin-dashboard">
   <div class="user-table">
     <div class="table-header">

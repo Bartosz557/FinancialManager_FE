@@ -27,7 +27,7 @@ import {AdminDashboardService} from "./admin/admin-dashboard/admin-dashboard.ser
     RegisterComponent,
     DashboardComponent,
     ProfileConfigurationComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
   ],
   imports: [
     FormsModule,
@@ -41,6 +41,7 @@ import {AdminDashboardService} from "./admin/admin-dashboard/admin-dashboard.ser
                {provide: RegisterService, useClass: RegisterService },
                {provide: AdminDashboardService, useClass: AdminDashboardService },
                {provide: ProfilePageService, useClass: ProfilePageService }],
+
 
   bootstrap: [AppComponent]
 })
