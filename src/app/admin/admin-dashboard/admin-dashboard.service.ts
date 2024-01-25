@@ -11,13 +11,14 @@ export class AdminDashboardService {
     this.fetchUsersData().subscribe(
       (respone) => {
           users = respone;
+          console.log(users)
       }
     )
     return users;
   }
 
   fetchUsersData(){
-    return this.http.get('/api/v1/profile/get-user-role')
+    return this.http.get('/admin/get-all-users')
   }
 
   isAdmin(){

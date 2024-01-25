@@ -15,10 +15,10 @@ export class AdminDashboardComponent   {
   constructor(private adminDashboardService: AdminDashboardService, private profilePageService: ProfilePageService, private router: Router, private http: HttpClient) {}
   users: any[] = [];
   public ngOnInit(): void {
-    // const newUsers = this.adminDashboardService.getUsers()
-    // for (const user in newUsers) {
-    //   this.users.push(user);
-    // }
+    const newUsers = this.adminDashboardService.getUsers()
+    for (const user in newUsers) {
+      this.users.push(user);
+    }
   }
 
 

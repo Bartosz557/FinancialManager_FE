@@ -62,6 +62,6 @@ export class LoginService{
   }
 
   private navigateToAdminDashboard() {
-    this.router.navigate(['/admin/dashboard']);
+    this.router.navigate(['/cockpit/admin-dashboard']);
   }
 }
