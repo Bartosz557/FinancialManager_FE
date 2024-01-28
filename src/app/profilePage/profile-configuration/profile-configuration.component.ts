@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {ProfileConfigurationService} from "./profile-configuration.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile-configuration',
@@ -9,7 +10,7 @@ import {ProfileConfigurationService} from "./profile-configuration.service";
 export class ProfileConfigurationComponent {
   //TODO HTTP REQUEST TO SAVE THE CONFIG IN DATABASE
 
-  constructor(private profileConfigurationService: ProfileConfigurationService) {}
+  constructor(private profileConfigurationService: ProfileConfigurationService,private router: Router) {}
 
   step: number = 1;
 
@@ -123,5 +124,8 @@ export class ProfileConfigurationComponent {
       this.miscellaneous,
       this.expenses)
     this.profileConfigurationService.setConfiguration();
+    this.router.navigate(['/profile/dashboard']);
+
   }
+
 }

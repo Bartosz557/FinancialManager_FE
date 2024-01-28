@@ -1,0 +1,34 @@
+/* confirmation-dialog.component.css */
+.confirmation-dialog-title {
+  color: #333;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+.confirmation-dialog-content {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.confirmation-dialog-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.confirmation-dialog-buttons button{
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 30px;
+  width: 100px;
+}
+
+/* styles.scss */
+.center-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+

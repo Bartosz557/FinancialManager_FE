@@ -8,7 +8,7 @@
     </div>
   </div>
 </div>
-<div class="admin-dashboard">
+<div class="admin-dashboard font-class">
   <div class="user-table">
     <div class="table-header">
       <div class="column">Username</div>
@@ -20,9 +20,9 @@
 
     <div class="table-body">
       <!-- Replace this ngFor loop with your actual data binding -->
-      <div *ngFor="let user of users" class="table-row">
+      <div *ngFor="let user of userData" class="table-row">
         <div class="column">{{ user.username }}</div>
-        <div class="column">{{ user.mail }}</div>
+        <div class="column">{{ user.email }}</div>
         <div class="column">{{ user.configured ? 'Yes' : 'No' }}</div>
         <div class="column">{{ user.enabled ? 'Yes' : 'No' }}</div>
         <div class="column">

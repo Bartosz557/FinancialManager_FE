@@ -17,6 +17,12 @@ import {ProfileConfigurationComponent} from "./profilePage/profile-configuration
 import {ProfileConfigurationService} from "./profilePage/profile-configuration/profile-configuration.service";
 import { AdminDashboardComponent } from './admin/admin-dashboard/admin-dashboard.component';
 import {AdminDashboardService} from "./admin/admin-dashboard/admin-dashboard.service";
+import {ConfirmationDialogComponent} from "./admin/admin-dashboard/confirmationDialog/confirmation-dialog.component";
+import {MatDialogModule} from "@angular/material/dialog";
+import {EditDialogComponent} from "./admin/admin-dashboard/editDialog/edit-dialog.component";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -28,12 +34,18 @@ import {AdminDashboardService} from "./admin/admin-dashboard/admin-dashboard.ser
     DashboardComponent,
     ProfileConfigurationComponent,
     AdminDashboardComponent,
+    ConfirmationDialogComponent,
+    EditDialogComponent,
   ],
   imports: [
+    MatDialogModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
   ],
   providers: [ {provide: MainPageService, useClass: MainPageService },
                {provide: LoginService, useClass: LoginService },

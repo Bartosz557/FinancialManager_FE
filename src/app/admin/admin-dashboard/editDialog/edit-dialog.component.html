@@ -1,0 +1,20 @@
+<!-- change-info-dialog.component.html -->
+
+<h2 mat-dialog-title class="center title-text">Change User Information</h2>
+<div class="stuff">
+<mat-dialog-content>
+  <button mat-button class="item" (click)="changeEmail()">Change Email</button>
+  <button mat-button class="item" (click)="changeUsername()">Change Username</button>
+  <button mat-button class="item" (click)="changePassword()">Change Password</button>
+
+  <!-- Input fields for new values -->
+  <mat-form-field class="mat-input">
+    <input matInput placeholder="New Value" class="item input" [(ngModel)]="newValue">
+  </mat-form-field>
+</mat-dialog-content>
+</div>
+<mat-dialog-actions class="center-buttons">
+  <button mat-button mat-dialog-close [disabled]="!newValue" class="button-confirm" color="primary" (click)="applyChanges() ">Apply</button>
+  <button mat-button mat-dialog-close class="button-confirm" >Cancel</button>
+</mat-dialog-actions>
+
