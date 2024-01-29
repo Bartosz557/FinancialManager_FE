@@ -27,5 +27,6 @@ export class EditDialogComponent {
 
   applyChanges() {
     this.editDialogService.editUser(this.changeSetting, this.newValue, this.data)
+    window.location.reload();
   }
 }

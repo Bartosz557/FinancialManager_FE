@@ -58,7 +58,6 @@ export class AdminDashboardComponent  implements OnInit{
     dialogRef.afterClosed().subscribe(
       (result : Root) => {
       if (result) {
-        // User confirmed deletion, implement deletion logic here
         console.log('Deleting user:', user);
       }
     });
