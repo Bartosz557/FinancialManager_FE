@@ -7,6 +7,7 @@ import {HttpClient} from "@angular/common/http";
 import {ConfirmationDialogComponent} from "./confirmationDialog/confirmation-dialog.component";
 import { MatDialog } from '@angular/material/dialog';
 import {EditDialogComponent} from "./editDialog/edit-dialog.component";
+import {FileService} from "./file.serivce";
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -15,7 +16,7 @@ import {EditDialogComponent} from "./editDialog/edit-dialog.component";
 })
 export class AdminDashboardComponent  implements OnInit{
 
-  constructor(private dialog: MatDialog, private adminDashboardService: AdminDashboardService, private profilePageService: ProfilePageService, private router: Router, private http: HttpClient) {}
+  constructor(private dialog: MatDialog,private fileService: FileService, private adminDashboardService: AdminDashboardService, private profilePageService: ProfilePageService, private router: Router, private http: HttpClient) {}
 
   userData: Root | undefined
   // TODO: change the username to ID and add Id to the response in spring
@@ -91,6 +92,22 @@ export class AdminDashboardComponent  implements OnInit{
   registerNewUser() {
 
 
+  }
+
+  getPrintReg() {
+    this.fileService.downloadFile("registration").subscribe(data => {
+      const blob = new Blob([data], { type: 'text/plain' });
+      const url = window.URL.createObjectURL(blob);
+      window.open(url);
+    });
+  }
+
+  getPrintLog() {
+    this.fileService.downloadFile("login").subscribe(data => {
+      const blob = new Blob([data], { type: 'text/plain' });
+      const url = window.URL.createObjectURL(blob);
+      window.open(url);
+    });
   }
 }
 
