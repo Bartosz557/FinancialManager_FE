@@ -108,23 +108,30 @@ export class ProfileConfigurationComponent {
 
   confirmConfiguration(event: Event) {
     event.preventDefault();
-    this.profileConfigurationService.initializeConfiguration(
-      true, true,  // TODO set the actual variables to this
-      this.settlementDate,
-      this.monthlyIncome,
-      this.monthlyLimit,
-      this.accountBalance,
-      this.groceries,
-      this.diningOut,
-      this.transport,
-      this.entertainment,
-      this.clothes,
-      this.traveling,
-      this.hobby,
-      this.miscellaneous,
-      this.expenses)
-    this.profileConfigurationService.setConfiguration();
-    this.router.navigate(['/profile/dashboard']);
+    const requestBody = {
+      "mainConfig": {
+        "settlementDate": this.settlementDate,
+        "monthlyIncome": this.monthlyIncome,
+        "monthlyLimit": this.monthlyLimit,
+        "accountBalance": this.accountBalance
+      },
+      "subCategories": {
+        "expenseCategories": true,
+        "groceries": this.groceries,
+        "diningOut": this.diningOut,
+        "transport": this.transport,
+        "entertainment": this.entertainment,
+        "clothes": this.clothes,
+        "traveling": this.traveling,
+        "hobby": this.hobby,
+        "miscellaneous": this.miscellaneous
+      },
+      "repeating": {
+        "repeatingExpense": true,
+        "expenses": this.expenses
+      }
+    }
+    this.profileConfigurationService.sendConfiguration(requestBody);
 
   }
 
