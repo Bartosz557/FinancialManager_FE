@@ -8,8 +8,6 @@ import {Router} from "@angular/router";
   styleUrls: ['./profile-configuration.component.css']
 })
 export class ProfileConfigurationComponent {
-  //TODO HTTP REQUEST TO SAVE THE CONFIG IN DATABASE
-
   constructor(private profileConfigurationService: ProfileConfigurationService,private router: Router) {}
 
   step: number = 1;
@@ -28,8 +26,8 @@ export class ProfileConfigurationComponent {
   hobby: number = 0;
   miscellaneous: number = 0;
 
-  expenses: { name: string, amount: number }[] = [];
-  newExpense: { name: string, amount: number } = { name: '', amount: 0 };
+  expenses: { name: string, date: string, amount: number }[] = [];
+  newExpense: { name: string, date: string, amount: number } = { name: '', date: '', amount: 0 };
 
   nextStep() {
     if (this.step < 7) {
@@ -102,8 +100,8 @@ export class ProfileConfigurationComponent {
       alert('Please enter valid expense details.');
       return;
     }
-    this.expenses.push({ name: this.newExpense.name, amount: this.newExpense.amount });
-    this.newExpense = { name: '', amount: 0 };
+    this.expenses.push({ name: this.newExpense.name, date: this.newExpense.date, amount: this.newExpense.amount });
+    this.newExpense = { name: '', date: '', amount: 0 };
   }
 
   confirmConfiguration(event: Event) {
@@ -126,7 +124,7 @@ export class ProfileConfigurationComponent {
         "hobby": this.hobby,
         "miscellaneous": this.miscellaneous
       },
-      "repeating": {
+      "repeatingExpenses": {
         "repeatingExpense": true,
         "expenses": this.expenses
       }

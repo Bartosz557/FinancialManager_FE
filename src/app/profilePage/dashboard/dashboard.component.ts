@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {timeout} from "rxjs";
+import {ProfileConfigurationService} from "../profile-configuration/profile-configuration.service";
+import {Router} from "@angular/router";
+import {DashboardService} from "./dashboard.service";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
+
+  constructor(private dashboardService: DashboardService, private router: Router) {}
+
 
   IDs: string[] = ["white-box", "left-box", "right-box"];
   colors: string[] = ["#48e18d","#EDBB99","#5499C7"];
@@ -24,8 +30,24 @@ export class DashboardComponent {
   // dashboard.component.ts:41 green circle index goes to 1
   // dashboard.component.ts:79 2circle goes down
   // dashboard.component.ts:92 2circle index goes 2
+  username: any;
 
-  mouseEnter(targetId: string)
+  ngOnInit() {
+    this.dashboardService.fetchUsername().subscribe(
+        (response) => {
+          if(response) {
+            this.username = response
+          }else{
+            console.log("Something went wrong")
+          }
+        },
+        (error) => {
+          console.log('Unknown error', error)
+        }
+    )
+  }
+
+    mouseEnter(targetId: string)
   {
     clearTimeout(this.timeout)
     setTimeout(() => {
@@ -63,7 +85,6 @@ export class DashboardComponent {
       }
     }, 100);
   }
-
 
   mouseEnter2(targetId: string)
   {
