@@ -147,13 +147,13 @@ export class DashboardComponent implements OnInit{
   }
 
   private setMickeyMouse( piggyBank: number, residualFunds: number, expenses: number, limit: number) {
-    const rightEar = document.getElementById('right-ear-id') as HTMLElement
-    const leftEar = document.getElementById('left-ear-id') as HTMLElement
-    const head = document.getElementById('mickey-head-id') as HTMLElement
+    const head = document.getElementById('0') as HTMLElement
+    const leftEar = document.getElementById('1') as HTMLElement
+    const rightEar = document.getElementById('2') as HTMLElement
     if(rightEar!=null && leftEar!=null && head!=null) {
-      rightEar.style.setProperty('--right-ear-content', `"Saved funds:\\a $${residualFunds}"`);
+      head.style.setProperty('--head-content', `"${expenses}/${limit}\\a of budget spent"`);
       leftEar.style.setProperty('--left-ear-content', `"Your piggy bank:\\a $${piggyBank}"`);
-      head.style.setProperty('--head-content', `"${expenses}/${limit}\\a Funds spent"`);
+      rightEar.style.setProperty('--right-ear-content', `"Saved funds:\\a $${residualFunds}"`);
     }
   }
 }
