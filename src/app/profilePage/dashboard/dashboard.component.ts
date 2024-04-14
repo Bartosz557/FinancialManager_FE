@@ -3,6 +3,7 @@ import {timeout} from "rxjs";
 import {ProfileConfigurationService} from "../profile-configuration/profile-configuration.service";
 import {Router} from "@angular/router";
 import {DashboardService} from "./dashboard.service";
+import {MainPageData} from "./main-page-data.interface";
 
 @Component({
   selector: 'app-dashboard',
@@ -30,21 +31,15 @@ export class DashboardComponent implements OnInit{
   // dashboard.component.ts:41 green circle index goes to 1
   // dashboard.component.ts:79 2circle goes down
   // dashboard.component.ts:92 2circle index goes 2
+  daysLeft: any;
   username: any;
-
+  settlementDate: any;
+  accountBalance: any;
+  piggyBank: any;
+  residualFunds: any;
+  expenses: any;
   ngOnInit() {
-    this.dashboardService.fetchUsername().subscribe(
-        (response) => {
-          if(response) {
-            this.username = response
-          }else{
-            console.log("Something went wrong")
-          }
-        },
-        (error) => {
-          console.log('Unknown error', error)
-        }
-    )
+    this.loadData()
   }
 
     mouseEnter(targetId: string)
@@ -139,4 +134,26 @@ export class DashboardComponent implements OnInit{
     }, 100);
   }
 
+  private loadData() {
+    this.dashboardService.getMainPageData().subscribe(
+      (response: MainPageData) => {
+        this.username = response.username.charAt(0).toUpperCase() + response.username.slice(1);
+        this.settlementDate = this.dashboardService.getSettlementDate(response.settlementDate);
+        this.accountBalance = response.accountBalance;
+        this.setMickeyMouse(response.piggyBank,response.residualFunds, response.expenses, response.limit)
+        this.daysLeft = this.dashboardService.setDaysLeft(response.settlementDate);
+      }
+    );
+  }
+
+  private setMickeyMouse( piggyBank: number, residualFunds: number, expenses: number, limit: number) {
+    const rightEar = document.getElementById('right-ear-id') as HTMLElement
+    const leftEar = document.getElementById('left-ear-id') as HTMLElement
+    const head = document.getElementById('mickey-head-id') as HTMLElement
+    if(rightEar!=null && leftEar!=null && head!=null) {
+      rightEar.style.setProperty('--right-ear-content', `"Saved funds:\\a $${residualFunds}"`);
+      leftEar.style.setProperty('--left-ear-content', `"Your piggy bank:\\a $${piggyBank}"`);
+      head.style.setProperty('--head-content', `"${expenses}/${limit}\\a Funds spent"`);
+    }
+  }
 }

@@ -12,7 +12,7 @@ export class ProfileConfigurationComponent {
 
   step: number = 1;
 
-  settlementDate: string = '';
+  settlementDate: number = 0;
   monthlyIncome: number = 0;
   monthlyLimit: number = 0;
   accountBalance: number = 0;
@@ -26,8 +26,8 @@ export class ProfileConfigurationComponent {
   hobby: number = 0;
   miscellaneous: number = 0;
 
-  expenses: { name: string, date: string, amount: number }[] = [];
-  newExpense: { name: string, date: string, amount: number } = { name: '', date: '', amount: 0 };
+  expenses: { name: string, date: number, amount: number }[] = [];
+  newExpense: { name: string, date: number, amount: number } = { name: '', date: 0, amount: 0 };
 
   nextStep() {
     if (this.step < 7) {
@@ -101,7 +101,7 @@ export class ProfileConfigurationComponent {
       return;
     }
     this.expenses.push({ name: this.newExpense.name, date: this.newExpense.date, amount: this.newExpense.amount });
-    this.newExpense = { name: '', date: '', amount: 0 };
+    this.newExpense = { name: '', date: 0, amount: 0 };
   }
 
   confirmConfiguration(event: Event) {

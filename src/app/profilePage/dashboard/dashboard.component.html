@@ -6,8 +6,8 @@
 <div class="left">
     <div class="user-header">
       <p class="welcome-text">Welcome, <span id="username">{{ username }}</span>!</p>
-      <p class="date-text"><span id="date">21.10.2023 - </span></p>
-      <p class="days-left-text"><span id="days-left">14 days left</span></p>
+      <p class="date-text"><span id="xd">Next settlement date:</span></p>
+      <p class="date-text"><span id="settlementDate">{{ settlementDate }}</span> - <span id="daysLeft">{{ daysLeft }}</span> days left</p>
     </div>
   <div class="user-buttons">
     <button class="dashboard-button add-spent-button" id="add-spent">
@@ -27,13 +27,13 @@
   <div class="white-box" id="white-box"></div>
   <div class="left-box" id="left-box"></div>
   <div class="right-box" id="right-box"></div>
-  <div class="mickey-head" (mouseenter)="mouseEnter('0')" (mouseleave)="resetBtn('0')" id="0"></div>
-  <div class="left-ear" (mouseenter)="mouseEnter2('1')" (mouseleave)="resetBtn2('1')" id="1"></div>
-  <div class="right-ear" (mouseenter)="mouseEnter2('2')" (mouseleave)="resetBtn2('2')" id="2"></div>
+  <div class="mickey-head" id="mickey-head-id" (mouseenter)="mouseEnter('0')" (mouseleave)="resetBtn('0')" ></div>
+  <div class="left-ear" id="left-ear-id" (mouseenter)="mouseEnter2('1')" (mouseleave)="resetBtn2('1')" ></div>
+  <div class="right-ear"  id="right-ear-id" (mouseenter)="mouseEnter2('2')" (mouseleave)="resetBtn2('2')" ></div>
 </div>
   <div class="account-info">
       <label for="account-balance">Money left on account:</label>
-      <p id="account-balance">$0.00</p>
+      <p id="account-balance">$<span id="balance">{{ accountBalance }}</span></p>
   </div>
 </div>
 </body>

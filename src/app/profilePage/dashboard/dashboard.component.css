@@ -140,7 +140,8 @@ body {
 }
 
 .mickey-head::before {
-  content: "1400/1500";
+  content: var(--head-content, "spent funds");
+  white-space: pre;
   color: #fff; /* Text color */
   font-size: 24px; /* Adjust the font size as needed */
   position: absolute;
@@ -150,7 +151,8 @@ body {
 }
 
 .left-ear::before {
-  content: "piggy bank";
+  content: var(--left-ear-content, "Your piggy bank:");
+  white-space: pre;
   color: #fff; /* Text color */
   font-size: 16px; /* Adjust the font size as needed */
   position: absolute;
@@ -161,7 +163,8 @@ body {
 }
 
 .right-ear::before {
-  content: "Saved";
+  content: var(--right-ear-content, "Saved funds:");
+  white-space: pre;
   color: #fff; /* Text color */
   font-size: 16px; /* Adjust the font size as needed */
   position: absolute;

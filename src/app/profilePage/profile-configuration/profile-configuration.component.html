@@ -15,7 +15,7 @@
           <p class="guide-text">Provide the details to manage better your finances</p>
           <div class="data">
             <p class="data-text">What day of the month will be the settlement date?</p>
-            <input type="date" class="input" name="date" id="date" [(ngModel)]="settlementDate">
+            <input type="number" class="input" name="date" id="date" [(ngModel)]="settlementDate">
             <p class="data-text">How much will be your monthly income?</p>
             <input type="number" class="input" name="income" id="income" min="0" [(ngModel)]="monthlyIncome">
             <p class="data-text">What will be your monthly expense limit?</p>
@@ -97,8 +97,8 @@
               <label for="expenseName">Name:</label>
               <input type="text" id="expenseName" [(ngModel)]="newExpense.name" name="expenseName">
 
-              <label for="expenseDate">Name:</label>
-              <input type="text" id="expenseDate" [(ngModel)]="newExpense.date" name="expenseDate">
+              <label for="expenseDate">What day of the month the expense repeats?:</label>
+              <input type="number" id="expenseDate" [(ngModel)]="newExpense.date" name="expenseDate">
 
               <label for="expenseAmount">Amount:</label>
               <input type="number" id="expenseAmount" [(ngModel)]="newExpense.amount" name="expenseAmount" min="0">
