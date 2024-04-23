@@ -4,10 +4,10 @@
   "configurations": [
     {
       "name": "ng serve",
-      "type": "chrome",
+      "type": "node",
       "request": "launch",
       "preLaunchTask": "npm: start",
-      "url": "http://localhost:4200/"
+      "url": "http://local.fmanager/"
     },
     {
       "name": "ng test",

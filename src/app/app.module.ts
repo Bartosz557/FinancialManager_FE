@@ -8,7 +8,7 @@ import {MainPageComponent} from "./mainPage/mainPage.component";
 import {MainPageService} from "./mainPage/mainPage.service";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginService} from "./login/login.service";
 import {RegisterService} from "./register/register.service";
 import {ProfilePageService} from "./profilePage/profilePage.service";
@@ -23,6 +23,16 @@ import {EditDialogComponent} from "./admin/admin-dashboard/editDialog/edit-dialo
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { MyModalComponent } from './profilePage/dashboard/my-modal/my-modal.component';
+import {ProgressSpinnerConfigurableExampleComponent} from './profilePage/dashboard/progress-spinner-configurable-example/progress-spinner-configurable-example.component';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {ProgressService} from "./profilePage/dashboard/progress-spinner-configurable-example/progress-service";
+import {ConfigurationStepsComponent} from './profilePage/profile-configuration/angular-materials/configuration-steps/configuration-steps.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {CommonModule} from "@angular/common";
+import {MatButtonModule} from "@angular/material/button";
+
 
 @NgModule({
   declarations: [
@@ -36,8 +46,10 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AdminDashboardComponent,
     ConfirmationDialogComponent,
     EditDialogComponent,
+    MyModalComponent,
   ],
   imports: [
+    MatSlideToggleModule,
     MatDialogModule,
     FormsModule,
     BrowserModule,
@@ -46,15 +58,21 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+    ProgressSpinnerConfigurableExampleComponent,
+    MatProgressSpinnerModule,
+    ConfigurationStepsComponent,
+    MatStepperModule,
+    CommonModule,
+    MatButtonModule,
+    ReactiveFormsModule,
   ],
   providers: [ {provide: MainPageService, useClass: MainPageService },
                {provide: LoginService, useClass: LoginService },
                {provide: ProfileConfigurationService, useClass: ProfileConfigurationService },
                {provide: RegisterService, useClass: RegisterService },
                {provide: AdminDashboardService, useClass: AdminDashboardService },
+               {provide: ProgressService, useClass: ProgressService },
                {provide: ProfilePageService, useClass: ProfilePageService }],
-
-
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

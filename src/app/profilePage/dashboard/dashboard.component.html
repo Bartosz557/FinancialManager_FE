@@ -3,37 +3,21 @@
   <link rel="stylesheet" type="text/css" href="dashboard.component.css">
 </head>
 <body>
-<div class="left">
-    <div class="user-header">
-      <p class="welcome-text">Welcome, <span id="username">{{ username }}</span>!</p>
-      <p class="date-text"><span id="xd">Next settlement date:</span></p>
-      <p class="date-text"><span id="settlementDate">{{ settlementDate }}</span> - <span id="daysLeft">{{ daysLeft }}</span> days left</p>
+<div class="devider">
+  <div class="left-div">
+    <span>left div</span>
+    <div>
+      <button (click)="addExpense()" >NO</button>
     </div>
-  <div class="user-buttons">
-    <button class="dashboard-button add-spent-button" id="add-spent">
-      <img src="../assets/resources/wallet.png" alt="Wallet Icon" class="wallet-image">
-        Add<br />expense
-    </button>
   </div>
-  <div class="buttons">
-    <button class="dashboard-button" >Add a deposit</button>
-    <button class="dashboard-button" >Repeating expenses</button>
-    <button class="dashboard-button" >Manage you wallet</button>
-    <button class="dashboard-button" >Planned expenses</button>
-  </div>
-</div>
-<div class="right" >
-<div class="circles">
-  <div class="white-box" id="white-box"></div>
-  <div class="left-box" id="left-box"></div>
-  <div class="right-box" id="right-box"></div>
-  <div class="mickey-head" id="0" (mouseenter)="mouseEnter('0')" (mouseleave)="resetBtn('0')" ></div>
-  <div class="left-ear" id="1" (mouseenter)="mouseEnter2('1')" (mouseleave)="resetBtn2('1')" ></div>
-  <div class="right-ear"  id="2" (mouseenter)="mouseEnter2('2')" (mouseleave)="resetBtn2('2')" ></div>
-</div>
-  <div class="account-info">
-      <label for="account-balance">Money left on account:</label>
-      <p id="account-balance">$<span id="balance">{{ accountBalance }}</span></p>
+  <div class="spinner-div">
+    <div class="spinner-first">
+      <app-progress-spinner-configurable-example></app-progress-spinner-configurable-example>
+    </div>
+    <div>
+      <button (click)="test()" >NO</button>
+    </div>
+
   </div>
 </div>
 </body>

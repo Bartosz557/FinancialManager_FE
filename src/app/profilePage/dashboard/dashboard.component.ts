@@ -4,6 +4,10 @@ import {ProfileConfigurationService} from "../profile-configuration/profile-conf
 import {Router} from "@angular/router";
 import {DashboardService} from "./dashboard.service";
 import {MainPageData} from "./main-page-data.interface";
+import {MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
+import { MyModalComponent } from './my-modal/my-modal.component';
+import {Dialog, DIALOG_DATA, DialogModule} from '@angular/cdk/dialog';
+import {ProgressService} from "./progress-spinner-configurable-example/progress-service";
 
 @Component({
   selector: 'app-dashboard',
@@ -12,13 +16,12 @@ import {MainPageData} from "./main-page-data.interface";
 })
 export class DashboardComponent implements OnInit{
 
-  constructor(private dashboardService: DashboardService, private router: Router) {}
+  constructor(private dashboardService: DashboardService, private router: Router, private matDialog: MatDialog, private progressService: ProgressService) {}
 
 
   IDs: string[] = ["white-box", "left-box", "right-box"];
   colors: string[] = ["#48e18d","#EDBB99","#5499C7"];
-  timeout: any;
-  timeout1: any;
+  timeout: any;timeout1: any;
   timeout2: any;
 
   // green circle goes up
@@ -155,5 +158,34 @@ export class DashboardComponent implements OnInit{
       leftEar.style.setProperty('--left-ear-content', `"Your piggy bank:\\a $${piggyBank}"`);
       rightEar.style.setProperty('--right-ear-content', `"Saved funds:\\a $${residualFunds}"`);
     }
+  }
+
+  addRecurringExpense() {
+
+  }
+
+  addScheduledExpense() {
+
+  }
+
+  addDeposit() {
+
+  }
+
+  manaWallet() {
+
+  }
+  dialogConfig = new MatDialogConfig();
+  modalDialog: MatDialogRef<MyModalComponent, any> | undefined;
+  addExpense() {
+    console.log("clicked")
+    this.dialogConfig.id = "projects-modal-component";
+    this.dialogConfig.height = "500px";
+    this.dialogConfig.width = "650px";
+    this.modalDialog = this.matDialog.open(MyModalComponent, this.dialogConfig);
+  }
+
+  test() {
+    this.progressService.updateProgress(90);
   }
 }
