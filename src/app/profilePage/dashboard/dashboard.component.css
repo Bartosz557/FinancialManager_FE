@@ -5,6 +5,15 @@
 .left-div{
   width: 60%;
   background-color: #007BFF;
+  display: flex;
+  flex-direction: column;
+}
+
+.spinners-override{
+  display: flex;
+
+  justify-content: center;
+  position: relative;
 }
 
 .spinner-div{
@@ -12,9 +21,48 @@
   background-color: #1aa655;
 }
 
+.spinner-second{
+  position: absolute;
+  margin-top: 50px;
+
+}
+
 .spinner-first{
+  position: absolute;
   margin-top: 50px;
 }
+
+.welcome-div{
+  background-color: #636363;
+  height: 50%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.add-spent-div{
+  background-color: red;
+}
+
+.add-spent-button{
+  margin-top: -80px;
+  margin-right: 50px;
+}
+
+.user-buttons-panel{
+  background-color: white;
+  height: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-button{
+  height: 80px;
+}
+
+
 
 /*body {*/
 /*  display: flex;*/
@@ -75,37 +123,38 @@
 /*  margin-right: 30px;*/
 /*}*/
 
-/*.add-spent-button {*/
-/*  background-color: #ff7b8b;*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  justify-content: center;*/
-/*  text-align: center;*/
-/*  font-size: 20px;*/
-/*  transition: transform 0.3s ease, background-color 0.3s ease; !* Add transitions for transform and background-color *!*/
-/*}*/
+.add-spent-button {
+  background-color: #ff7b8b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Add transitions for transform and background-color */
+}
 
-/*.add-spent-button:hover {*/
-/*  transform: scale(1.2);*/
-/*  background-color: #F46A7C;*/
-/*}*/
+.add-spent-button:hover {
+  transform: scale(1.2);
+  background-color: #F46A7C;
+}
 
-/*#add-spent{*/
-/*  border-radius: 25px;*/
-/*  height: 100px;*/
-/*  right: 800px;*/
-/*  position: absolute;*/
-/*  z-index: 3;*/
-/*}*/
+#add-spent{
+  border-radius: 25px;
+  height: 100px;
+  width: 200px;
+  right: 800px;
+  position: absolute;
+  z-index: 3;
+}
 
 
-/*.wallet-image {*/
-/*  display: flex;*/
-/*  margin-bottom: 5px;*/
-/*  margin-right: 10px;*/
-/*  margin-left: 7px;*/
-/*  height: 60px;*/
-/*}*/
+.wallet-image {
+  display: flex;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  margin-left: 7px;
+  height: 60px;
+}
 
 /*.right {*/
 /*  width: 40%;*/

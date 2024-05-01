@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit{
   piggyBank: any;
   residualFunds: any;
   expenses: any;
+  limit: any
   ngOnInit() {
     this.loadData()
   }
@@ -143,8 +144,11 @@ export class DashboardComponent implements OnInit{
         this.username = response.username.charAt(0).toUpperCase() + response.username.slice(1);
         this.settlementDate = this.dashboardService.getSettlementDate(response.settlementDate);
         this.accountBalance = response.accountBalance;
-        this.setMickeyMouse(response.piggyBank,response.residualFunds, response.expenses, response.limit)
+        // this.setMickeyMouse(response.piggyBank,response.residualFunds, response.expenses, response.limit)
         this.daysLeft = this.dashboardService.setDaysLeft(response.settlementDate);
+        this.progressService.updateProgress(response.expenses/response.limit*100);
+        // this.progressService.updateProgress(50);
+        this.progressService.updateValue(response.expenses + '/' + response.limit);
       }
     );
   }
@@ -186,6 +190,5 @@ export class DashboardComponent implements OnInit{
   }
 
   test() {
-    this.progressService.updateProgress(90);
   }
 }

@@ -7,11 +7,18 @@ import {BehaviorSubject, Observable, throwError} from "rxjs";
 @Injectable({providedIn: 'root'})
 export class ProgressService {
     private progressSubject = new BehaviorSubject<number>(0);
+    private valueSubject = new BehaviorSubject<string>('');
+
     public progress$ = this.progressSubject.asObservable();
+    public value$ = this.valueSubject.asObservable();
 
     constructor() { }
 
     updateProgress(newValue: number) {
         this.progressSubject.next(newValue);
+    }
+
+    updateValue(newValue: string){
+      this.valueSubject.next(newValue);
     }
 }

@@ -14,12 +14,16 @@ import {ProgressService} from "./progress-service";
     imports: [MatCardModule, MatRadioModule, FormsModule, MatSliderModule, MatProgressSpinnerModule],
 })
 export class ProgressSpinnerConfigurableExampleComponent implements OnInit {
-    color: ThemePalette = 'primary';
+    color: ThemePalette = 'accent';
     value = 0;
+    spinnerText: string ='';
     constructor(private progressService: ProgressService) { }
     ngOnInit() {
         this.progressService.progress$.subscribe(value => {
             this.value = value;
+        });
+        this.progressService.value$.subscribe(amount => {
+          this.spinnerText = amount;
         });
     }
 }

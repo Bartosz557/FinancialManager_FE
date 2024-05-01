@@ -32,6 +32,7 @@ import {ConfigurationStepsComponent} from './profilePage/profile-configuration/a
 import {MatStepperModule} from '@angular/material/stepper';
 import {CommonModule} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
+import {StaticSpinnerBackgroundComponent} from "./profilePage/dashboard/progress-spinner-configurable-example/static-spinner-background.component";
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import {MatButtonModule} from "@angular/material/button";
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+    StaticSpinnerBackgroundComponent,
     ProgressSpinnerConfigurableExampleComponent,
     MatProgressSpinnerModule,
     ConfigurationStepsComponent,
