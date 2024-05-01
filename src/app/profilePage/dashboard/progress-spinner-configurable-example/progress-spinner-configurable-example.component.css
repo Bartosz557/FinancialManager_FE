@@ -1,0 +1,18 @@
+.spinner-one {
+  position: relative; /* Set the container to relative positioning */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner-one h1 {
+  position: absolute; /* Set the text to absolute positioning */
+  top: 50%; /* Align the text vertically to the center */
+  left: 50%; /* Align the text horizontally to the center */
+  transform: translate(-50%, -50%); /* Move the text back to the center */
+  z-index: 1; /* Ensure the text is on top of the spinner */
+}
+
+.mat-progress-spinner {
+  z-index: 0; /* Ensure the spinner is behind the text */
+}

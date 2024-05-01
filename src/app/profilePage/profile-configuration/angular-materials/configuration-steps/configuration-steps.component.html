@@ -1,0 +1,153 @@
+<body>
+
+<div class="steps">
+    <mat-stepper  [linear]="true" #stepper>
+        <mat-step [stepControl]="firstFormGroup" optional="true"> <!-- TODO: REMOVE THE OPTIONAL PROP!-->
+            <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Provide the details to manage better your finances</ng-template>
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Settlement Date<br>(day of the month)</mat-label>
+                            <input matInput type="number" placeholder="Enter settlement date" formControlName="settlementDate" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Monthly Income</mat-label>
+                            <input matInput type="number" placeholder="Enter monthly income" formControlName="monthlyIncome" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Monthly Expense Limit</mat-label>
+                            <input matInput type="number" placeholder="Enter monthly expense limit" formControlName="monthlyLimit" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Account Balance</mat-label>
+                            <input matInput type="number" placeholder="Enter account balance" formControlName="accountBalance" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" optional=true>
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Fill out your address</ng-template>
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Groceries</mat-label>
+                            <input matInput type="number" placeholder="Enter groceries" formControlName="groceries" min="0">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Dining Out</mat-label>
+                            <input matInput type="number" placeholder="Enter dining out" formControlName="diningOut" min="0">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Transport</mat-label>
+                            <input matInput type="number" placeholder="Enter transport" formControlName="transport" min="0">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Entertainment</mat-label>
+                            <input matInput type="number" placeholder="Enter entertainment" formControlName="entertainment" min="0">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Clothes</mat-label>
+                            <input matInput type="number" placeholder="Enter clothes" formControlName="clothes" min="0">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Traveling</mat-label>
+                            <input matInput type="number" placeholder="Enter traveling" formControlName="traveling" min="0">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Hobby</mat-label>
+                            <input matInput type="number" placeholder="Enter hobby" formControlName="hobby" min="0">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="column">
+                        <mat-form-field>
+                            <mat-label>Miscellaneous</mat-label>
+                            <input matInput type="number" placeholder="Enter miscellaneous" formControlName="miscellaneous" min="0">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="thirdFormGroup" optional=true>
+                <div id="addExpense">
+                    <form [formGroup]="thirdFormGroup">
+                        <mat-form-field>
+                            <mat-label>Name:</mat-label>
+                            <input matInput formControlName="name">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>What day of the month the expense repeats?</mat-label>
+                            <input matInput type="number" formControlName="date">
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Amount:</mat-label>
+                            <input matInput type="number" formControlName="amount">
+                        </mat-form-field>
+
+                        <button mat-raised-button color="primary" (click)="addExpense()">Add Expense</button>
+                    </form>
+                </div>
+            <div class="list-content">
+                <h2>Added expenses</h2>
+                <div class="expense-list" id="expenseListContainer">
+                    <p *ngFor="let expense of expenses">{{ expense.name }}: ${{ expense.amount }}</p>
+                </div>
+            </div>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <p>You are now done.</p>
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button (click)="sendConfiguration()">Finish configuration</button>
+            </div>
+        </mat-step>
+    </mat-stepper>
+</div>
+</body>

@@ -1,0 +1,34 @@
+.configuration-steps {
+    background-color: #007BFF;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertical centering */
+}
+
+html, body {
+    background-color: #007BFF; /* You can remove height from here */
+    display: flex;
+    /* height: 100%; */ /* Remove fixed height */
+    justify-content: center;
+    /* align-items: center; */ /* You might not need this here if aligning .steps */
+    border-radius: 20px;
+    height: 87.5vh;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.column {
+    flex: 1;
+    margin-right: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}
