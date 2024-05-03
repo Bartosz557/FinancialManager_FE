@@ -11,7 +11,7 @@
 
 .spinners-override{
   display: flex;
-  height: 60%;
+  height: 65%;
   justify-content: center;
   position: relative;
 }
@@ -26,7 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50%;
+  height: 35%;
 }
 
 .label{
@@ -35,13 +35,14 @@
   justify-content: center;
   align-items: center;
   background-color: #0056b3;
-  height: 250px;
+  height: 200px;
   border-radius: 10px;
   width: 550px;
 }
 
 .balance-text{
   margin: 10px;
+  margin-top: 18px;
   font-size: 45px;
 }
 
@@ -72,10 +73,34 @@
 }
 
 .welcome-div{
-  height: 50%;
+  height: 60%;
   flex-direction: column;
   display: flex;
-  align-items: center;
+  justify-content: center;
+}
+
+.welcome-text{
+  margin-top: -50px;
+  margin-bottom: 80px;
+  font-size: 44px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.date-text-1, .date-text-2{
+  font-size: 38px;
+}
+
+.date-text-1{
+  text-align: center;
+  margin-bottom: 15px;
+  margin-right: 250px;
+}
+
+.date-text-2{
+  margin-top: 15px;
+  text-align: center;
+  margin-right: -250px;
 }
 
 .add-spent-div{
@@ -83,12 +108,12 @@
 }
 
 .add-spent-button{
-  margin-top: -80px;
+  margin-top: -100px;
   margin-right: 50px;
 }
 
 .user-buttons-panel{
-  height: 50%;
+  height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;

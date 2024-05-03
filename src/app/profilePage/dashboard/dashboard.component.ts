@@ -47,10 +47,18 @@ export class DashboardComponent implements OnInit{
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogAnimationsExampleDialog, {
+    const dialogRef = this.dialog.open(DialogAnimationsExampleDialog, {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.success === true) {
+        console.log("dialog success")
+        this.loadData()
+      } else {
+        console.log("dialog fail")
+      }
     });
   }
 

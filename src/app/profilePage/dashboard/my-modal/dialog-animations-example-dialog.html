@@ -1,8 +1,26 @@
-<h2 mat-dialog-title>Delete file</h2>
+<h2 mat-dialog-title>Add new expense</h2>
 <mat-dialog-content>
-  Would you like to delete cat.jpeg?
+  <div class="input-container">
+    <div class="even-the-task">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="expenseName">
+    </div>
+    <div class="even-the-task">
+      <label for="category">Category:</label>
+      <select id="category" [(ngModel)]="selectedCategory" name="category">
+        <option value="" selected disabled>Select an option</option>
+        <option *ngFor="let option of optionsList" [value]="option">{{ option }}</option>      </select>
+    </div>
+    <div class="even-the-task">
+      <label for="value">Value:</label>
+      <input type="number" id="value" name="value" placeholder="Enter value" [(ngModel)]="expenseValue">
+    </div>
+  </div>
 </mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close>No</button>
-  <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
-</mat-dialog-actions>
+<div class="buttons">
+  <mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button  (click)="sendTransaction()">Ok</button>
+  </mat-dialog-actions>
+</div>
+

@@ -7,11 +7,11 @@
   <div class="left-div">
     <div class="welcome-div">
       <p class="welcome-text">Welcome, <span id="username">{{ username }}</span>!</p>
-      <p class="date-text"><span id="xd">Next settlement date:</span></p>
-      <p class="date-text"><span id="settlementDate">{{ settlementDate }}</span> - <span id="daysLeft">{{ daysLeft }}</span> days left</p>
+      <p class="date-text-1"><span id="xd">Next settlement date:</span></p>
+      <p class="date-text-2"><span id="settlementDate">{{ settlementDate }}</span> - <span id="daysLeft">{{ daysLeft }}</span> days left</p>
     </div>
     <div class="add-spent-div">
-      <button class="add-spent-button" id="add-spent" mat-raised-button (click)="openDialog('0ms', '0ms')">Add<br/>expense</button>
+      <button mat-raised-button class="add-spent-button" id="add-spent" mat-raised-button (click)="openDialog('0ms', '0ms')">Add<br/>expense</button>
 
     </div>
     <div class="user-buttons-panel">

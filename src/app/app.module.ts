@@ -32,6 +32,9 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {CommonModule} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
 import {StaticSpinnerBackgroundComponent} from "./profilePage/dashboard/progress-spinner-configurable-example/static-spinner-background.component";
+import {
+  DialogAnimationsExampleDialogService
+} from "./profilePage/dashboard/my-modal/dialog-animations-example-dialog.service";
 
 
 @NgModule({
@@ -72,7 +75,9 @@ import {StaticSpinnerBackgroundComponent} from "./profilePage/dashboard/progress
                {provide: RegisterService, useClass: RegisterService },
                {provide: AdminDashboardService, useClass: AdminDashboardService },
                {provide: ProgressService, useClass: ProgressService },
-               {provide: ProfilePageService, useClass: ProfilePageService }],
+               {provide: ProfilePageService, useClass: ProfilePageService },
+               {provide: DialogAnimationsExampleDialogService, useClass: DialogAnimationsExampleDialogService}
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
