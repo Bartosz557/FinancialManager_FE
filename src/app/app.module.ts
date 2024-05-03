@@ -23,7 +23,6 @@ import {EditDialogComponent} from "./admin/admin-dashboard/editDialog/edit-dialo
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import { MyModalComponent } from './profilePage/dashboard/my-modal/my-modal.component';
 import {ProgressSpinnerConfigurableExampleComponent} from './profilePage/dashboard/progress-spinner-configurable-example/progress-spinner-configurable-example.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
@@ -47,7 +46,6 @@ import {StaticSpinnerBackgroundComponent} from "./profilePage/dashboard/progress
     AdminDashboardComponent,
     ConfirmationDialogComponent,
     EditDialogComponent,
-    MyModalComponent,
   ],
   imports: [
     MatSlideToggleModule,

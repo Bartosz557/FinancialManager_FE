@@ -31,25 +31,29 @@
 }
 
 .button {
-  background-color: #007bff;
   font-weight: bold;
-  color: #fff;
   border: none;
   padding: 0px 15px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  flex-grow: 1;
   margin: 0.5vh;
   height: 4vh;
 }
 
-.button:hover {
-  background-color: #0056b3;
-}
+/*.mat-success{*/
+/*  background-color: bl !important;*/
+/*  color: white !important;*/
+/*}*/
+
+/*.button:hover {*/
+/*  background-color: #0056b3;*/
+/*}*/
 
 .logout-button {
-  float: right;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
 

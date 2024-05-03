@@ -4,21 +4,60 @@
 }
 .left-div{
   width: 60%;
-  background-color: #007BFF;
   display: flex;
   flex-direction: column;
 }
 
+
 .spinners-override{
   display: flex;
-
+  height: 60%;
   justify-content: center;
   position: relative;
 }
 
 .spinner-div{
+  display: flex;
+  flex-direction: column;
   width: 40%;
-  background-color: #1aa655;
+}
+
+.account-balance{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+}
+
+.label{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #0056b3;
+  height: 250px;
+  border-radius: 10px;
+  width: 550px;
+}
+
+.balance-text{
+  margin: 10px;
+  font-size: 45px;
+}
+
+.balance-status{
+  margin: 10px;
+
+}
+
+.balance-value{
+  padding: 3px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.currency{
+  font-size: 30px;
 }
 
 .spinner-second{
@@ -33,7 +72,6 @@
 }
 
 .welcome-div{
-  background-color: #636363;
   height: 50%;
   flex-direction: column;
   display: flex;
@@ -50,17 +88,33 @@
 }
 
 .user-buttons-panel{
-  background-color: white;
   height: 50%;
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.dashboard-button{
-  height: 80px;
+.buttons-grid {
+  height: 60%;
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
+
+
+.dashboard-button {
+  border-radius: 10px;
+  margin: 10px;
+  height: 80px;
+  background-color: #1a7205 !important;
+  color: white !important;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/*.dashboard-button{*/
+/*  height: 80px;*/
+/*}*/
 
 
 
@@ -124,7 +178,6 @@
 /*}*/
 
 .add-spent-button {
-  background-color: #ff7b8b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,6 +192,7 @@
 }
 
 #add-spent{
+  background-color: #ff7b8b;
   border-radius: 25px;
   height: 100px;
   width: 200px;

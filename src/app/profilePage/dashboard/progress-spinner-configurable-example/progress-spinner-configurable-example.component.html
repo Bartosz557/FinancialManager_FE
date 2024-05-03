@@ -1,9 +1,9 @@
 <div class="spinner-one">
   <mat-progress-spinner
           class="example-margin"
-          [color]="color"
+          color="accent"
           [value]="value"
-          [diameter]="270">
+          [diameter]="400">
   </mat-progress-spinner>
-  <h1 class="spinner-value">{{ spinnerText }}</h1>
+  <p class="spinner-info">Limit status:<br/><br/><span class="status-text">{{ spinnerText }}</span></p>
 </div>

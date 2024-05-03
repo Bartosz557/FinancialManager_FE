@@ -5,9 +5,9 @@ import {Router} from "@angular/router";
 import {DashboardService} from "./dashboard.service";
 import {MainPageData} from "./main-page-data.interface";
 import {MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
-import { MyModalComponent } from './my-modal/my-modal.component';
 import {Dialog, DIALOG_DATA, DialogModule} from '@angular/cdk/dialog';
 import {ProgressService} from "./progress-spinner-configurable-example/progress-service";
+import {DialogAnimationsExampleDialog} from "./my-modal/dialog-animations-example-dialog";
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +16,7 @@ import {ProgressService} from "./progress-spinner-configurable-example/progress-
 })
 export class DashboardComponent implements OnInit{
 
-  constructor(private dashboardService: DashboardService, private router: Router, private matDialog: MatDialog, private progressService: ProgressService) {}
+  constructor(public dialog: MatDialog, private dashboardService: DashboardService, private router: Router, private matDialog: MatDialog, private progressService: ProgressService) {}
 
 
   IDs: string[] = ["white-box", "left-box", "right-box"];
@@ -46,96 +46,12 @@ export class DashboardComponent implements OnInit{
     this.loadData()
   }
 
-    mouseEnter(targetId: string)
-  {
-    clearTimeout(this.timeout)
-    setTimeout(() => {
-      console.log("green circle goes up")
-      const id = parseInt(targetId)
-      const target = document.getElementById(this.IDs[id]);
-      const circle = document.getElementById(targetId);
-      if (target && circle) {
-        target.style.backgroundColor = this.colors[id];
-        target.style.transform = 'scale(2)';
-        target.style.zIndex = '3';
-      }
-    }, 50);
-  }
-  resetBtn(targetId: string) {
-    const id = parseInt(targetId)
-    const circle = document.getElementById(targetId);
-    const target = document.getElementById(this.IDs[id]);
-    console.log("green circle goes down")
-    if (target && circle) {
-      this.timeout = setTimeout(() => {
-        target.style.zIndex = '1' //setting the green box's z-Index to 1, so it doesn't block the instant hover detection for 2 other circles and add-spent button
-        console.log("green circle index goes to 1")
-      }, 200);
-    }
-    setTimeout(() => {
-      if (target && circle) {
-        target.style.backgroundColor = 'transparent';
-        target.style.transition = 'transform 0.9s ease, background-color 0.3s ease';
-        target.style.transform = 'scale(0.5)';
-        target.style.transform = 'translateX(270px)';
-        setTimeout(() => {
-          target.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
-        }, 50);
-      }
-    }, 100);
-  }
-
-  mouseEnter2(targetId: string)
-  {
-    const id = parseInt(targetId)
-    if(id==1)
-      clearTimeout(this.timeout1)
-    else
-      clearTimeout(this.timeout2)
-    setTimeout(() => {
-      console.log(targetId + "circle goes up")
-      const target = document.getElementById(this.IDs[id]);
-      const circle = document.getElementById(targetId);
-      if (target && circle) {
-        console.log(targetId + "box goes up")
-        target.style.backgroundColor = this.colors[id];
-        target.style.transform = 'scale(2)';
-        circle.style.zIndex = '4';  //puts the current circle on top of the green circle (otherwise the green circle remains on top)
-        target.style.zIndex = '4';
-      }
-    }, 50);
-  }
-  resetBtn2(targetId: string) {
-    console.log(targetId + "circle goes down")
-    const id = parseInt(targetId)
-    const circle = document.getElementById(targetId);
-    const target = document.getElementById(this.IDs[id]);
-    if (target && circle) {
-      if(id==1) {
-        this.timeout1 = setTimeout(() => {
-          console.log(targetId + "circle index goes 2")
-            circle.style.zIndex = '2'; //putting the x-index to the correct one, behind the green circle
-            target.style.zIndex = '2'; //(otherwise the circles remains on top breaking interaction mechanics)
-        }, 220);
-      }else {
-        this.timeout2 = setTimeout(() => {
-          console.log(targetId + "circle index goes 2")
-          circle.style.zIndex = '2'; //putting the x-index to the correct one, behind the green circle
-            target.style.zIndex = '2'; //(otherwise the circles remains on top breaking interaction mechanics)
-        }, 220);
-      }
-    }
-    setTimeout(() => {
-      if (target && circle) {
-        target.style.backgroundColor = 'transparent';
-        target.style.transition = 'transform 0.9s ease, background-color 0.3s ease';
-        target.style.transform = 'scale(0.5)';
-        target.style.transform = 'translateX(270px)';
-        setTimeout(() => {
-          target.style.transition = 'transform 0.3s ease, background-color 0.3s ease';
-        }, 50);
-      }
-    }, 100);
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DialogAnimationsExampleDialog, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
   }
 
   private loadData() {
@@ -153,17 +69,6 @@ export class DashboardComponent implements OnInit{
     );
   }
 
-  private setMickeyMouse( piggyBank: number, residualFunds: number, expenses: number, limit: number) {
-    const head = document.getElementById('0') as HTMLElement
-    const leftEar = document.getElementById('1') as HTMLElement
-    const rightEar = document.getElementById('2') as HTMLElement
-    if(rightEar!=null && leftEar!=null && head!=null) {
-      head.style.setProperty('--head-content', `"${expenses}/${limit}\\a of budget spent"`);
-      leftEar.style.setProperty('--left-ear-content', `"Your piggy bank:\\a $${piggyBank}"`);
-      rightEar.style.setProperty('--right-ear-content', `"Saved funds:\\a $${residualFunds}"`);
-    }
-  }
-
   addRecurringExpense() {
 
   }
@@ -179,16 +84,6 @@ export class DashboardComponent implements OnInit{
   manaWallet() {
 
   }
-  dialogConfig = new MatDialogConfig();
-  modalDialog: MatDialogRef<MyModalComponent, any> | undefined;
-  addExpense() {
-    console.log("clicked")
-    this.dialogConfig.id = "projects-modal-component";
-    this.dialogConfig.height = "500px";
-    this.dialogConfig.width = "650px";
-    this.modalDialog = this.matDialog.open(MyModalComponent, this.dialogConfig);
-  }
-
   test() {
   }
 }

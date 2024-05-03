@@ -11,16 +11,16 @@
       <p class="date-text"><span id="settlementDate">{{ settlementDate }}</span> - <span id="daysLeft">{{ daysLeft }}</span> days left</p>
     </div>
     <div class="add-spent-div">
-      <button class="dashboard-button add-spent-button" id="add-spent" (click)="addExpense()">
-        <img src="../assets/resources/wallet.png" alt="Wallet Icon" class="wallet-image">
-        Add<br />expense
-      </button>
+      <button class="add-spent-button" id="add-spent" mat-raised-button (click)="openDialog('0ms', '0ms')">Add<br/>expense</button>
+
     </div>
     <div class="user-buttons-panel">
-      <button class="dashboard-button" (click)="addDeposit()" >Add a deposit</button>
-      <button class="dashboard-button" (click)="addRecurringExpense()" >Repeating expenses</button>
-      <button class="dashboard-button" (click)="manaWallet()" >Manage you wallet</button>
-      <button class="dashboard-button" (click)="addScheduledExpense()" >Planned expenses</button>
+      <div class="buttons-grid">
+        <button mat-raised-button class="dashboard-button" (click)="addDeposit()" >Add a deposit</button>
+        <button mat-raised-button class="dashboard-button" (click)="addRecurringExpense()" >Repeating expenses</button>
+        <button mat-raised-button class="dashboard-button" (click)="manaWallet()" >Manage you wallet</button>
+        <button mat-raised-button class="dashboard-button" (click)="addScheduledExpense()" >Planned expenses</button>
+      </div>
     </div>
   </div>
   <div class="spinner-div">
@@ -31,7 +31,15 @@
       <div class="spinner-first">
         <app-progress-spinner-configurable-example></app-progress-spinner-configurable-example>
       </div>
-
+    </div>
+    <div class="account-balance">
+      <div class="label">
+        <span class="balance-text">Account balance:</span><br>
+        <div class="balance-status">
+          <span class="balance-value">{{ accountBalance }}</span>
+          <span class="currency">$</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
