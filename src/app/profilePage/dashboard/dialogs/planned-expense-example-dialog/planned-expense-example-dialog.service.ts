@@ -33,7 +33,7 @@ constructor(private http: HttpClient, private router: Router) {
   }
 
   private sendTransactionRequest(requestBody: any) {
-    return this.http.post('/api/v1/profile/dashboard/add-transaction',requestBody)
+    return this.http.post('/api/v1/profile/dashboard/add-scheduled-expense',requestBody)
 
   }
 

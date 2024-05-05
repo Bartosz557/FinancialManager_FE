@@ -27,7 +27,7 @@ h2 {
 }
 
 .input-container input{
-  width: 200px; /* Ustaw szerokość na 200px dla wszystkich inputów i selectów wewnątrz kontenera */
+  width: 200px;
 }
 .input-container select {
   width: 208px;

@@ -38,8 +38,8 @@ import {
   AddDepositExampleDialogService
 } from "./profilePage/dashboard/dialogs/add-deposit-example-dialog/add-deposit-example-dialog.service";
 import {DatepickerOverviewExample} from "./profilePage/dashboard/angular-materials/datepicker-overview-example";
-
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     ProfilePageComponent,
@@ -78,6 +78,8 @@ import {DatepickerOverviewExample} from "./profilePage/dashboard/angular-materia
       animationDuration: 300
     }),
     DatepickerOverviewExample,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [ {provide: MainPageService, useClass: MainPageService },
                {provide: LoginService, useClass: LoginService },
@@ -86,7 +88,9 @@ import {DatepickerOverviewExample} from "./profilePage/dashboard/angular-materia
                {provide: AdminDashboardService, useClass: AdminDashboardService },
                {provide: ProfilePageService, useClass: ProfilePageService },
                {provide: DialogAnimationsExampleDialogService, useClass: DialogAnimationsExampleDialogService},
-               {provide: AddDepositExampleDialogService, useClass: AddDepositExampleDialogService}
+               {provide: AddDepositExampleDialogService, useClass: AddDepositExampleDialogService},
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   bootstrap: [AppComponent],
 })
