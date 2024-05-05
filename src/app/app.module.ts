@@ -23,18 +23,21 @@ import {EditDialogComponent} from "./admin/admin-dashboard/editDialog/edit-dialo
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {ProgressSpinnerConfigurableExampleComponent} from './profilePage/dashboard/progress-spinner-configurable-example/progress-spinner-configurable-example.component';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {ProgressService} from "./profilePage/dashboard/progress-spinner-configurable-example/progress-service";
 import {ConfigurationStepsComponent} from './profilePage/profile-configuration/angular-materials/configuration-steps/configuration-steps.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {CommonModule} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
-import {StaticSpinnerBackgroundComponent} from "./profilePage/dashboard/progress-spinner-configurable-example/static-spinner-background.component";
 import {
   DialogAnimationsExampleDialogService
-} from "./profilePage/dashboard/my-modal/dialog-animations-example-dialog.service";
+} from "./profilePage/dashboard/dialogs/add-expense-dialog/dialog-animations-example-dialog.service";
+import {NgCircleProgressModule} from "ng-circle-progress";
+import { AddDepositExampleDialog } from './profilePage/dashboard/dialogs/add-deposit-example-dialog/add-deposit-example-dialog';
+import {
+  AddDepositExampleDialogService
+} from "./profilePage/dashboard/dialogs/add-deposit-example-dialog/add-deposit-example-dialog.service";
+import {DatepickerOverviewExample} from "./profilePage/dashboard/angular-materials/datepicker-overview-example";
 
 
 @NgModule({
@@ -60,23 +63,30 @@ import {
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
-    StaticSpinnerBackgroundComponent,
-    ProgressSpinnerConfigurableExampleComponent,
-    MatProgressSpinnerModule,
     ConfigurationStepsComponent,
     MatStepperModule,
     CommonModule,
     MatButtonModule,
     ReactiveFormsModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300
+    }),
+    DatepickerOverviewExample,
   ],
   providers: [ {provide: MainPageService, useClass: MainPageService },
                {provide: LoginService, useClass: LoginService },
                {provide: ProfileConfigurationService, useClass: ProfileConfigurationService },
                {provide: RegisterService, useClass: RegisterService },
                {provide: AdminDashboardService, useClass: AdminDashboardService },
-               {provide: ProgressService, useClass: ProgressService },
                {provide: ProfilePageService, useClass: ProfilePageService },
-               {provide: DialogAnimationsExampleDialogService, useClass: DialogAnimationsExampleDialogService}
+               {provide: DialogAnimationsExampleDialogService, useClass: DialogAnimationsExampleDialogService},
+               {provide: AddDepositExampleDialogService, useClass: AddDepositExampleDialogService}
   ],
   bootstrap: [AppComponent],
 })

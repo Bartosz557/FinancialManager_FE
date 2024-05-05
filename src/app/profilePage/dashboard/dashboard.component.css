@@ -3,30 +3,85 @@
   height: 100%;
 }
 .left-div{
-  width: 60%;
+  background-color: white;
+  width: 55%;
   display: flex;
   flex-direction: column;
 }
 
 
 .spinners-override{
+  width: 70%;
+  height: 100%;
+  background-color: #28B463;
   display: flex;
-  height: 65%;
   justify-content: center;
+  align-items: center;
   position: relative;
 }
 
 .spinner-div{
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 45%;
 }
 
 .account-balance{
+  background-color: #007BFF;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 35%;
+}
+
+.diagram-div{
+  height: 65%;
+  display: flex;
+}
+
+.xdd{
+  width: 30%;
+  background-color: #a60a0a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.piggy-bank, .savings{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.piggy-bank{
+  margin-bottom: 80px;
+}
+
+.piggy-bank img{
+  width: 180px;
+}
+
+.savings img{
+  width: 200px;
+}
+
+.status-text{
+  margin-top: 15px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.spinner-info{
+  text-align: center;
+}
+
+.overlay-text{
+  margin-left: 10px;
+  width: 100px;
+  background-color: white;
+  position: absolute;
+  text-align: center;
 }
 
 .label{
@@ -35,9 +90,9 @@
   justify-content: center;
   align-items: center;
   background-color: #0056b3;
-  height: 200px;
+  height: 160px;
   border-radius: 10px;
-  width: 550px;
+  width: 455px;
 }
 
 .balance-text{
@@ -68,11 +123,13 @@
 }
 
 .spinner-first{
+
   position: absolute;
   margin-top: 50px;
 }
 
 .welcome-div{
+  margin-left: -40px;
   height: 60%;
   flex-direction: column;
   display: flex;
@@ -109,7 +166,7 @@
 
 .add-spent-button{
   margin-top: -100px;
-  margin-right: 50px;
+  margin-right: 80px;
 }
 
 .user-buttons-panel{

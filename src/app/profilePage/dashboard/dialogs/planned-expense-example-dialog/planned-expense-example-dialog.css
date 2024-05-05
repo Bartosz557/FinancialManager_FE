@@ -1,0 +1,38 @@
+button {
+    margin-right: 8px;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.even-the-task{
+    margin-top: 15px;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+h2 {
+    margin-top: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.input-container input{
+    width: 200px; /* Ustaw szerokość na 200px dla wszystkich inputów i selectów wewnątrz kontenera */
+}
+.input-container select {
+    width: 208px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    display: none;
+}

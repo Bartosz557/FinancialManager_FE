@@ -6,8 +6,9 @@ import {DashboardService} from "./dashboard.service";
 import {MainPageData} from "./main-page-data.interface";
 import {MatDialog, MatDialogConfig, MatDialogRef} from "@angular/material/dialog";
 import {Dialog, DIALOG_DATA, DialogModule} from '@angular/cdk/dialog';
-import {ProgressService} from "./progress-spinner-configurable-example/progress-service";
-import {DialogAnimationsExampleDialog} from "./my-modal/dialog-animations-example-dialog";
+import {DialogAnimationsExampleDialog} from "./dialogs/add-expense-dialog/dialog-animations-example-dialog";
+import {AddDepositExampleDialog} from "./dialogs/add-deposit-example-dialog/add-deposit-example-dialog";
+import {PlannedExpenseExampleDialog} from "./dialogs/planned-expense-example-dialog/planned-expense-example-dialog";
 
 @Component({
   selector: 'app-dashboard',
@@ -16,7 +17,7 @@ import {DialogAnimationsExampleDialog} from "./my-modal/dialog-animations-exampl
 })
 export class DashboardComponent implements OnInit{
 
-  constructor(public dialog: MatDialog, private dashboardService: DashboardService, private router: Router, private matDialog: MatDialog, private progressService: ProgressService) {}
+  constructor(public dialog: MatDialog, private dashboardService: DashboardService, private router: Router, private matDialog: MatDialog) {}
 
 
   IDs: string[] = ["white-box", "left-box", "right-box"];
@@ -42,12 +43,14 @@ export class DashboardComponent implements OnInit{
   residualFunds: any;
   expenses: any;
   limit: any
+  percent: any;
+  limitValue: any;
   ngOnInit() {
     this.loadData()
   }
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    const dialogRef = this.dialog.open(DialogAnimationsExampleDialog, {
+  openDialog(dialogComponent: any, enterAnimationDuration: string, exitAnimationDuration: string): void {
+    const dialogRef = this.dialog.open(this.getDialog(dialogComponent), {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
@@ -70,9 +73,9 @@ export class DashboardComponent implements OnInit{
         this.accountBalance = response.accountBalance;
         // this.setMickeyMouse(response.piggyBank,response.residualFunds, response.expenses, response.limit)
         this.daysLeft = this.dashboardService.setDaysLeft(response.settlementDate);
-        this.progressService.updateProgress(response.expenses/response.limit*100);
+        this.percent = (response.expenses/response.limit*100);
         // this.progressService.updateProgress(50);
-        this.progressService.updateValue(response.expenses + '/' + response.limit);
+        this.limitValue = (response.expenses + '/' + response.limit);
       }
     );
   }
@@ -93,5 +96,17 @@ export class DashboardComponent implements OnInit{
 
   }
   test() {
+  }
+
+  private getDialog(dialogComponent: any): any {
+    switch (dialogComponent){
+      case 'DialogAnimationsExampleDialog':
+        return DialogAnimationsExampleDialog
+      case 'AddDepositExampleDialog':
+        return AddDepositExampleDialog
+      case 'planned-expense-example-dialog':
+        return PlannedExpenseExampleDialog
+    }
+    return DialogAnimationsExampleDialog;
   }
 }
