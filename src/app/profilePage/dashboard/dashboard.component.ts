@@ -9,6 +9,9 @@ import {Dialog, DIALOG_DATA, DialogModule} from '@angular/cdk/dialog';
 import {DialogAnimationsExampleDialog} from "./dialogs/add-expense-dialog/dialog-animations-example-dialog";
 import {AddDepositExampleDialog} from "./dialogs/add-deposit-example-dialog/add-deposit-example-dialog";
 import {PlannedExpenseExampleDialog} from "./dialogs/planned-expense-example-dialog/planned-expense-example-dialog";
+import {
+  RepeatingExpenseExampleDialog
+} from "./dialogs/repeating-expense-example-dialog/repeating-expense-example-dialog";
 
 @Component({
   selector: 'app-dashboard',
@@ -106,6 +109,8 @@ export class DashboardComponent implements OnInit{
         return AddDepositExampleDialog
       case 'planned-expense-example-dialog':
         return PlannedExpenseExampleDialog
+      case 'repeating-expense-example-dialog':
+        return RepeatingExpenseExampleDialog
     }
     return DialogAnimationsExampleDialog;
   }

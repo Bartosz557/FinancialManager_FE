@@ -24,7 +24,7 @@
       </mat-form-field>
     </div>
     <div class="even-the-task">
-      <label for="category">Category:</label>
+      <label for="category">Day of the month:</label>
       <select id="category" [(ngModel)]="reminderType" name="category">
         <option value="" selected disabled>Select an option</option>
         <option *ngFor="let option of optionsList" [ngValue]="{ value: option.value, displayText: option.displayText }">{{ option.displayText }}</option>

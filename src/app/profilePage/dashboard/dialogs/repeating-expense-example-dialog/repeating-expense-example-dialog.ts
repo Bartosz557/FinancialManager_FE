@@ -2,20 +2,23 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {DialogAnimationsExampleDialogService} from "../add-expense-dialog/dialog-animations-example-dialog.service";
 import {DialogAnimationsExampleDialog} from "../add-expense-dialog/dialog-animations-example-dialog";
-import {PlannedExpenseExampleDialogService} from "./planned-expense-example-dialog.service";
-import {formatDate, NgForOf} from "@angular/common";
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RepeatingExpenseExampleDialogService} from "./repeating-expense-example-dialog.service";
+import {formatDate, NgForOf, NgIf} from "@angular/common";
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {range} from "rxjs";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {DatepickerOverviewExample} from "../../angular-materials/datepicker-overview-example";
 import {MatInputModule} from "@angular/material/input";
 import { DateTime } from 'luxon';
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+
 
 @Component({
-  selector: 'planned-expense-example-dialog',
-  templateUrl: './planned-expense-example-dialog.html',
-  styleUrls: ['./planned-expense-example-dialog.css'],
+  selector: 'repeating-expense-example-dialog',
+  templateUrl: './repeating-expense-example-dialog.html',
+  styleUrls: ['./repeating-expense-example-dialog.css'],
   standalone: true,
   imports: [
     MatDialogModule,
@@ -25,10 +28,13 @@ import { DateTime } from 'luxon';
     MatFormFieldModule,
     ReactiveFormsModule,
     DatepickerOverviewExample,
-    MatInputModule
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    NgIf
   ]
 })
-export class PlannedExpenseExampleDialog implements OnInit{
+export class RepeatingExpenseExampleDialog implements OnInit{
   expenseValue: any;
   expenseName: any;
 
@@ -37,7 +43,6 @@ export class PlannedExpenseExampleDialog implements OnInit{
     end: new FormControl<Date | null>(null),
   });
   date: any;
-  private formatedDate: any;
   public reminderType: any;
   optionsList = [
     { value: "do_not_remind", displayText: "No reminder" },
@@ -46,28 +51,29 @@ export class PlannedExpenseExampleDialog implements OnInit{
     { value: "three_reminders", displayText: "Remind the same day & day and week before" }
 
   ];
-  constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>, private dialogService: PlannedExpenseExampleDialogService) {}
+  selectFormControl = new FormControl('', Validators.required);
+
+
+
+  constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>, private dialogService: RepeatingExpenseExampleDialogService) {}
   closeDialog() {
     this.dialogRef.close({ success: false });
   }
 
   ngOnInit() {
-    this.dialogRef.updateSize('30%', '40%');
+    this.dialogRef.updateSize('30%', '50%');
   }
 
-  formatDate() {
-    this.formatedDate = DateTime.fromJSDate(this.date).toFormat('dd.MM.yyyy');
 
-  }
   sendTransaction() {
-    const requestBody = {
-      name: this.expenseName,
-      date: this.formatedDate,
-      amount: this.expenseValue,
-      reminderType: this.reminderType.value,
-      transactionStatus: 'PENDING'
-
-    }
+    const requestBody = [
+      {
+        name: this.expenseName,
+        date: this.date,
+        amount: this.expenseValue,
+        reminderType: this.reminderType.value,
+      }
+    ]
     this.dialogService.sendTransactionData(requestBody).subscribe(
       (success) => {
         this.dialogRef.close({ success: true });
@@ -77,8 +83,6 @@ export class PlannedExpenseExampleDialog implements OnInit{
         console.log('Error:', error);
       }
     );
-
-    console.log(this.formatedDate)
     console.log(this.reminderType)
     // TODO: Success window popup
   }

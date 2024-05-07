@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Add new deposit</h2>
+<mat-dialog-content>
+  <div class="input-container">
+    <div class="even-the-task">
+      <label for="name">Name:</label>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+      <input matInput type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="expenseName">
+      </mat-form-field>
+
+    </div>
+
+    <div class="even-the-task">
+      <label for="value" >Expense Value:</label>
+      <mat-form-field class="example-full-width">
+        <mat-label>Value</mat-label>
+        <input matInput type="number"  id="value" name="value" placeholder="Enter value" [(ngModel)]="expenseValue">
+      </mat-form-field>
+    </div>
+    <div class="even-the-task">
+      <label >Day of the month:</label>
+      <mat-form-field>
+        <mat-label>Day</mat-label>
+        <input matInput type="number"  id="day" name="day" placeholder="Enter correct day" [(ngModel)]="date">
+      </mat-form-field>
+    </div>
+    <div class="even-the-task">
+      <label for="reminder">Reminder:</label>
+<!--      <select id="category" [(ngModel)]="reminderType" name="category">-->
+<!--        <option value="" selected disabled>Select an option</option>-->
+<!--        <option *ngFor="let option of optionsList" [ngValue]="{ value: option.value, displayText: option.displayText }">{{ option.displayText }}</option>-->
+<!--      </select>-->
+      <mat-form-field >
+        <mat-label>Type of reminder</mat-label>
+        <mat-select [formControl]="selectFormControl" [(ngModel)]="reminderType" id="reminder" required>
+          <ng-container *ngFor="let option of optionsList">
+            <mat-option [value]="option">{{ option.displayText }}</mat-option>
+          </ng-container>
+        </mat-select>
+        <mat-error *ngIf="selectFormControl.hasError('required')">This field is required</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<div class="buttons">
+  <mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button  (click)="sendTransaction() ">Ok</button>
+  </mat-dialog-actions>
+</div>
+

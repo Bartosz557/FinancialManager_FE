@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import {MatStepperModule} from "@angular/material/stepper";
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {ProfileConfigurationService} from "../../profile-configuration.service";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
 
 @Component({
   selector: 'app-configuration-steps',
@@ -20,6 +22,9 @@ import {ProfileConfigurationService} from "../../profile-configuration.service";
     MatFormFieldModule,
     MatInputModule,
     NgForOf,
+    MatOptionModule,
+    MatSelectModule,
+    NgIf,
   ],
 })
 export class ConfigurationStepsComponent {
@@ -47,6 +52,14 @@ export class ConfigurationStepsComponent {
 
   isOptional = false;
   expenses: ExpenseItem[] = [];
+  optionsList = [
+    { value: "do_not_remind", displayText: "No reminder" },
+    { value: "one_reminder", displayText: "Remind the same day" },
+    { value: "two_reminders", displayText: "Remind the same day & day before" },
+    { value: "three_reminders", displayText: "Remind the same day & day and week before" }
+
+  ];
+  selectFormControl = new FormControl('', Validators.required);
 
   constructor(private _formBuilder: FormBuilder, private profileConfigurationService: ProfileConfigurationService) {
   }
