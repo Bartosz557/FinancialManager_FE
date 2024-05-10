@@ -25,7 +25,7 @@ import {MatInputModule} from "@angular/material/input";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {ConfigurationStepsComponent} from './profilePage/profile-configuration/angular-materials/configuration-steps/configuration-steps.component';
+import {ConfigurationStepsComponent} from './profilePage/profile-configuration/configuration-steps/configuration-steps.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {CommonModule} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
@@ -40,6 +40,11 @@ import {
 import {DatepickerOverviewExample} from "./profilePage/dashboard/angular-materials/datepicker-overview-example";
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { WalletHistoryComponent } from './profilePage/wallet-history/wallet-history.component';
+import {WalletHistoryService} from "./profilePage/wallet-history/wallet-history.service";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatTableModule} from "@angular/material/table";
+import {MatIconModule} from "@angular/material/icon";
 @NgModule({
   declarations: [
     ProfilePageComponent,
@@ -52,6 +57,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     AdminDashboardComponent,
     ConfirmationDialogComponent,
     EditDialogComponent,
+    WalletHistoryComponent,
   ],
   imports: [
     MatSlideToggleModule,
@@ -79,16 +85,21 @@ import { MatNativeDateModule } from '@angular/material/core';
     }),
     DatepickerOverviewExample,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTabsModule,
+    MatTableModule,
+    MatIconModule
   ],
-  providers: [ {provide: MainPageService, useClass: MainPageService },
-               {provide: LoginService, useClass: LoginService },
-               {provide: ProfileConfigurationService, useClass: ProfileConfigurationService },
-               {provide: RegisterService, useClass: RegisterService },
-               {provide: AdminDashboardService, useClass: AdminDashboardService },
-               {provide: ProfilePageService, useClass: ProfilePageService },
-               {provide: DialogAnimationsExampleDialogService, useClass: DialogAnimationsExampleDialogService},
-               {provide: AddDepositExampleDialogService, useClass: AddDepositExampleDialogService},
+  providers: [
+    {provide: MainPageService, useClass: MainPageService },
+    {provide: LoginService, useClass: LoginService },
+    {provide: ProfileConfigurationService, useClass: ProfileConfigurationService },
+    {provide: RegisterService, useClass: RegisterService },
+    {provide: AdminDashboardService, useClass: AdminDashboardService },
+    {provide: ProfilePageService, useClass: ProfilePageService },
+    {provide: DialogAnimationsExampleDialogService, useClass: DialogAnimationsExampleDialogService},
+    {provide: AddDepositExampleDialogService, useClass: AddDepositExampleDialogService},
+    {provide: WalletHistoryService, useClass: WalletHistoryService},
     MatDatepickerModule,
     MatNativeDateModule
   ],

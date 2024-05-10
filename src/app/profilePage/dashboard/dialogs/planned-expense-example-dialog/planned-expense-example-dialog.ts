@@ -11,6 +11,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {DatepickerOverviewExample} from "../../angular-materials/datepicker-overview-example";
 import {MatInputModule} from "@angular/material/input";
 import { DateTime } from 'luxon';
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'planned-expense-example-dialog',
@@ -25,7 +26,8 @@ import { DateTime } from 'luxon';
     MatFormFieldModule,
     ReactiveFormsModule,
     DatepickerOverviewExample,
-    MatInputModule
+    MatInputModule,
+    MatButtonModule
   ]
 })
 export class PlannedExpenseExampleDialog implements OnInit{
@@ -52,7 +54,7 @@ export class PlannedExpenseExampleDialog implements OnInit{
   }
 
   ngOnInit() {
-    this.dialogRef.updateSize('30%', '40%');
+    this.dialogRef.updateSize('30%', '50%');
   }
 
   formatDate() {

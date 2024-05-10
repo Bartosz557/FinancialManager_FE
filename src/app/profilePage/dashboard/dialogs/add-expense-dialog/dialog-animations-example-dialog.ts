@@ -3,6 +3,7 @@ import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {DialogAnimationsExampleDialogService} from "./dialog-animations-example-dialog.service";
 import {NgForOf} from "@angular/common";
 import {FormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'dialog-animations-example-dialog',
@@ -12,7 +13,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     MatDialogModule,
     NgForOf,
-    FormsModule
+    FormsModule,
+    MatButtonModule
   ]
 })
 export class DialogAnimationsExampleDialog implements OnInit{

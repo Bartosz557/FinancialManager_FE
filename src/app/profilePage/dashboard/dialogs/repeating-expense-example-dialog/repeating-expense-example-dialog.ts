@@ -13,6 +13,7 @@ import {MatInputModule} from "@angular/material/input";
 import { DateTime } from 'luxon';
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @Component({
@@ -31,7 +32,8 @@ import {MatSelectModule} from "@angular/material/select";
     MatInputModule,
     MatOptionModule,
     MatSelectModule,
-    NgIf
+    NgIf,
+    MatButtonModule
   ]
 })
 export class RepeatingExpenseExampleDialog implements OnInit{
@@ -61,7 +63,7 @@ export class RepeatingExpenseExampleDialog implements OnInit{
   }
 
   ngOnInit() {
-    this.dialogRef.updateSize('30%', '50%');
+    this.dialogRef.updateSize('30%', '60%');
   }
 
 

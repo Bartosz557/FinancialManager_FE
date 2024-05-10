@@ -1,0 +1,26 @@
+.main-section {
+  display: flex;
+  height: 100%;
+}
+
+.tab-section{
+  height: 100%;
+  width: 100%;
+  background-color: #007BFF;
+}
+
+
+
+.mat-column-date, .mat-column-name, .mat-column-transaction-type, .mat-column-category, .mat-column-amount, .mat-column-options{
+  text-align: center;
+  align-items: center;
+}
+
+
+.option-column {
+  width: 12%;
+}
+
+.other-columns {
+  width: 18%;
+}

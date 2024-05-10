@@ -10,6 +10,7 @@ import {ProfileConfigurationComponent} from "./profilePage/profile-configuration
 import {AdminDashboardComponent} from "./admin/admin-dashboard/admin-dashboard.component";
 import {AuthGuard} from "./auth/auth.guard";
 import {AdminAuthGuard} from "./auth/admin.auth.guard";
+import {WalletHistoryComponent} from "./profilePage/wallet-history/wallet-history.component";
 
 const routes: Routes = [
   { path: '', component: MainPageComponent},
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'configure',
         component: ProfileConfigurationComponent
+      },
+      {
+        path: 'wallet-history',
+        component: WalletHistoryComponent
       }
     ]},
   { path: 'appComponent', component: AppComponent },

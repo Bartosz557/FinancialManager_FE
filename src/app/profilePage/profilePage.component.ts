@@ -57,4 +57,8 @@ export class ProfilePageComponent implements OnInit{
   unexpectedError(){
     console.log("error has occurred")
   }
+
+  walletHistory() {
+    this.router.navigate(["/profile/wallet-history"])
+  }
 }
