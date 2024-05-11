@@ -11,7 +11,7 @@
 
 
 
-.mat-column-date, .mat-column-name, .mat-column-transaction-type, .mat-column-category, .mat-column-amount, .mat-column-options{
+.mat-column-date, .mat-column-name, .mat-column-transaction-type, .mat-column-category, .mat-column-amount, .mat-column-options, .mat-column-residualFunds, .mat-column-savings, .mat-column-balance{
   text-align: center;
   align-items: center;
 }
@@ -23,4 +23,8 @@
 
 .other-columns {
   width: 18%;
+}
+
+.second-columns {
+  width: 20%;
 }
