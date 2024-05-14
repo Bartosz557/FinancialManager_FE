@@ -12,7 +12,7 @@ export class ProfileConfigurationComponent {
 
   step: number = 1;
 
-  settlementDate: number = 0;
+  settlementDate: number = 0; // TODO: Max will be 28, just because Febrauryeryeur.
   monthlyIncome: number = 0;
   monthlyLimit: number = 0;
   accountBalance: number = 0;
