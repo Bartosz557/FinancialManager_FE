@@ -37,4 +37,7 @@ constructor(private http: HttpClient, private router: Router) {
 
   }
 
+  fetchCategories() {
+    return this.http.get("/api/v1/profile/dashboard/get-all-categories")
+  }
 }

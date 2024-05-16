@@ -5,7 +5,12 @@
       <label for="name">Name:</label>
       <input type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="expenseName">
     </div>
-
+    <div class="even-the-task">
+      <label for="category">Category:</label>
+      <select id="category" [(ngModel)]="selectedCategory" name="category">
+        <option value="" selected disabled>Select an option</option>
+        <option *ngFor="let option of optionsListTwo" [value]="option">{{ option }}</option>      </select>
+    </div>
     <div class="even-the-task">
       <label for="value" >Expense Value:</label>
       <mat-form-field class="example-full-width">
@@ -24,8 +29,8 @@
       </mat-form-field>
     </div>
     <div class="even-the-task">
-      <label for="category">Day of the month:</label>
-      <select id="category" [(ngModel)]="reminderType" name="category">
+      <label for="day">Day of the month:</label>
+      <select id="day" [(ngModel)]="reminderType" name="day">
         <option value="" selected disabled>Select an option</option>
         <option *ngFor="let option of optionsList" [ngValue]="{ value: option.value, displayText: option.displayText }">{{ option.displayText }}</option>
       </select>

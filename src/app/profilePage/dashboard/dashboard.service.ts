@@ -64,4 +64,9 @@ export class DashboardService {
       nextMonth-=12
     return nextMonth
   }
+
+  testhttp() {
+    console.log('xdd')
+    return this.http.get('/api/v1/profile/dashboard/check-for-scheduled-expenses')
+  }
 }

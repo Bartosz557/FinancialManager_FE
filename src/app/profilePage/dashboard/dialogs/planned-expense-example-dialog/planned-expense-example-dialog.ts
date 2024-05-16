@@ -48,6 +48,9 @@ export class PlannedExpenseExampleDialog implements OnInit{
     { value: "three_reminders", displayText: "Remind the same day & day and week before" }
 
   ];
+  private category: any;
+  selectedCategory: any;
+  optionsListTwo: any;
   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>, private dialogService: PlannedExpenseExampleDialogService) {}
   closeDialog() {
     this.dialogRef.close({ success: false });
@@ -55,6 +58,10 @@ export class PlannedExpenseExampleDialog implements OnInit{
 
   ngOnInit() {
     this.dialogRef.updateSize('30%', '50%');
+    this.dialogService.fetchCategories().subscribe((data) => {
+      console.log(data)
+      this.optionsListTwo = data;
+    });
   }
 
   formatDate() {
@@ -67,8 +74,7 @@ export class PlannedExpenseExampleDialog implements OnInit{
       date: this.formatedDate,
       amount: this.expenseValue,
       reminderType: this.reminderType.value,
-      transactionStatus: 'PENDING'
-
+      category: this.selectedCategory
     }
     this.dialogService.sendTransactionData(requestBody).subscribe(
       (success) => {

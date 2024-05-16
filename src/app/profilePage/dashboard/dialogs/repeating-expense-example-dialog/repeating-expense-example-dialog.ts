@@ -74,6 +74,7 @@ export class RepeatingExpenseExampleDialog implements OnInit{
         date: this.date,
         amount: this.expenseValue,
         reminderType: this.reminderType.value,
+        category: 'recurringExpense'
       }
     ]
     this.dialogService.sendTransactionData(requestBody).subscribe(

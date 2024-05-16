@@ -96,6 +96,11 @@ export class DashboardComponent implements OnInit{
   }
 
   manaWallet() {
+    this.dashboardService.testhttp().subscribe(
+      (response) => {
+        console.log(response)
+      }
+    )
 
   }
   test() {
