@@ -16,7 +16,7 @@ import {MAT_DATE_LOCALE, MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {MAT_TOOLTIP_DEFAULT_OPTIONS} from "@angular/material/tooltip";
 import {myCustomTooltipDefaults} from "../../dashboard.component";
-import {provideMomentDateAdapter} from '@angular/material-moment-adapter';
+import {provideMomentDateAdapter} from "@angular/material-moment-adapter";
 
 @Component({
   selector: 'planned-expense-example-dialog',
@@ -37,9 +37,10 @@ import {provideMomentDateAdapter} from '@angular/material-moment-adapter';
     MatSelectModule,
     NgIf
   ],
-
-
-
+  providers: [
+    {provide: MAT_DATE_LOCALE, useValue: 'fr-FR'},
+    provideMomentDateAdapter(),
+  ],
 })
 export class PlannedExpenseExampleDialog implements OnInit{
   expenseValue: any;
@@ -77,7 +78,7 @@ export class PlannedExpenseExampleDialog implements OnInit{
   }
 
   formatDate() {
-    this.formatedDate = DateTime.fromJSDate(this.date).toFormat('dd.MM.yyyy');
+    this.formatedDate = this.date.format('DD.MM.YYYY');
 
   }
   sendTransaction() {
@@ -85,9 +86,11 @@ export class PlannedExpenseExampleDialog implements OnInit{
       name: this.expenseName,
       date: this.formatedDate,
       amount: this.expenseValue,
-      reminderType: this.reminderType.value,
+      reminderType: this.reminderType,
       category: this.selectedCategory
     }
+    console.log(this.date)
+    console.log(requestBody)
     this.dialogService.sendTransactionData(requestBody).subscribe(
       (success) => {
         this.dialogRef.close({ success: true });

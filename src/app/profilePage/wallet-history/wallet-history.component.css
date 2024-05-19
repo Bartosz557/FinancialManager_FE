@@ -31,3 +31,16 @@
   width: 20%;
 }
 
+.input-filder{
+  background-color: #e1deec;
+  border: none;
+  /* Optionally, you can also remove other border-related styles */
+  outline: none;
+  height: 50px;
+  font-size: 20px;
+}
+.filter-div{
+  margin: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}

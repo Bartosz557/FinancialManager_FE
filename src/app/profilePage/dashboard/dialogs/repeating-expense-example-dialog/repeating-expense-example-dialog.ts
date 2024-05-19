@@ -73,7 +73,7 @@ export class RepeatingExpenseExampleDialog implements OnInit{
         name: this.expenseName,
         date: this.date,
         amount: this.expenseValue,
-        reminderType: this.reminderType.value,
+        reminderType: this.reminderType,
         category: 'recurringExpense'
       }
     ]

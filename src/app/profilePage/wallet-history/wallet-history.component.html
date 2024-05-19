@@ -2,10 +2,11 @@
   <div class="tab-section">
     <mat-tab-group>
       <mat-tab label="Transaction history">
-        <mat-form-field>
-          <mat-label>Filter</mat-label>
-          <input matInput (keyup)="applyFilter($event,1)" placeholder="Ex. ium" #input>
-        </mat-form-field>
+        <div class="filter-div">
+          <label>Filter:  </label>
+          <input class="input-filder" matInput (keyup)="applyFilter($event,1)" placeholder="Enter a phrase" #input>
+
+        </div>
 
           <table mat-table [dataSource]="transDataSource" class="example-table">
             <ng-container matColumnDef="date">

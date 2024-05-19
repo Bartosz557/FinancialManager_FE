@@ -40,17 +40,17 @@
           ></circle-progress>
         </div>
         <div class="spinner-first">
-          <p class="spinner-info">Limit status:<br/><br/><span class="status-text">{{limitValue}}</span></p>
+          <p class="spinner-info">Limit status:<br/><br/><span class="status-text">{{limitValue}}</span><span class="currencyThree">zł</span></p>
         </div>
       </div>
       <div class="xdd">
         <div matTooltip="Funds collected in Piggy Bank" matTooltipClass="tooltip-class" class="piggy-bank">
           <img src="assets/resources/piggybank.png" alt="Your Image">
-          <div class="overlay-text piggy-bank-text">Your savings:<br/><br/><span class="piggy-bank-span" >{{piggyBank}}zł</span></div>
+          <div class="overlay-text piggy-bank-text">Your savings:<br/><br/><span class="piggy-bank-span">{{piggyBank}}</span><span class="currencyTwo">zł</span></div>
         </div>
         <div matTooltip="Monthly Surplus Funds" matTooltipClass="tooltip-class" class="residual-funds">
           <img src="assets/resources/pngwing.com.png" alt="Your Image">
-          <div class="overlay-text residual-funds-text">Your residual funds:<br/><br/><span class="residual-funds-span">{{residualFunds}}zł </span></div>
+          <div class="overlay-text residual-funds-text">Your<br/>residual funds:<br/><br/><span class="residual-funds-span">{{residualFunds}}</span><span class="currencyTwo">zł</span></div>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
         <span class="balance-text">Account balance:</span><br>
         <div class="balance-status">
           <span class="balance-value">{{ accountBalance }}</span>
-          <span class="currency">$</span>
+          <span class="currency">zł</span>
         </div>
       </div>
     </div>
