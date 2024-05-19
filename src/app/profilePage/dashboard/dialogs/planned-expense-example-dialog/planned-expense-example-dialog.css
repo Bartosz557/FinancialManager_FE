@@ -18,6 +18,7 @@ button {
     width: 90%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 h2 {
@@ -25,14 +26,21 @@ h2 {
     font-size: 20px;
     text-align: center;
 }
-
+label{
+  margin-top: -20px;
+}
 .input-container input{
-    width: 200px; /* Ustaw szerokość na 200px dla wszystkich inputów i selectów wewnątrz kontenera */
+    width: 220px;
 }
-.input-container select {
-    width: 208px;
-}
+
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     display: none;
+}
+
+::ng-deep .mat-select-content{
+  width:2000px;
+  background-color: red;
+  font-size: 10px;
 }

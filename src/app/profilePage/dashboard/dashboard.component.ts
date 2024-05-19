@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {timeout} from "rxjs";
 import {ProfileConfigurationService} from "../profile-configuration/profile-configuration.service";
 import {Router} from "@angular/router";
@@ -12,11 +12,18 @@ import {PlannedExpenseExampleDialog} from "./dialogs/planned-expense-example-dia
 import {
   RepeatingExpenseExampleDialog
 } from "./dialogs/repeating-expense-example-dialog/repeating-expense-example-dialog";
+import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from "@angular/material/tooltip";
 
+export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
+  showDelay: 300,
+  hideDelay: 200,
+  touchendHideDelay: 0,
+};
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  providers: [{provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults}]
 })
 export class DashboardComponent implements OnInit{
 
@@ -78,6 +85,8 @@ export class DashboardComponent implements OnInit{
         this.daysLeft = this.dashboardService.setDaysLeft(response.settlementDate);
         this.percent = (response.expenses/response.limit*100);
         // this.progressService.updateProgress(50);
+        this.piggyBank = response.piggyBank;
+        this.residualFunds = response.residualFunds;
         this.limitValue = (response.expenses + '/' + response.limit);
       }
     );

@@ -45,6 +45,8 @@ import {WalletHistoryService} from "./profilePage/wallet-history/wallet-history.
 import {MatTabsModule} from "@angular/material/tabs";
 import {MatTableModule} from "@angular/material/table";
 import {MatIconModule} from "@angular/material/icon";
+import {CdkListbox} from "@angular/cdk/listbox";
+import {MatTooltipModule} from "@angular/material/tooltip";
 @NgModule({
   declarations: [
     ProfilePageComponent,
@@ -88,7 +90,9 @@ import {MatIconModule} from "@angular/material/icon";
     MatNativeDateModule,
     MatTabsModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    CdkListbox,
+    MatTooltipModule
   ],
   providers: [
     {provide: MainPageService, useClass: MainPageService },

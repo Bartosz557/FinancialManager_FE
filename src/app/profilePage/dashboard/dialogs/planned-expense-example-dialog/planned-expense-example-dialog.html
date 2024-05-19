@@ -1,39 +1,59 @@
-<h2 mat-dialog-title>Add new deposit</h2>
+<h2 mat-dialog-title>Add new planned expense</h2>
 <mat-dialog-content>
   <div class="input-container">
     <div class="even-the-task">
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="expenseName">
+      <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="expenseName">
+        <span matTextSuffix>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </mat-form-field>
+
     </div>
     <div class="even-the-task">
       <label for="category">Category:</label>
-      <select id="category" [(ngModel)]="selectedCategory" name="category">
-        <option value="" selected disabled>Select an option</option>
-        <option *ngFor="let option of optionsListTwo" [value]="option">{{ option }}</option>      </select>
+      <mat-form-field >
+        <mat-label>Category</mat-label>
+        <mat-select [formControl]="selectFormControl" [(ngModel)]="selectedCategory" id="category" required>
+          <ng-container *ngFor="let option of optionsListTwo">
+            <mat-option [value]="option">{{ option }}</mat-option>
+          </ng-container>
+        </mat-select>
+        <mat-error *ngIf="selectFormControl.hasError('required')">This field is required</mat-error>
+        <span matTextSuffix>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </mat-form-field>
+
     </div>
     <div class="even-the-task">
       <label for="value" >Expense Value:</label>
       <mat-form-field class="example-full-width">
         <mat-label>Value</mat-label>
-        <input matInput type="number"  id="value" name="value" placeholder="Enter value" [(ngModel)]="expenseValue">
+        <input  matInput type="number"  id="value" name="value" placeholder="Enter value" [(ngModel)]="expenseValue">
+        <span matTextSuffix>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zł</span>
       </mat-form-field>
     </div>
     <div class="even-the-task">
       <label >Planned date:</label>
       <mat-form-field>
         <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker" [(ngModel)]="date" (ngModelChange)="formatDate()" >
+        <input class="date-picker" matInput [matDatepicker]="picker" [(ngModel)]="date" (ngModelChange)="formatDate()" >
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
     </div>
     <div class="even-the-task">
-      <label for="day">Day of the month:</label>
-      <select id="day" [(ngModel)]="reminderType" name="day">
-        <option value="" selected disabled>Select an option</option>
-        <option *ngFor="let option of optionsList" [ngValue]="{ value: option.value, displayText: option.displayText }">{{ option.displayText }}</option>
-      </select>
+      <label for="day">Reminder:</label>
+      <mat-form-field >
+        <mat-label>Reminder</mat-label>
+        <mat-select panelClass="example-panel" [formControl]="selectFormControlTwo" [(ngModel)]="reminderType" id="day" required>
+          <ng-container *ngFor="let option of optionsList">
+            <mat-option [value]="option.value">{{ option.displayText }}</mat-option>
+          </ng-container>
+        </mat-select>
+        <mat-error *ngIf="selectFormControlTwo.hasError('required')">This field is required</mat-error>
+        <span matTextSuffix>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      </mat-form-field>
     </div>
   </div>
 </mat-dialog-content>

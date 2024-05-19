@@ -63,7 +63,7 @@ export class RepeatingExpenseExampleDialog implements OnInit{
   }
 
   ngOnInit() {
-    this.dialogRef.updateSize('30%', '60%');
+    this.dialogRef.updateSize('30%', '56%');
   }
 
 

@@ -58,11 +58,11 @@
         <table mat-table [dataSource]="monthDataSource" class="example-table">
           <ng-container matColumnDef="date">
             <th class="second-columns" mat-header-cell *matHeaderCellDef>Date</th>
-            <td class="second-columns" mat-cell *matCellDef="let row">{{row.date | date}}</td>
+            <td class="second-columns" mat-cell *matCellDef="let row">{{row.date}}</td>
           </ng-container>
 
           <ng-container matColumnDef="amount">
-            <th class="second-columns" mat-header-cell *matHeaderCellDef>Transaction type</th>
+            <th class="second-columns" mat-header-cell *matHeaderCellDef>Expenses</th>
             <td class="second-columns" mat-cell *matCellDef="let row">{{row.amount}}</td>
           </ng-container>
 
@@ -72,12 +72,12 @@
           </ng-container>
 
           <ng-container matColumnDef="savings">
-            <th class="second-columns" mat-header-cell *matHeaderCellDef>Category</th>
+            <th class="second-columns" mat-header-cell *matHeaderCellDef>Savings</th>
             <td class="second-columns" mat-cell *matCellDef="let row">{{row.savings}}</td>
           </ng-container>
 
           <ng-container matColumnDef="residualFunds">
-            <th class="second-columns" mat-header-cell *matHeaderCellDef>Description</th>
+            <th class="second-columns" mat-header-cell *matHeaderCellDef>Residual Funds</th>
             <td class="second-columns" mat-cell *matCellDef="let row">{{row.residualFunds}}</td>
           </ng-container>
 

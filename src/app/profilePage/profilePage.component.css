@@ -1,5 +1,5 @@
 .header {
-  background-color: #C2C1C1;
+  background-color: #a8abc5;
   padding-left: 8px;
   padding-right: 8px;
   border-radius: 10px;
@@ -12,8 +12,7 @@
 }
 
 .large-box {
-  /*background-color: #E5E5E5;*/
-  background-color: #636363;
+  background-color: #e1deec;
   padding: 2vh;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -31,6 +30,7 @@
 }
 
 .button {
+  background-color: #050144!important;
   font-weight: bold;
   border: none;
   padding: 0px 15px;

@@ -6,18 +6,22 @@ import {AddDepositExampleDialogService} from "./add-deposit-example-dialog.servi
 import {NgForOf} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 @Component({
   selector: 'app-add-deposit-example-dialog',
   templateUrl: './add-deposit-example-dialog.html',
   styleUrls: ['./add-deposit-example-dialog.css'],
   standalone: true,
-  imports: [
-    MatDialogModule,
-    NgForOf,
-    FormsModule,
-    MatButtonModule
-  ]
+    imports: [
+        MatDialogModule,
+        NgForOf,
+        FormsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatInputModule
+    ]
 })
 export class AddDepositExampleDialog implements OnInit{
   expenseValue: any;
@@ -28,7 +32,7 @@ export class AddDepositExampleDialog implements OnInit{
   }
 
   ngOnInit() {
-    this.dialogRef.updateSize('25%', '30%');
+    this.dialogRef.updateSize('25%', '37%');
   }
   sendTransaction() {
     const requestBody = {

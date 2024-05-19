@@ -3,8 +3,8 @@ import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {DialogAnimationsExampleDialogService} from "../add-expense-dialog/dialog-animations-example-dialog.service";
 import {DialogAnimationsExampleDialog} from "../add-expense-dialog/dialog-animations-example-dialog";
 import {PlannedExpenseExampleDialogService} from "./planned-expense-example-dialog.service";
-import {formatDate, NgForOf} from "@angular/common";
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {formatDate, NgForOf, NgIf} from "@angular/common";
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {range} from "rxjs";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatFormFieldModule} from "@angular/material/form-field";
@@ -12,6 +12,11 @@ import {DatepickerOverviewExample} from "../../angular-materials/datepicker-over
 import {MatInputModule} from "@angular/material/input";
 import { DateTime } from 'luxon';
 import {MatButtonModule} from "@angular/material/button";
+import {MAT_DATE_LOCALE, MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import {MAT_TOOLTIP_DEFAULT_OPTIONS} from "@angular/material/tooltip";
+import {myCustomTooltipDefaults} from "../../dashboard.component";
+import {provideMomentDateAdapter} from '@angular/material-moment-adapter';
 
 @Component({
   selector: 'planned-expense-example-dialog',
@@ -27,12 +32,20 @@ import {MatButtonModule} from "@angular/material/button";
     ReactiveFormsModule,
     DatepickerOverviewExample,
     MatInputModule,
-    MatButtonModule
-  ]
+    MatButtonModule,
+    MatOptionModule,
+    MatSelectModule,
+    NgIf
+  ],
+
+
+
 })
 export class PlannedExpenseExampleDialog implements OnInit{
   expenseValue: any;
   expenseName: any;
+  selectFormControl = new FormControl('', Validators.required);
+  selectFormControlTwo = new FormControl('', Validators.required);
 
   protected readonly range = new FormGroup({
     start: new FormControl<Date | null>(null),
@@ -48,7 +61,6 @@ export class PlannedExpenseExampleDialog implements OnInit{
     { value: "three_reminders", displayText: "Remind the same day & day and week before" }
 
   ];
-  private category: any;
   selectedCategory: any;
   optionsListTwo: any;
   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>, private dialogService: PlannedExpenseExampleDialogService) {}
@@ -57,7 +69,7 @@ export class PlannedExpenseExampleDialog implements OnInit{
   }
 
   ngOnInit() {
-    this.dialogRef.updateSize('30%', '50%');
+    this.dialogRef.updateSize('30%', '66%');
     this.dialogService.fetchCategories().subscribe((data) => {
       console.log(data)
       this.optionsListTwo = data;

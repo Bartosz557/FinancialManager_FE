@@ -6,10 +6,12 @@
 .tab-section{
   height: 100%;
   width: 100%;
-  background-color: #007BFF;
 }
 
+.example-table{
+  background-color: #e1deec!important;
 
+}
 
 .mat-column-date, .mat-column-name, .mat-column-transaction-type, .mat-column-category, .mat-column-amount, .mat-column-options, .mat-column-residualFunds, .mat-column-savings, .mat-column-balance{
   text-align: center;
@@ -28,3 +30,4 @@
 .second-columns {
   width: 20%;
 }
+

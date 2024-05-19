@@ -8,8 +8,7 @@
       <p class="date-text-2"><span id="settlementDate">{{ settlementDate }}</span> - <span id="daysLeft">{{ daysLeft }}</span> days left</p>
     </div>
     <div class="add-spent-div">
-      <button mat-raised-button class="add-spent-button" id="add-spent" mat-raised-button (click)="openDialog('DialogAnimationsExampleDialog','0ms', '0ms')">Add<br/>expense</button>
-
+      <button mat-raised-button class="add-spent-button" id="add-spent" (click)="openDialog('DialogAnimationsExampleDialog','0ms', '0ms')">Add<br/>expense</button>
     </div>
     <div class="user-buttons-panel">
       <div class="buttons-grid">
@@ -27,8 +26,8 @@
         <div class="spinner-second">
           <circle-progress
             [percent]="percent"
-            [radius]="200"
-            [outerStrokeWidth]="40"
+            [radius]="240"
+            [outerStrokeWidth]="50"
             [innerStrokeWidth]="20"
             [space]="10"
             [outerStrokeColor]="'#78C000'"
@@ -45,13 +44,13 @@
         </div>
       </div>
       <div class="xdd">
-        <div class="piggy-bank">
+        <div matTooltip="Funds collected in Piggy Bank" matTooltipClass="tooltip-class" class="piggy-bank">
           <img src="assets/resources/piggybank.png" alt="Your Image">
-          <div class="overlay-text">Your Text Overlay Here</div>
+          <div class="overlay-text piggy-bank-text">Your savings:<br/><br/><span class="piggy-bank-span" >{{piggyBank}}zł</span></div>
         </div>
-        <div class="savings">
+        <div matTooltip="Monthly Surplus Funds" matTooltipClass="tooltip-class" class="residual-funds">
           <img src="assets/resources/pngwing.com.png" alt="Your Image">
-          <div class="overlay-text">Your Text Overlay Here</div>
+          <div class="overlay-text residual-funds-text">Your residual funds:<br/><br/><span class="residual-funds-span">{{residualFunds}}zł </span></div>
         </div>
       </div>
     </div>

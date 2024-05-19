@@ -1,9 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialogModule, MatDialogRef} from "@angular/material/dialog";
 import {DialogAnimationsExampleDialogService} from "./dialog-animations-example-dialog.service";
-import {NgForOf} from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import {NgForOf, NgIf} from "@angular/common";
+import {FormControl, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
+import {MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
 
 @Component({
   selector: 'dialog-animations-example-dialog',
@@ -14,7 +17,12 @@ import {MatButtonModule} from "@angular/material/button";
     MatDialogModule,
     NgForOf,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatOptionModule,
+    MatSelectModule,
+    NgIf,
+    ReactiveFormsModule
   ]
 })
 export class DialogAnimationsExampleDialog implements OnInit{
@@ -24,9 +32,10 @@ export class DialogAnimationsExampleDialog implements OnInit{
   expenseName: any;
   selectedCategory: any;
   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>, private dialogService: DialogAnimationsExampleDialogService) {}
+  selectFormControl = new FormControl('', Validators.required);
 
   ngOnInit() {
-    this.dialogRef.updateSize('25%', '30%');
+    this.dialogRef.updateSize('25%', '46%');
     this.dialogService.fetchCategories().subscribe((data) => {
       console.log(data)
       this.optionsList = data;

@@ -3,12 +3,20 @@
   <div class="input-container">
     <div class="even-the-task">
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="expenseName">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="expenseName">
+        <span matTextSuffix>&nbsp;&nbsp;&nbsp;</span>
+      </mat-form-field>
     </div>
 
     <div class="even-the-task">
       <label for="value">Value:</label>
-      <input type="number" id="value" name="value" placeholder="Enter value" [(ngModel)]="expenseValue">
+      <mat-form-field>
+        <mat-label>Value</mat-label>
+        <input matInput type="number" id="value" name="value" placeholder="Enter value" [(ngModel)]="expenseValue">
+        <span matTextSuffix>zł</span>
+      </mat-form-field>
     </div>
   </div>
 </mat-dialog-content>
