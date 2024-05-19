@@ -66,15 +66,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "proxyConfig": "src/proxy.conf.json",
-            "buildTarget": "your-application-name:build"
+            "browserTarget": "your-application-name:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "buildTarget": "FinancialManager_FE:build:production"
+              "browserTarget": "FinancialManager_FE:build:production"
             },
             "development": {
-              "buildTarget": "FinancialManager_FE:build:development"
+              "browserTarget": "FinancialManager_FE:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "FinancialManager_FE:build"
+            "browserTarget": "FinancialManager_FE:build"
           }
         },
         "test": {
