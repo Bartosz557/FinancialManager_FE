@@ -1,0 +1,16 @@
+
+/*::ng-deep.mat-mdc-snack-bar-container {*/
+/*    --mdc-snackbar-container-color: #b41d1d !important;*/
+/*    --mdc-snackbar-supporting-text-color: #48e18d !important;*/
+/*}*/
+
+/*::ng-deep .mat-mdc-snack-bar-action {*/
+/*    color: #2bb707 !important; !* Text color *!*/
+/*    background-color: #e13591 !important; !* Background color *!*/
+/*}*/
+
+.diven{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,0 +1,134 @@
+button {
+  align-items: center;
+  margin-right: 10px;
+  background-color: #e8efeb;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: -23px;
+}
+
+.input-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.even-the-task{
+  margin-top: 15px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.input-container input{
+  width: 200px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.settings-div{
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-div{
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.value-div{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  width: 95%;
+}
+
+label{
+  color: black;
+  border-radius: 5px;
+  background-color: #28B463;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 95%;
+  display: flex;
+  justify-content: center;
+}
+
+span{
+  margin-left: 10px;
+  width: 100px;
+}
+.cancel-button{
+  background-color: white;
+}
+
+input {
+  background: transparent;
+  width: 30%;
+  font-size:19px;
+  color: inherit; /* Keeps the text color the same as the parent element */
+  border: 2px solid;
+  border-color: #e8efeb;
+  height: 29px;
+  border-radius: 5px;
+}
+input:focus {
+  border: 2px solid #e8efeb;
+  outline: none;
+}
+.mark-button{
+  border-radius: 5px;
+  height: 35px;
+  min-width: unset!important;
+}
+.edit-button{
+  border-radius: 5px;
+  height: 35px;
+}
+.mark-button-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.check-icon{
+  margin-right: -0px;
+}
+
+
+.hiddenito-1{
+  display: none;
+}
+
+.hiddenito-2{
+  display: none;
+}
+
+.hiddenito-3{
+  display: none;
+}
+
+.hiddenito-4{
+  display: none;
+}
+
+
+

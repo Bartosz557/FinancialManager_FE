@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>Manage your wallet settings</h2>
+<mat-dialog-content>
+  <div class="settings-div">
+
+    <div class="header-div">
+      <label>Settlement Date</label>
+    </div>
+    <div class="settlement-date value-div">
+      <span>{{settlementDate}}</span>
+      <input  type="number" class="hiddenito-1">
+      <button (click)="save(1)" class="mark-button hiddenito-1" mat-button><mat-icon class="check-icon">check</mat-icon></button>
+      <button (click)="changeDisplayValue('1')" class="edit-button" mat-button>EDIT</button>
+    </div>
+
+    <div class="header-div">
+      <label>Monthly Limit</label>
+    </div>
+    <div class="monthly-limit value-div">
+      <span>{{monthlyLimit}}</span>
+      <input  type="number" class="hiddenito-2">
+      <button (click)="save(2)" class="mark-button hiddenito-2" mat-button><mat-icon class="check-icon">check</mat-icon></button>
+      <button (click)="changeDisplayValue('2')" class="edit-button" mat-button>EDIT</button>
+    </div>
+
+    <div class="header-div">
+      <label>Monthly Income</label>
+    </div>
+    <div class="monthly-income value-div">
+      <span>{{monthlyIncome}}</span>
+      <input  type="number" class="hiddenito-3">
+        <button (click)="save(3)" class="mark-button hiddenito-3" mat-button><mat-icon class="check-icon">check</mat-icon></button>
+      <button (click)="changeDisplayValue('3')" class="edit-button" mat-button>EDIT</button>    </div>
+
+    <div class="header-div">
+      <label>Account Balance</label>
+    </div>
+    <div class="account-balance value-div">
+      <span>{{accountBalance}}</span>
+      <input  type="number" class="hiddenito-4">
+      <button (click)="save(4)" class="mark-button hiddenito-4" mat-button><mat-icon class="check-icon">check</mat-icon></button>
+      <button (click)="changeDisplayValue('4')" class="edit-button" mat-button>EDIT</button>    </div>
+  </div>
+
+
+
+</mat-dialog-content>
+<div class="buttons">
+  <mat-dialog-actions>
+    <button class="cancel-button" mat-button (click)="closeDialog()">Cancel</button>
+  </mat-dialog-actions>
+</div>
+

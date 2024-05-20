@@ -13,6 +13,7 @@ import {
   RepeatingExpenseExampleDialog
 } from "./dialogs/repeating-expense-example-dialog/repeating-expense-example-dialog";
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from "@angular/material/tooltip";
+import {WalletSettingsDialogComponent} from "./view-dialogs/wallet-settings-dialog/wallet-settings-dialog.component";
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 300,
@@ -64,6 +65,7 @@ export class DashboardComponent implements OnInit{
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
+      autoFocus: false,
     });
     dialogRef.afterClosed().subscribe(result => {
       if (result && result.success === true) {
@@ -125,6 +127,8 @@ export class DashboardComponent implements OnInit{
         return PlannedExpenseExampleDialog
       case 'repeating-expense-example-dialog':
         return RepeatingExpenseExampleDialog
+      case 'wallet-settings-dialog-component':
+        return WalletSettingsDialogComponent
     }
     return DialogAnimationsExampleDialog;
   }

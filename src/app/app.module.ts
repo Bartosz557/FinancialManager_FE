@@ -39,7 +39,7 @@ import {
 } from "./profilePage/dashboard/dialogs/add-deposit-example-dialog/add-deposit-example-dialog.service";
 import {DatepickerOverviewExample} from "./profilePage/dashboard/angular-materials/datepicker-overview-example";
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import { WalletHistoryComponent } from './profilePage/wallet-history/wallet-history.component';
 import {WalletHistoryService} from "./profilePage/wallet-history/wallet-history.service";
 import {MatTabsModule} from "@angular/material/tabs";
@@ -47,6 +47,10 @@ import {MatTableModule} from "@angular/material/table";
 import {MatIconModule} from "@angular/material/icon";
 import {CdkListbox} from "@angular/cdk/listbox";
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { WalletSettingsDialogComponent } from './profilePage/dashboard/view-dialogs/wallet-settings-dialog/wallet-settings-dialog.component';
+import {MatSelectModule} from "@angular/material/select";
+import {MatSnackBarModule, MatSnackBarRef} from "@angular/material/snack-bar";
+import {SnackBarExample} from "./profilePage/dashboard/snack-bar-example/snack-bar-example";
 @NgModule({
   declarations: [
     ProfilePageComponent,
@@ -60,8 +64,10 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     ConfirmationDialogComponent,
     EditDialogComponent,
     WalletHistoryComponent,
+    WalletSettingsDialogComponent,
   ],
   imports: [
+    MatSnackBarModule,
     MatSlideToggleModule,
     MatDialogModule,
     FormsModule,
@@ -92,7 +98,10 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     MatTableModule,
     MatIconModule,
     CdkListbox,
-    MatTooltipModule
+    MatTooltipModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatSnackBarModule,
   ],
   providers: [
     {provide: MainPageService, useClass: MainPageService },
@@ -105,7 +114,10 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     {provide: AddDepositExampleDialogService, useClass: AddDepositExampleDialogService},
     {provide: WalletHistoryService, useClass: WalletHistoryService},
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    SnackBarExample,
+    MatSnackBarModule,
+
   ],
   bootstrap: [AppComponent],
 })
