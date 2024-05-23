@@ -1,8 +1,8 @@
 <div class="main-section">
   <div class="tab-section">
 <!--    TODO: Add paginator in both tables!    -->
-    <mat-tab-group>
-      <mat-tab label="Transaction history">
+    <mat-tab-group color="custom" >
+      <mat-tab class="xd" label="Transaction history">
         <div class="filter-div">
           <label>Filter:  </label>
           <input class="input-filder" matInput (keyup)="applyFilter($event,1)" placeholder="Enter a phrase" #input>

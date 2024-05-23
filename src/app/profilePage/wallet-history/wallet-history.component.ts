@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {Transaction} from "./history-interface";
 import {MatTableDataSource} from "@angular/material/table";
 import {WalletHistoryService} from "./wallet-history.service";
@@ -7,7 +7,8 @@ import {Monthly} from "./monthly.interface";
 @Component({
   selector: 'app-wallet-history',
   templateUrl: './wallet-history.component.html',
-  styleUrls: ['./wallet-history.component.css']
+  styleUrls: ['./wallet-history.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class WalletHistoryComponent implements OnInit{
 

@@ -8,13 +8,13 @@
       <p class="date-text-2"><span id="settlementDate">{{ settlementDate }}</span> - <span id="daysLeft">{{ daysLeft }}</span> days left</p>
     </div>
     <div class="add-spent-div">
-      <button mat-raised-button class="add-spent-button" id="add-spent" (click)="openDialog('DialogAnimationsExampleDialog','0ms', '0ms')">Add<br/>expense</button>
+      <button mat-raised-button class="add-spent-button" id="add-spent" (click)="openDialog('DialogAnimationsExampleDialog','0ms', '0ms')">Add new<br/>expense</button>
     </div>
     <div class="user-buttons-panel">
       <div class="buttons-grid">
-        <button mat-raised-button class="dashboard-button" (click)="openDialog('AddDepositExampleDialog','0ms', '0ms')" >Add a deposit</button>
+        <button mat-raised-button class="dashboard-button" (click)="openDialog('AddDepositExampleDialog','0ms', '0ms')" >Add new deposit</button>
         <button mat-raised-button class="dashboard-button" (click)="openDialog('repeating-expense-example-dialog','0ms', '0ms')" >Repeating expenses</button>
-        <button mat-raised-button class="dashboard-button" (click)="openDialog('wallet-settings-dialog-component','0ms', '0ms')" >Manage you wallet</button>
+        <button mat-raised-button class="dashboard-button" (click)="openDialog('wallet-settings-dialog-component','0ms', '0ms')" >Manage your wallet</button>
         <button mat-raised-button class="dashboard-button" (click)="openDialog('planned-expense-example-dialog','0ms', '0ms')" >Planned expenses</button>
       </div>
     </div>
@@ -30,14 +30,14 @@
             [outerStrokeWidth]="50"
             [innerStrokeWidth]="20"
             [space]="10"
-            [outerStrokeColor]="'#78C000'"
-            [innerStrokeColor]="'#C7E596'"
+            [outerStrokeColor]="'#059157'"
+            [innerStrokeColor]="'rgba(53,208,107,0.96)'"
             [animation]="true"
             [animationDuration]="300"
             [showTitle]="false"
             [showUnits]="false"
             [showSubtitle]="false"
-          ></circle-progress>
+            ></circle-progress>
         </div>
         <div class="spinner-first">
           <p class="spinner-info">Limit status:<br/><br/><span class="status-text">{{limitValue}}</span><span class="currencyThree">zł</span></p>
@@ -45,11 +45,11 @@
       </div>
       <div class="xdd">
         <div matTooltip="Funds collected in Piggy Bank" matTooltipClass="tooltip-class" class="piggy-bank">
-          <img src="assets/resources/piggybank.png" alt="Your Image">
-          <div class="overlay-text piggy-bank-text">Your savings:<br/><br/><span class="piggy-bank-span">{{piggyBank}}</span><span class="currencyTwo">zł</span></div>
+          <img class="imagane" src="assets/resources/piggybank.png" alt="Your Image">
+          <div  class="overlay-text piggy-bank-text">Your savings:<br/><br/><span class="piggy-bank-span">{{piggyBank}}</span><span class="currencyTwo">zł</span></div>
         </div>
         <div matTooltip="Monthly Surplus Funds" matTooltipClass="tooltip-class" class="residual-funds">
-          <img src="assets/resources/pngwing.com.png" alt="Your Image">
+          <img class="imagane" src="assets/resources/pngwing.com.png" alt="Your Image">
           <div class="overlay-text residual-funds-text">Your<br/>residual funds:<br/><br/><span class="residual-funds-span">{{residualFunds}}</span><span class="currencyTwo">zł</span></div>
         </div>
       </div>

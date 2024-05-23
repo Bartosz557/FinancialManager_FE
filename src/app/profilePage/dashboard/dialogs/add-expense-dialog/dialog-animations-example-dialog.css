@@ -14,6 +14,7 @@ button {
 }
 
 .even-the-task{
+  color: black;
   margin-top: 15px;
   width: 90%;
   display: flex;

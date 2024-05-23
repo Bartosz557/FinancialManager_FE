@@ -3,7 +3,7 @@
   <div class="input-container">
     <div class="even-the-task">
       <label for="name">Name:</label>
-      <mat-form-field>
+      <mat-form-field appearance="outline" >
         <mat-label>Name</mat-label>
       <input matInput type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="expenseName">
         <span matTextSuffix>&nbsp;&nbsp;&nbsp;</span>
@@ -13,7 +13,7 @@
 
     <div class="even-the-task">
       <label for="value" >Expense Value:</label>
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="outline"  class="example-full-width">
         <mat-label>Value</mat-label>
         <input matInput type="number"  id="value" name="value" placeholder="Enter value" [(ngModel)]="expenseValue">
         <span matTextSuffix>zł</span>
@@ -21,7 +21,7 @@
     </div>
     <div class="even-the-task">
       <label >Day of the month:</label>
-      <mat-form-field>
+      <mat-form-field appearance="outline" >
         <mat-label>Day</mat-label>
         <input matInput type="number"  id="day" name="day" placeholder="Enter correct day" [(ngModel)]="date">
         <span matTextSuffix>&nbsp;&nbsp;&nbsp;</span>
@@ -33,7 +33,7 @@
 <!--        <option value="" selected disabled>Select an option</option>-->
 <!--        <option *ngFor="let option of optionsList" [ngValue]="{ value: option.value, displayText: option.displayText }">{{ option.displayText }}</option>-->
 <!--      </select>-->
-      <mat-form-field >
+      <mat-form-field appearance="outline"  >
         <mat-label>Type of reminder</mat-label>
         <mat-select [formControl]="selectFormControl" [(ngModel)]="reminderType" id="reminder" required>
           <ng-container *ngFor="let option of optionsList">

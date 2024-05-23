@@ -20,7 +20,7 @@ export class WalletSettingsDialogComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.dialogRef.updateSize('25%', '57%');
+    this.dialogRef.updateSize('28%', '60%');
   }
   closeDialog() {
     this.dialogRef.close({ success: true });

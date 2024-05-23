@@ -1,18 +1,19 @@
+
 <h2 mat-dialog-title>Add new planned expense</h2>
 <mat-dialog-content>
   <div class="input-container">
     <div class="even-the-task">
       <label for="name">Name:</label>
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="outline" class="example-full-width">
         <mat-label>Name</mat-label>
-        <input matInput type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="expenseName">
+        <input  matInput type="text" id="name" name="name" placeholder="Enter name" [(ngModel)]="expenseName">
         <span matTextSuffix>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
       </mat-form-field>
 
     </div>
     <div class="even-the-task">
       <label for="category">Category:</label>
-      <mat-form-field >
+      <mat-form-field appearance="outline"  >
         <mat-label>Category</mat-label>
         <mat-select [formControl]="selectFormControl" [(ngModel)]="selectedCategory" id="category" required>
           <ng-container *ngFor="let option of optionsListTwo">
@@ -26,7 +27,7 @@
     </div>
     <div class="even-the-task">
       <label for="value" >Expense Value:</label>
-      <mat-form-field class="example-full-width">
+      <mat-form-field appearance="outline"  class="example-full-width">
         <mat-label>Value</mat-label>
         <input  matInput type="number"  id="value" name="value" placeholder="Enter value" [(ngModel)]="expenseValue">
         <span matTextSuffix>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zł</span>
@@ -34,7 +35,7 @@
     </div>
     <div class="even-the-task">
       <label >Planned date:</label>
-      <mat-form-field>
+      <mat-form-field appearance="outline" >
         <mat-label>Choose a date</mat-label>
         <input class="date-picker" matInput [matDatepicker]="picker" [(ngModel)]="date" (ngModelChange)="formatDate()" >
         <mat-hint>MM/DD/YYYY</mat-hint>
@@ -44,7 +45,7 @@
     </div>
     <div class="even-the-task">
       <label for="day">Reminder:</label>
-      <mat-form-field >
+      <mat-form-field appearance="outline"  >
         <mat-label>Reminder</mat-label>
         <mat-select panelClass="example-panel" [formControl]="selectFormControlTwo" [(ngModel)]="reminderType" id="day" required>
           <ng-container *ngFor="let option of optionsList">

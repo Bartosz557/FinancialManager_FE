@@ -9,7 +9,7 @@
 }
 
 .example-table{
-  background-color: #e1deec!important;
+  background-color: #d8f3dc!important;
 
 }
 
@@ -32,15 +32,18 @@
 }
 
 .input-filder{
-  background-color: #e1deec;
+  background-color: #d8f3dc;
   border: none;
   /* Optionally, you can also remove other border-related styles */
   outline: none;
   height: 50px;
-  font-size: 20px;
+  font-size: 15px;
 }
 .filter-div{
   margin: 20px;
-  font-size: 22px;
+  margin-left: 15px;
+  font-size: 17px;
   font-weight: bold;
 }
+
+
