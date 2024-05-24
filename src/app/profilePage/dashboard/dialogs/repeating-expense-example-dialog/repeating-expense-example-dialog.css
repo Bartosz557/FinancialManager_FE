@@ -40,3 +40,6 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     display: none;
 }
+::ng-deep.mat-mdc-select-panel{
+  background-color: #9ed7b1 !important;
+}

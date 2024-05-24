@@ -1,31 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registration Page</title>
-  <link rel="stylesheet" href="register.component.css">
-</head>
-<body>
-<div class="login-container">
-  <h1>Register</h1>
-  <form (ngSubmit)="registerUser()" #registrationForm="ngForm">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" [(ngModel)]="username" required>
-    <br>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" autocomplete="username" [(ngModel)]="email" required>
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" [(ngModel)]="password" required>
-    <br>
-    <label for="confirmPassword">Confirm Password:</label>
-    <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" required>
+<div class="body">
+  <div class="login-container">
+    <h1>Register</h1>
+    <div class="fields">
+      <div class="field-container">
+      <mat-form-field appearance="outline" class="pass-field" >
+        <mat-label>Enter Username</mat-label>
+        <input matInput
+               id="username"
+               name="username"
+               placeholder="Username"
+               [formControl]="username"
+               (blur)="updateUsernameMessage()"
+               [(ngModel)]="usernameValue">
+        <mat-error *ngIf="username.invalid">{{emailErrorMessage}}</mat-error>
+      </mat-form-field>
+      </div>
+      <br>
+      <div class="field-container">
+        <mat-form-field appearance="outline" class="pass-field" id="email-field">
+          <mat-label>Enter your email</mat-label>
+          <input matInput id="email"
+                 placeholder="example@domain.com"
+                 [formControl]="email"
+                 (blur)="updateErrorMessage()"
+                 [(ngModel)]="emailValue"
+                 required>
+          <mat-error *ngIf="email.invalid">{{errorMessage}}</mat-error>
+        </mat-form-field>
+      </div>
+      <br>
+    <div class="field-container">
+      <mat-form-field appearance="outline" class="pass-field">
+        <mat-label>Enter your password</mat-label>
+        <input matInput id="password"
+               type="password"
+               name="password"
+               [formControl]="password"
+               (blur)="updatePasswordErrorMessage(); checkPasswords()"
+               [(ngModel)]="passwordValue"
+               required>
+        <button mat-icon-button matSuffix (click)="clickEvent('password')" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="password.invalid">{{errorPassMessage}} </mat-error>
+      </mat-form-field>
+    </div>
+      <br>
+      <div class="field-container">
+        <mat-form-field appearance="outline" class="pass-field" id="confirm-pass-field">
+          <mat-label>Confirm your password</mat-label>
+          <input matInput id="confirm-password"
+                 type="password"
+                 name="confirmPass"
+                 [formControl]="confirmPass"
+                 (blur)="confirmPasswordErrorMessage(); checkPasswords()"
+                 [(ngModel)]="confirmPassword"
+                 required>
+          <button mat-icon-button matSuffix (click)="clickEvent('confirm-password')" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideTwo">
+            <mat-icon>{{hideTwo ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="confirmPass.invalid">{{confirmErrorMessage}}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
     <br>
     <div class="button-container">
-      <button type="submit" class="button">Create an account</button>
+      <button mat-button type="submit" class="button register-button" (click)="backToLogin()" >Back</button>
+      <button mat-button type="button" class="button " (click)="registerUser()">Create an account</button>
     </div>
-  </form>
-</div>
-</body>
-</html>
+    </div>
+  </div>

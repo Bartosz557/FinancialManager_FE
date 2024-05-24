@@ -1,7 +1,4 @@
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="login.component.css">
-  <div class="body">
+<div class="body">
     <div class="login-container">
       <h1>Login</h1>
       <div class="fields">
@@ -23,7 +20,6 @@
             <mat-label>Enter your password</mat-label>
             <input matInput id="password"
                    type="password"
-                   placeholder="example@domain.com"
                    [formControl]="password"
                    (blur)="updatePasswordErrorMessage()"
                    [(ngModel)]="passwordValue"

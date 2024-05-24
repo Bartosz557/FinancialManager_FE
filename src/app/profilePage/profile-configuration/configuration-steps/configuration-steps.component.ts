@@ -44,10 +44,13 @@ export class ConfigurationStepsComponent {
     hobby: ['0', Validators.required],
     miscellaneous: ['0', Validators.required]
   });
+  selectedReminder: any ='';
   thirdFormGroup = this._formBuilder.group({
     name: [''],
     date: [''],
-    amount: ['', Validators.min(0)]
+    amount: ['', Validators.min(0)],
+    reminderType: [''],
+    category: ['recurringExpense']
   });
 
   isOptional = false;
@@ -65,14 +68,16 @@ export class ConfigurationStepsComponent {
   }
 
   addExpense() {
+    this.thirdFormGroup.value.reminderType=this.selectedReminder.value;
+    console.log(this.thirdFormGroup.value.reminderType)
     if (this.thirdFormGroup.value.name === "" ||
         this.thirdFormGroup.value.date === "" ||
-        this.thirdFormGroup.value.amount === "") {
+        this.thirdFormGroup.value.amount === ""||
+        this.thirdFormGroup.value.reminderType === "") {
       // TODO: MESSAGE BOX = NEED FILL ALL FIELDS TO ADD EXPENSE
       return;
     }
     this.expenses.push(<ExpenseItem>this.thirdFormGroup.value);
-
     // Clear form controls after adding expense
     this.thirdFormGroup.reset();
     console.log(this.expenses[0])
@@ -116,4 +121,6 @@ interface ExpenseItem {
   name: string|null|undefined;
   date: string|null|undefined;
   amount: string|null|undefined;
+  reminderType: string|null|undefined;
+  category: string|null|undefined;
 }

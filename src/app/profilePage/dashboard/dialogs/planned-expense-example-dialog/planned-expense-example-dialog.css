@@ -41,7 +41,6 @@ input::-webkit-inner-spin-button {
 
 ::ng-deep .mat-select-content{
   width:2000px;
-  background-color: red;
   font-size: 10px;
 }
 
@@ -49,3 +48,6 @@ input::-webkit-inner-spin-button {
   background-color: #b7e4c7;
 }
 
+::ng-deep.mat-mdc-select-panel{
+  background-color: #9ed7b1 !important;
+}

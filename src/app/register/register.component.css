@@ -1,25 +1,35 @@
 /* login.component.css */
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  margin: 0;
+.body {
+  background-color: #d8f3dc;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
+
 .login-container {
-  background-color: #ffffff;
-  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #b7e4c7;
+  padding: 20px;
   border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
+  /*width: 350px;*/
+  /*height: 380px;*/
+  width: 450px;
+  height: 600px;
 }
 
 h1 {
-  margin-top: 0;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 37px;
   color: #333;
 }
 
@@ -29,43 +39,57 @@ form {
   align-items: center;
 }
 
-label {
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
 .button-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 5px;
 }
 
 .button {
-  background-color: #007bff;
+  height: 55px;
+  width: 120px;
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-bottom: 8px;
+  background-color: #4ad66d;
   font-weight: bold;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  flex-grow: 1;
-  margin: 0 5px;
+  font-size: 17px;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-.button:hover {
-  background-color: #0056b3;
+.field-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
 }
 
+.fields{
+  margin-bottom: -33px;
+}
+
+
+#email-field, #pass-field{
+  width: 100%;
+}
+
+.pass-field{
+  width: 100%;
+
+}
+#email, #password{
+  background-color: #b7e4c7;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+input:-webkit-autofill:not(:focus){
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #1b4332 !important;
+}
+.register-button {
+  background-color: #52b788; /* Green color for Register button */
+  font-size: 19px;
+}
