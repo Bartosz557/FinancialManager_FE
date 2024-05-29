@@ -14,6 +14,8 @@ import {
 } from "./dialogs/repeating-expense-example-dialog/repeating-expense-example-dialog";
 import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from "@angular/material/tooltip";
 import {WalletSettingsDialogComponent} from "./view-dialogs/wallet-settings-dialog/wallet-settings-dialog.component";
+import {PaymentRemindersDialogComponent} from "./view-dialogs/payment-reminders/payment-reminders-dialog.component";
+import {RemindersInterface} from "./view-dialogs/payment-reminders/reminders.interface";
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 300,
@@ -58,6 +60,8 @@ export class DashboardComponent implements OnInit{
   limitValue: any;
   ngOnInit() {
     this.loadData()
+    this.checkReminders()
+
   }
 
   openDialog(dialogComponent: any, enterAnimationDuration: string, exitAnimationDuration: string): void {
@@ -106,10 +110,21 @@ export class DashboardComponent implements OnInit{
 
   }
 
-  manaWallet() {
-    this.dashboardService.testhttp().subscribe(
-      (response) => {
-        console.log(response)
+  checkReminders() {
+    this.dashboardService.getReminder().subscribe(
+      (response : RemindersInterface) => {
+        if(response.today.length>0||response.tomorrow.length>0||response.nextWeek.length>0){
+          console.log(response)
+          const dialogRef = this.dialog.open(PaymentRemindersDialogComponent, {
+            width: '250px',
+            enterAnimationDuration: '0ms',
+            exitAnimationDuration: '0ms',
+            autoFocus: false,
+            data: {
+              reminders: response,
+            },
+          });
+        }
       }
     )
 

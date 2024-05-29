@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {MainPageData} from "./main-page-data.interface";
 import {catchError} from "rxjs/operators";
 import {Observable, throwError} from "rxjs";
+import {RemindersInterface} from "./view-dialogs/payment-reminders/reminders.interface";
 
 @Injectable({providedIn: 'root'})
 export class DashboardService {
@@ -65,8 +66,17 @@ export class DashboardService {
     return nextMonth
   }
 
-  testhttp() {
-    console.log('xdd')
-    return this.http.get('/api/v1/profile/dashboard/check-for-scheduled-expenses')
+  getReminder(): Observable<RemindersInterface>{
+    return this.fetchReminders().pipe(
+      catchError(error => {
+        console.error('Error loading main page data:', error);
+        // You can throw an error or return a default value here
+        return throwError('Error loading main page data');
+      })
+    );
   }
+  fetchReminders(): Observable<RemindersInterface> {
+    return this.http.get<RemindersInterface>('/api/v1/profile/dashboard/check-for-scheduled-expenses')
+  }
+
 }

@@ -1,12 +1,13 @@
-<html>
 <body>
 <div class="devider">
   <div class="left-div">
     <div class="welcome-div">
+      <div class="pretty-cloud">
       <p class="welcome-text">Welcome, <span id="username">{{ username }}</span>!</p>
-      <p class="date-text-1"><span id="xd">Next settlement date:</span></p>
-      <p class="date-text-2"><span id="settlementDate">{{ settlementDate }}</span> - <span id="daysLeft">{{ daysLeft }}</span> days left</p>
+      <p class="date-text-1">Next settlement in <span>{{ daysLeft }}</span> days</p>
+<!--      <p class="date-text-2"><span id="settlementDate">{{ settlementDate }}</span> - <span id="daysLeft">{{ daysLeft }}</span> days left</p>-->
     </div>
+  </div>
     <div class="add-spent-div">
       <button mat-raised-button class="add-spent-button" id="add-spent" (click)="openDialog('DialogAnimationsExampleDialog','0ms', '0ms')">Add new<br/>expense</button>
     </div>
@@ -68,4 +69,3 @@
   </div>
 </div>
 </body>
-</html>

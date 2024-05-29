@@ -1,0 +1,47 @@
+.main-section {
+  display: flex;
+  height: 100%;
+}
+
+.tab-section{
+  height: 100%;
+  width: 100%;
+}
+
+.example-table{
+  background-color: #d8f3dc!important;
+
+}
+
+.mat-column-date, .mat-column-reminder, .mat-column-name, .mat-column-transaction-type, .mat-column-category, .mat-column-amount, .mat-column-options, .mat-column-residualFunds, .mat-column-savings, .mat-column-balance{
+  text-align: center;
+  align-items: center;
+}
+
+
+.option-column {
+  width: 16%;
+}
+
+.other-columns {
+  width: 21%;
+}
+
+
+
+.input-filder{
+  background-color: #d8f3dc;
+  border: none;
+  /* Optionally, you can also remove other border-related styles */
+  outline: none;
+  height: 50px;
+  font-size: 15px;
+}
+.filter-div{
+  margin: 20px;
+  margin-left: 15px;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+

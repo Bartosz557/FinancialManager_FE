@@ -15,7 +15,7 @@
         <mat-label>Category</mat-label>
         <mat-select  panelClass="panel-color" [formControl]="selectFormControl" [(ngModel)]="selectedCategory" id="category" required>
           <ng-container *ngFor="let option of optionsList">
-            <mat-option [value]="option">{{ option }}</mat-option>
+            <mat-option [value]="option">{{ option.text }}</mat-option>
           </ng-container>
         </mat-select>
         <mat-error *ngIf="selectFormControl.hasError('required')">This field is required</mat-error>

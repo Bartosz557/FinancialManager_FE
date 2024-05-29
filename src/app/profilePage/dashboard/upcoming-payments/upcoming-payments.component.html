@@ -1,0 +1,36 @@
+<table mat-table [dataSource]="dataSource" class="example-table">
+  <ng-container matColumnDef="date">
+    <th class="other-columns" mat-header-cell *matHeaderCellDef>Date</th>
+    <td class="other-columns" mat-cell *matCellDef="let row">{{ row.date | date }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <th class="other-columns" mat-header-cell *matHeaderCellDef>Amount</th>
+    <td class="other-columns" mat-cell *matCellDef="let row">{{ row.amount | currency }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th class="other-columns" mat-header-cell *matHeaderCellDef>Name</th>
+    <td class="other-columns" mat-cell *matCellDef="let row">{{ row.name }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="reminder">
+    <th class="other-columns" mat-header-cell *matHeaderCellDef>Reminder</th>
+    <td class="other-columns" mat-cell *matCellDef="let row">{{ row.reminder }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="options">
+    <th class="option-column" mat-header-cell *matHeaderCellDef>Options</th>
+    <td class="option-column" mat-cell *matCellDef="let row">
+      <button mat-icon-button color="primary" (click)="edit(row)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="delete(row)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

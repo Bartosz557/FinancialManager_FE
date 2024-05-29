@@ -85,8 +85,9 @@
 
 
 .spinner-info{
+  font-family: "LilGrotesk", sans-serif;
   text-align: center;
-  font-size: 25px;
+  font-size: 29px;
 }
 
 .currencyThree{
@@ -103,6 +104,7 @@
   font-size: 15px;
 }
 .piggy-bank-span{
+  font-family: "LilGrotesk", sans-serif;
   font-size: 40px;
   margin-left: -7px;
 }
@@ -116,6 +118,7 @@
 }
 
 .residual-funds-span{
+  font-family: "LilGrotesk", sans-serif;
   font-size: 40px;
 }
 
@@ -134,16 +137,17 @@
   background-color: #5dd07e;
   color: #0c2c1f;
   height: 160px;
-  border-radius: 10px;
+  border-radius: 30px;
   width: 455px;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
 
 }
 
 .balance-text{
-  margin: 10px;
+  font-family: "LilGrotesk", sans-serif;
+  margin: 12px;
   margin-top: 18px;
-  font-size: 45px;
+  font-size: 40px;
 }
 
 .balance-status{
@@ -178,6 +182,17 @@
   color: #0c2c1f;
 
 }
+.pretty-cloud{
+  background-color: #84da90;
+  margin-top: -150px;
+  height: 250px;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  border-radius: 45px;
+}
 
 .welcome-div{
   margin-left: -40px;
@@ -185,26 +200,23 @@
   flex-direction: column;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: #0c2c1f;
 }
 
 .welcome-text{
-  margin-top: -90px;
-  margin-bottom: 80px;
-  font-size: 44px;
+  margin-top: 20px;
+  font-size: 46px;
+  font-family: "LilGrotesk", sans-serif;
   font-weight: bold;
-  text-align: center;
 }
 
 .date-text-1, .date-text-2{
-  font-size: 38px;
+  font-family: "LilGrotesk", sans-serif;
+  font-size: 35px;
+  margin-top: 42px;
 }
 
-.date-text-1{
-  text-align: center;
-  margin-bottom: 15px;
-  margin-right: 250px;
-}
 
 .date-text-2{
   margin-top: 15px;

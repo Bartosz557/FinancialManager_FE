@@ -21,6 +21,11 @@ button {
   align-items: center;
     justify-content: space-between;
 }
+.radio-label{
+  margin-top: 0px;
+}
+.radio{
+}
 
 h2 {
     margin-top: 10px;

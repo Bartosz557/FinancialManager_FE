@@ -31,22 +31,31 @@ export class DialogAnimationsExampleDialog implements OnInit{
   expenseValue: any;
   expenseName: any;
   selectedCategory: any;
+
   constructor(public dialogRef: MatDialogRef<DialogAnimationsExampleDialog>, private dialogService: DialogAnimationsExampleDialogService) {}
   selectFormControl = new FormControl('', Validators.required);
 
   ngOnInit() {
     this.dialogRef.updateSize('25%', '46%');
-    this.dialogService.fetchCategories().subscribe((data) => {
+    this.dialogService.fetchCategories().subscribe((data:any) => {
       console.log(data)
-      this.optionsList = data;
+      this.optionsList = data.map((item:string) => ({ value: item, text: this.formatted(item) }));
     });
+  }
+
+  formatted(name: string){
+    if (name.toLowerCase() === "diningout") {
+      name = "dining out";
+    }
+    return name.charAt(0).toUpperCase() + name.slice(1);
   }
 
 
   sendTransaction() {
+    console.log(this.selectedCategory.value)
     const requestBody = {
       expenseName: this.expenseName,
-      categoryName: this.selectedCategory,
+      categoryName: this.selectedCategory.value,
       transactionValue: this.expenseValue,
       transactionType: "EXPENSE"
     }

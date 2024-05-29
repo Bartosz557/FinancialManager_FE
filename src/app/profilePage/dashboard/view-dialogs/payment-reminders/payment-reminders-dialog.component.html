@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Upcoming Payments</h2>
+<mat-dialog-content>
+  <div class="settings-div">
+
+    <ng-container *ngFor="let element of elements">
+      <div class="element-container">
+        <div class="header-div">
+            <label> <span>{{ element.expenseName }}</span><span class="pause">-</span><span class="amount">{{ element.amount }}zł</span></label>
+        </div>
+        <div class="settlement-date value-div">
+          <div class="deadline-div">
+            <span class="deadline">Deadline:</span><span class="days-left">{{ element.daysLeft }}</span>
+          </div>
+          <div class="buttonito">
+            <button class="mark-button" mat-button (click)="pay(1)">PAY</button>
+            <button class="edit-button" mat-button (click)="edit(2)">EDIT</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+
+  </div>
+
+
+
+</mat-dialog-content>
+<div class="buttons">
+  <mat-dialog-actions>
+    <button class="cancel-button" mat-button (click)="closeDialog()">Cancel</button>
+  </mat-dialog-actions>
+</div>
+

@@ -23,6 +23,7 @@
   margin-bottom: 0.5vh;
 }
 
+
 .center {
   display: flex;
   justify-content: center;
@@ -41,7 +42,10 @@
   margin: 0.5vh;
   height: 4vh;
 }
-
+.payments{
+  padding-left: 16px;
+  padding-right: 15px;
+}
 /*.mat-success{*/
 /*  background-color: bl !important;*/
 /*  color: white !important;*/

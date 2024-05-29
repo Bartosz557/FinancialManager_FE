@@ -61,4 +61,8 @@ export class ProfilePageComponent implements OnInit{
   walletHistory() {
     this.router.navigate(["/profile/wallet-history"])
   }
+
+  upcomingPayments() {
+    this.router.navigate(["/profile/upcoming-payments"])
+  }
 }

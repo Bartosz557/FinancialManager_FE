@@ -51,6 +51,11 @@ import { WalletSettingsDialogComponent } from './profilePage/dashboard/view-dial
 import {MatSelectModule} from "@angular/material/select";
 import {MatSnackBarModule, MatSnackBarRef} from "@angular/material/snack-bar";
 import {SnackBarExample} from "./profilePage/dashboard/snack-bar-example/snack-bar-example";
+import { UpcomingPaymentsComponent } from './profilePage/dashboard/upcoming-payments/upcoming-payments.component';
+import {UpcomingPaymentsService} from "./profilePage/dashboard/upcoming-payments/upcoming-payments.service";
+import {
+  PaymentRemindersDialogComponent
+} from "./profilePage/dashboard/view-dialogs/payment-reminders/payment-reminders-dialog.component";
 @NgModule({
   declarations: [
     ProfilePageComponent,
@@ -65,6 +70,8 @@ import {SnackBarExample} from "./profilePage/dashboard/snack-bar-example/snack-b
     EditDialogComponent,
     WalletHistoryComponent,
     WalletSettingsDialogComponent,
+    UpcomingPaymentsComponent,
+    PaymentRemindersDialogComponent,
   ],
   imports: [
     MatSnackBarModule,
@@ -113,6 +120,7 @@ import {SnackBarExample} from "./profilePage/dashboard/snack-bar-example/snack-b
     {provide: DialogAnimationsExampleDialogService, useClass: DialogAnimationsExampleDialogService},
     {provide: AddDepositExampleDialogService, useClass: AddDepositExampleDialogService},
     {provide: WalletHistoryService, useClass: WalletHistoryService},
+    {provide: UpcomingPaymentsService, useClass: UpcomingPaymentsService},
     MatDatepickerModule,
     MatNativeDateModule,
     SnackBarExample,

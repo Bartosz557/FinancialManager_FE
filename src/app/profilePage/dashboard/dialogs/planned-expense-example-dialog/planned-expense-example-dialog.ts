@@ -68,13 +68,19 @@ export class PlannedExpenseExampleDialog implements OnInit{
   closeDialog() {
     this.dialogRef.close({ success: false });
   }
-
   ngOnInit() {
     this.dialogRef.updateSize('30%', '66%');
-    this.dialogService.fetchCategories().subscribe((data) => {
+    this.dialogService.fetchCategories().subscribe((data:any) => {
       console.log(data)
-      this.optionsListTwo = data;
+      this.optionsListTwo = data.map((item:string) => ({ value: item, text: this.formatted(item) }));
     });
+  }
+
+  formatted(name: string){
+    if (name.toLowerCase() === "diningout") {
+      name = "dining out";
+    }
+    return name.charAt(0).toUpperCase() + name.slice(1);
   }
 
   formatDate() {
@@ -87,7 +93,7 @@ export class PlannedExpenseExampleDialog implements OnInit{
       date: this.formatedDate,
       amount: this.expenseValue,
       reminderType: this.reminderType,
-      category: this.selectedCategory
+      category: this.selectedCategory.value
     }
     console.log(this.date)
     console.log(requestBody)
