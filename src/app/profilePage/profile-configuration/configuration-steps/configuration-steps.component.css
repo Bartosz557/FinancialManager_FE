@@ -1,34 +1,211 @@
 .configuration-steps {
-    background-color: #007BFF;
 }
 
 .steps {
+    height: 55%;
+    width: 51%;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center; /* Vertical centering */
-}
+    border-radius: 20px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
 
+}
+.stepper-div{
+    height: 430px;
+    display: flex;
+}
+.form-fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 230px;
+}
+.button-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+.next-bttn{
+    margin-bottom: 20px;
+}
+.labelito{
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    font-family: 'Lato', sans-serif;
+    font-size: 23px;
+}
 html, body {
-    background-color: #007BFF; /* You can remove height from here */
     display: flex;
     /* height: 100%; */ /* Remove fixed height */
     justify-content: center;
+    align-items: center;
     /* align-items: center; */ /* You might not need this here if aligning .steps */
     border-radius: 20px;
     height: 87.5vh;
 }
 .row {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
-
+#funds-left{
+    font-size: 19px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
 .column {
     flex: 1;
     margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     display: none;
 }
+
+.fields-two{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+}
+
+.row-two{
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.columns-two{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 50px;
+}
+.add-button{
+    color: black!important;
+    background-color: #ced4da!important;
+    height: 32px;
+    border-radius: 7px;
+    margin-right: 20px;
+    margin-bottom: 1px;
+}
+.devidir{
+    display: flex;
+
+}
+.button-divier{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.elements{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.contentino{
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    width: 90%;
+    height: 47px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.position{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#added-label{
+    font-size: 20px;
+    margin-left: 20px;
+}
+.expense-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 120px;
+    overflow-y: auto;
+    height: 120px;
+}
+
+mat-list-option:nth-child(n){
+    height: 10px;
+}
+#third-button-one, #third-button-two{
+    margin-bottom: 77px;
+}
+.items{
+    width: 400px;
+    margin: 5px;
+    font-size: 16px;
+}
+#value-span{
+    display: inline-block; /* zmiana na inline-block */
+    margin-left: 60px;
+}
+#name-span{
+    display: inline-block; /* zmiana na inline-block */
+    width: 200px;
+}
+.lista{
+    margin-top: 5px;
+    height: 150px;
+    width: 100%;
+
+}
+#label-third{
+    margin-top: -20px;
+    margin-bottom: -5px;
+}
+.finish-box{
+    margin-top: 30px;
+    height: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.finish-button{
+    margin: 5px;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 17px;
+}
+.button-div-finish{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 40%;
+}
+.xdd{
+    font-size: 30px;
+}
+#great{
+    margin-top: 25px;
+    margin-bottom: 80px   ;
+    font-size: 27px;
+}
+

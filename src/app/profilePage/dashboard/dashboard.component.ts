@@ -16,6 +16,7 @@ import {MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions} from "@angular/ma
 import {WalletSettingsDialogComponent} from "./view-dialogs/wallet-settings-dialog/wallet-settings-dialog.component";
 import {PaymentRemindersDialogComponent} from "./view-dialogs/payment-reminders/payment-reminders-dialog.component";
 import {RemindersInterface} from "./view-dialogs/payment-reminders/reminders.interface";
+import {PiggyBankDialog} from "./dialogs/piggy-bank-dialog/piggy-bank-dialog";
 
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 300,
@@ -144,6 +145,8 @@ export class DashboardComponent implements OnInit{
         return RepeatingExpenseExampleDialog
       case 'wallet-settings-dialog-component':
         return WalletSettingsDialogComponent
+      case 'piggy-bank-dialog':
+        return PiggyBankDialog
     }
     return DialogAnimationsExampleDialog;
   }

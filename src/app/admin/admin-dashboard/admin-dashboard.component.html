@@ -1,38 +1,73 @@
 <!-- admin-dashboard.component.html -->
-<div class="center">
-  <div class="cockpit">
-    <div class="header-buttons">
-      <button class="button" >Admin cockpit</button>
-      <button class="button" (click)="registerNewUser()" >Register new user </button>
-      <button class="button" (click)="getPrintReg()" >Get registration logs</button>
-      <button class="button" (click)="getPrintLog()" >Get login logs</button>
-      <button class="button logout-button" (click)="logout()">Log Out</button>
-    </div>
-  </div>
-</div>
-<div class="admin-dashboard font-class">
-  <div class="user-table">
-    <div class="table-header">
-      <div class="column">Username</div>
-      <div class="column">Mail</div>
-      <div class="column">Configured</div>
-      <div class="column">Enabled</div>
-      <div class="column">Actions</div>
-    </div>
 
-    <div class="table-body">
-      <!-- Replace this ngFor loop with your actual data binding -->
-      <div *ngFor="let user of userData" class="table-row">
-        <div class="column">{{ user.username }}</div>
-        <div class="column">{{ user.email }}</div>
-        <div class="column">{{ user.configured ? 'Yes' : 'No' }}</div>
-        <div class="column">{{ user.enabled ? 'Yes' : 'No' }}</div>
-        <div class="column">
-          <button (click)="editUser(user)">Edit</button>
-          <button (click)="deleteUser(user)">Delete</button>
-          <button (click)="viewDetails(user)">Details</button>
-        </div>
+<section class="layout">
+  <div class="center">
+    <div class="header">
+      <button mat-button class="button" >Admin cockpit</button>
+      <button mat-button class="button double" (click)="registerNewUser()" >Register new user </button>
+      <button mat-button class="button double" (click)="getPrintReg()" >Registration logs</button>
+      <button mat-button class="button" (click)="getPrintLog()" >Login logs</button>
+      <div class="logout-button">
+        <button mat-raised-button color="primary" class="button lgout" (click)="logout()">Log Out</button>
       </div>
     </div>
   </div>
-</div>
+
+  <div class="center">
+    <div class="large-box">
+      <table mat-table [dataSource]="dataSource" class="example-table">
+        <ng-container matColumnDef="username">
+          <th class="other-columns" mat-header-cell *matHeaderCellDef>Username</th>
+          <td class="other-columns" mat-cell *matCellDef="let row">{{ row.username }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th class="other-columns" mat-header-cell *matHeaderCellDef>Email</th>
+          <td class="other-columns" mat-cell *matCellDef="let row">{{ row.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="configured">
+          <th class="other-columns" mat-header-cell *matHeaderCellDef>Configured</th>
+          <td class="other-columns" mat-cell *matCellDef="let row">{{ row.configured }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="enabled">
+          <th class="other-columns" mat-header-cell *matHeaderCellDef>Enabled</th>
+          <td class="other-columns" mat-cell *matCellDef="let row">{{ row.enabled }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="options">
+          <th class="option-column" mat-header-cell *matHeaderCellDef>Options</th>
+          <td class="option-column" mat-cell *matCellDef="let row">
+            <button mat-icon-button color="primary" (click)="edit(row)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="delete(row)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+<!--      <div class="table-body">-->
+<!--        &lt;!&ndash; Replace this ngFor loop with your actual data binding &ndash;&gt;-->
+<!--        <div *ngFor="let user of userData" class="table-row">-->
+<!--          <div class="column">{{ user.username }}</div>-->
+<!--          <div class="column">{{ user.email }}</div>-->
+<!--          <div class="column">{{ user.configured ? 'Yes' : 'No' }}</div>-->
+<!--          <div class="column">{{ user.enabled ? 'Yes' : 'No' }}</div>-->
+<!--          <div class="column">-->
+<!--            <button (click)="editUser(user)">Edit</button>-->
+<!--            <button (click)="deleteUser(user)">Delete</button>-->
+<!--            <button (click)="viewDetails(user)">Details</button>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+  </div>
+</section>
+
+
+
+

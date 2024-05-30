@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MainPageService} from "../../mainPage/mainPage.service";
-import {AdminDashboardService, Root, Root2} from "./admin-dashboard.service";
+import {AdminDashboardService, Root} from "./admin-dashboard.service";
 import {ProfilePageService} from "../../profilePage/profilePage.service";
 import {Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
@@ -8,6 +8,8 @@ import {ConfirmationDialogComponent} from "./confirmationDialog/confirmation-dia
 import { MatDialog } from '@angular/material/dialog';
 import {EditDialogComponent} from "./editDialog/edit-dialog.component";
 import {FileService} from "./file.serivce";
+import {MatTableDataSource} from "@angular/material/table";
+import {UpcomingPaymentsInterface} from "../../profilePage/dashboard/upcoming-payments/upcoming-payments.interface";
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -17,19 +19,25 @@ import {FileService} from "./file.serivce";
 export class AdminDashboardComponent  implements OnInit{
 
   constructor(private dialog: MatDialog,private fileService: FileService, private adminDashboardService: AdminDashboardService, private profilePageService: ProfilePageService, private router: Router, private http: HttpClient) {}
-
-  userData: Root | undefined
   // TODO: change the username to ID and add Id to the response in spring
+
+  displayedColumns: string[] = ['username', 'email', 'configured', 'enabled', 'options'];
+  data: Root[] = [{
+        username: '',
+        email: '',
+        configured: false,
+        enabled: false
+    }];
+  dataSource: MatTableDataSource<Root> =  new MatTableDataSource(this.data)
+
   public ngOnInit(): void {
       this.fetchData()
   }
 
   async fetchData() {
       this.adminDashboardService.fetchUsersData().subscribe(
-        (response: Root) => {
-          this.userData = response
-          console.log(response[0])
-          console.log(response[0].username)
+        (response: Root[]) => {
+            this.dataSource = new MatTableDataSource(response);
         }
       );
   }
@@ -108,6 +116,14 @@ export class AdminDashboardComponent  implements OnInit{
       window.open(url);
     });
   }
+
+    edit(row:any) {
+
+    }
+
+    delete(row:any) {
+
+    }
 }
 
 

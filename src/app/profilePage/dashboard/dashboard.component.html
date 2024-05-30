@@ -46,8 +46,8 @@
       </div>
       <div class="xdd">
         <div matTooltip="Funds collected in Piggy Bank" matTooltipClass="tooltip-class" class="piggy-bank">
-          <img class="imagane" src="assets/resources/piggybank.png" alt="Your Image">
-          <div  class="overlay-text piggy-bank-text">Your savings:<br/><br/><span class="piggy-bank-span">{{piggyBank}}</span><span class="currencyTwo">zł</span></div>
+          <img  (click)="openDialog('piggy-bank-dialog','0ms', '0ms')"  class="imagane" src="assets/resources/piggybank.png" alt="Your Image">
+          <div (click)="openDialog('piggy-bank-dialog','0ms', '0ms')"   class="overlay-text piggy-bank-text">Your savings:<br/><br/><span class="piggy-bank-span">{{piggyBank}}</span><span class="currencyTwo">zł</span></div>
         </div>
         <div matTooltip="Monthly Surplus Funds" matTooltipClass="tooltip-class" class="residual-funds">
           <img class="imagane" src="assets/resources/pngwing.com.png" alt="Your Image">

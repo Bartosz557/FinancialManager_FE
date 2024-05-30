@@ -7,7 +7,7 @@ export class AdminDashboardService {
   constructor(private http: HttpClient) {}
 
   fetchUsersData(){
-    return this.http.get<Root>('/admin/get-all-users')
+    return this.http.get<Root[]>('/admin/get-all-users')
   }
 
   isAdmin(){
@@ -15,12 +15,10 @@ export class AdminDashboardService {
   }
 }
 
-export type Root = Root2[]
-
-export interface Root2 {
-  username: string
-  email: string
-  configured: boolean
-  enabled: boolean
+export interface Root {
+  username: string;
+  email: string;
+  configured: boolean;
+  enabled: boolean;
 }
 

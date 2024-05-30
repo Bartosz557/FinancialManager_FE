@@ -65,4 +65,9 @@ export class ProfilePageComponent implements OnInit{
   upcomingPayments() {
     this.router.navigate(["/profile/upcoming-payments"])
   }
+
+    settings() {
+      this.router.navigate(["/profile/account-settings"])
+
+    }
 }

@@ -156,10 +156,15 @@
 }
 
 .expense-list {
-  max-height: 200px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
+  width: 150px;
+  height: 70px; /* Set the height for the scrollable area */
+  max-height: 100;
+  overflow-y: scroll;
+  border: 1px solid rebeccapurple;
   padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  background-color: #a60a0a;
 }
 
 .button-container {

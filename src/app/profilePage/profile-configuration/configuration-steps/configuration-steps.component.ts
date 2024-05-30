@@ -8,6 +8,8 @@ import {NgForOf, NgIf} from "@angular/common";
 import {ProfileConfigurationService} from "../profile-configuration.service";
 import {MatOptionModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
+import {MatListModule} from "@angular/material/list";
+
 
 @Component({
   selector: 'app-configuration-steps',
@@ -25,6 +27,8 @@ import {MatSelectModule} from "@angular/material/select";
     MatOptionModule,
     MatSelectModule,
     NgIf,
+    MatListModule,
+
   ],
 })
 export class ConfigurationStepsComponent {
@@ -35,16 +39,15 @@ export class ConfigurationStepsComponent {
     accountBalance: ['', Validators.required]
   });
   secondFormGroup = this._formBuilder.group({
-    groceries: ['0', Validators.required],
-    diningOut: ['0', Validators.required],
-    transport: ['0', Validators.required],
-    entertainment: ['0', Validators.required],
-    clothes: ['0', Validators.required],
-    traveling: ['0', Validators.required],
-    hobby: ['0', Validators.required],
-    miscellaneous: ['0', Validators.required]
+    groceries: ['0'],
+    diningOut: ['0'],
+    transport: ['0'],
+    entertainment: ['0'],
+    clothes: ['0'],
+    traveling: ['0'],
+    hobby: ['0'],
+    miscellaneous: ['0']
   });
-  selectedReminder: any ='';
   thirdFormGroup = this._formBuilder.group({
     name: [''],
     date: [''],
@@ -62,7 +65,9 @@ export class ConfigurationStepsComponent {
     { value: "three_reminders", displayText: "Remind the same day & day and week before" }
 
   ];
+  selectedReminder: any;
   selectFormControl = new FormControl('', Validators.required);
+    fundsLeft: any = 1450;
 
   constructor(private _formBuilder: FormBuilder, private profileConfigurationService: ProfileConfigurationService) {
   }
@@ -115,6 +120,58 @@ export class ConfigurationStepsComponent {
     }
     console.log(JSON.stringify(requestBody, null, 2)); // 2 is the number of spaces for indentation
     this.profileConfigurationService.sendConfiguration(requestBody)
+  }
+
+  onInputFocus(input: string, newDefaultValue: string) {
+    switch (input) {
+      case 'groceries':
+        // @ts-ignore
+        if(this.secondFormGroup.get('groceries').value==='' || this.secondFormGroup.get('groceries').value==='0' )
+          this.secondFormGroup.patchValue({ groceries: newDefaultValue });
+        break;
+      case 'diningOut':
+        // @ts-ignore
+        if(this.secondFormGroup.get('diningOut').value==='' || this.secondFormGroup.get('diningOut').value==='0' )
+          this.secondFormGroup.patchValue({ diningOut: newDefaultValue });
+        break;
+      case 'transport':
+        // @ts-ignore
+        if(this.secondFormGroup.get('transport').value==='' || this.secondFormGroup.get('transport').value==='0' )
+          this.secondFormGroup.patchValue({ transport: newDefaultValue });
+        break;
+      case 'entertainment':
+        // @ts-ignore
+        if(this.secondFormGroup.get('entertainment').value==='' || this.secondFormGroup.get('entertainment').value==='0' )
+          this.secondFormGroup.patchValue({ entertainment: newDefaultValue });
+        break;
+      case 'clothes':
+        // @ts-ignore
+        if(this.secondFormGroup.get('clothes').value==='' || this.secondFormGroup.get('clothes').value==='0' )
+          this.secondFormGroup.patchValue({ clothes: newDefaultValue });
+        break;
+      case 'traveling':
+        // @ts-ignore
+        if(this.secondFormGroup.get('traveling').value==='' || this.secondFormGroup.get('traveling').value==='0' )
+          this.secondFormGroup.patchValue({ traveling: newDefaultValue });
+        break;
+      case 'hobby':
+        // @ts-ignore
+        if(this.secondFormGroup.get('hobby').value==='' || this.secondFormGroup.get('hobby').value==='0' )
+          this.secondFormGroup.patchValue({ hobby: newDefaultValue });
+        break;
+      case 'miscellaneous':
+        // @ts-ignore
+        if(this.secondFormGroup.get('miscellaneous').value==='' || this.secondFormGroup.get('miscellaneous').value==='0' )
+          this.secondFormGroup.patchValue({ miscellaneous: newDefaultValue });
+        break;
+      default:
+        console.error(`Control "${input}" does not exist in the form.`);
+        break;
+    }
+  }
+
+  onInputBlur(input: string) {
+
   }
 }
 interface ExpenseItem {

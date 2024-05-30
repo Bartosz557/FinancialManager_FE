@@ -12,6 +12,7 @@ import {AuthGuard} from "./auth/auth.guard";
 import {AdminAuthGuard} from "./auth/admin.auth.guard";
 import {WalletHistoryComponent} from "./profilePage/wallet-history/wallet-history.component";
 import {UpcomingPaymentsComponent} from "./profilePage/dashboard/upcoming-payments/upcoming-payments.component";
+import {AccountSettingsComponent} from "./profilePage/account-settings/account-settings/account-settings.component";
 
 const routes: Routes = [
   { path: '', component: MainPageComponent},
@@ -32,6 +33,10 @@ const routes: Routes = [
       {
         path: 'upcoming-payments',
         component: UpcomingPaymentsComponent
+      },
+      {
+        path: 'account-settings',
+        component: AccountSettingsComponent
       }
     ]},
   { path: 'appComponent', component: AppComponent },

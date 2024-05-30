@@ -56,6 +56,7 @@ import {UpcomingPaymentsService} from "./profilePage/dashboard/upcoming-payments
 import {
   PaymentRemindersDialogComponent
 } from "./profilePage/dashboard/view-dialogs/payment-reminders/payment-reminders-dialog.component";
+import { AccountSettingsComponent } from './profilePage/account-settings/account-settings/account-settings.component';
 @NgModule({
   declarations: [
     ProfilePageComponent,
@@ -72,6 +73,7 @@ import {
     WalletSettingsDialogComponent,
     UpcomingPaymentsComponent,
     PaymentRemindersDialogComponent,
+    AccountSettingsComponent,
   ],
   imports: [
     MatSnackBarModule,

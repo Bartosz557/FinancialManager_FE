@@ -1,161 +1,198 @@
 <body>
 
 <div class="steps">
-    <mat-stepper  [linear]="true" #stepper>
-        <mat-step [stepControl]="firstFormGroup" optional="true"> <!-- TODO: REMOVE THE OPTIONAL PROP!-->
+    <mat-stepper class="stepper-div"  [linear]="true" #stepper>
+        <mat-step  [stepControl]="firstFormGroup" optional="false"> <!-- TODO: REMOVE THE OPTIONAL PROP!-->
             <form [formGroup]="firstFormGroup">
-                <ng-template matStepLabel>Provide the details to manage better your finances</ng-template>
-                <div class="row">
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Settlement Date<br>(day of the month)</mat-label>
-                            <input matInput type="number" placeholder="Enter settlement date" formControlName="settlementDate" required>
-                        </mat-form-field>
-                    </div>
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Monthly Income</mat-label>
-                            <input matInput type="number" placeholder="Enter monthly income" formControlName="monthlyIncome" required>
-                        </mat-form-field>
-                    </div>
+                <ng-template matStepLabel>Account Details</ng-template>
+                <div class="labelito">
+                    <label>Provide the details to help manage better your finances</label>
                 </div>
-                <div class="row">
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Monthly Expense Limit</mat-label>
-                            <input matInput type="number" placeholder="Enter monthly expense limit" formControlName="monthlyLimit" required>
-                        </mat-form-field>
+                <div class="form-fields">
+                    <div class="row">
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Settlement Date<br>(day of the month)</mat-label>
+                                <input matInput type="number" placeholder="Enter settlement date" formControlName="settlementDate" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Monthly Income</mat-label>
+                                <input matInput type="number" placeholder="Enter monthly income" formControlName="monthlyIncome" required>
+                            </mat-form-field>
+                        </div>
                     </div>
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Account Balance</mat-label>
-                            <input matInput type="number" placeholder="Enter account balance" formControlName="accountBalance" required>
-                        </mat-form-field>
+                    <div class="row">
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Monthly Expense Limit</mat-label>
+                                <input matInput type="number" placeholder="Enter monthly expense limit" formControlName="monthlyLimit" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Account Balance</mat-label>
+                                <input matInput type="number" placeholder="Enter account balance" formControlName="accountBalance" required>
+                            </mat-form-field>
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <button mat-button matStepperNext>Next</button>
+                </div>
+                <div class="button-div">
+                    <button class="next-bttn" mat-button matStepperNext>Next</button>
                 </div>
             </form>
         </mat-step>
         <mat-step [stepControl]="secondFormGroup" optional=true>
             <form [formGroup]="secondFormGroup">
-                <ng-template matStepLabel>Fill out your address</ng-template>
-                <div class="row">
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Groceries</mat-label>
-                            <input matInput type="number" placeholder="Enter groceries" formControlName="groceries" min="0">
-                        </mat-form-field>
+                <ng-template matStepLabel>Category Limits</ng-template>
+                <div class="labelito">
+                    <label>You can provide limits for specific categories:</label>
+                </div>
+                <div class="form-fields">
+                    <div class="row">
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Groceries</mat-label>
+                                <input (focus)="onInputFocus('groceries','')"
+                                       (blur)="onInputFocus('groceries','0')" matInput type="number" placeholder="Enter value" formControlName="groceries" min="0">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Dining Out</mat-label>
+                                <input (focus)="onInputFocus('diningOut','')"
+                                       (blur)="onInputFocus('diningOut','0')" matInput type="number" placeholder="Enter value" formControlName="diningOut" min="0">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Transport</mat-label>
+                                <input (focus)="onInputFocus('transport','')"
+                                       (blur)="onInputFocus('transport','0')" matInput type="number" placeholder="Enter value" formControlName="transport" min="0">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Entertainment</mat-label>
+                                <input (focus)="onInputFocus('entertainment','')"
+                                       (blur)="onInputFocus('entertainment','0')" matInput type="number" placeholder="Enter value" formControlName="entertainment" min="0">
+                            </mat-form-field>
+                        </div>
                     </div>
 
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Dining Out</mat-label>
-                            <input matInput type="number" placeholder="Enter dining out" formControlName="diningOut" min="0">
-                        </mat-form-field>
-                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Clothes</mat-label>
+                                <input (focus)="onInputFocus('clothes','')"
+                                       (blur)="onInputFocus('clothes','0')" matInput type="number" placeholder="Enter value" formControlName="clothes" min="0">
+                            </mat-form-field>
+                        </div>
 
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Transport</mat-label>
-                            <input matInput type="number" placeholder="Enter transport" formControlName="transport" min="0">
-                        </mat-form-field>
-                    </div>
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Traveling</mat-label>
+                                <input (focus)="onInputFocus('traveling','')"
+                                       (blur)="onInputFocus('traveling','0')" matInput type="number" placeholder="Enter value" formControlName="traveling" min="0">
+                            </mat-form-field>
+                        </div>
 
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Entertainment</mat-label>
-                            <input matInput type="number" placeholder="Enter entertainment" formControlName="entertainment" min="0">
-                        </mat-form-field>
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Hobby</mat-label>
+                                <input (focus)="onInputFocus('hobby','')"
+                                       (blur)="onInputFocus('hobby','0')" matInput type="number" placeholder="Enter value" formControlName="hobby" min="0">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="column">
+                            <mat-form-field>
+                                <mat-label>Miscellaneous</mat-label>
+                                <input (focus)="onInputFocus('miscellaneous','')"
+                                       (blur)="onInputFocus('miscellaneous','0')" matInput type="number" placeholder="Enter value" formControlName="miscellaneous" min="0">
+                            </mat-form-field>
+                        </div>
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Clothes</mat-label>
-                            <input matInput type="number" placeholder="Enter clothes" formControlName="clothes" min="0">
-                        </mat-form-field>
+                <div class="button-div">
+                    <div>
+                        <button class="next-bttn" mat-button matStepperPrevious>Back</button>
+                        <button class="next-bttn" mat-button matStepperNext>Next</button>
                     </div>
-
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Traveling</mat-label>
-                            <input matInput type="number" placeholder="Enter traveling" formControlName="traveling" min="0">
-                        </mat-form-field>
-                    </div>
-
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Hobby</mat-label>
-                            <input matInput type="number" placeholder="Enter hobby" formControlName="hobby" min="0">
-                        </mat-form-field>
-                    </div>
-
-                    <div class="column">
-                        <mat-form-field>
-                            <mat-label>Miscellaneous</mat-label>
-                            <input matInput type="number" placeholder="Enter miscellaneous" formControlName="miscellaneous" min="0">
-                        </mat-form-field>
-                    </div>
-                </div>
-
-                <div>
-                    <button mat-button matStepperPrevious>Back</button>
-                    <button mat-button matStepperNext>Next</button>
+                    <label id="funds-left">Funds left: {{fundsLeft}} zł</label>
                 </div>
             </form>
         </mat-step>
         <mat-step [stepControl]="thirdFormGroup" optional=true>
                 <div id="addExpense">
                     <form [formGroup]="thirdFormGroup">
-                        <mat-form-field>
-                            <mat-label>Name:</mat-label>
-                            <input matInput formControlName="name">
-                        </mat-form-field>
+                            <ng-template matStepLabel>Recurring Expenses</ng-template>
+                            <div class="labelito" id="label-third">
+                                <label>You can add recurring expenses every month:</label>
+                            </div>
+                        <div class="elements">
+                            <mat-form-field>
+                                <mat-label>Name:</mat-label>
+                                <input matInput formControlName="name">
+                            </mat-form-field>
 
-                        <mat-form-field>
-                            <mat-label>What day of the month the expense repeats?</mat-label>
-                            <input matInput type="number" formControlName="date">
-                        </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Day of the month:</mat-label>
+                                <input matInput type="number" formControlName="date">
+                            </mat-form-field>
 
-                        <mat-form-field>
-                            <mat-label>Amount:</mat-label>
-                            <input matInput type="number" formControlName="amount">
-                        </mat-form-field>
+                            <mat-form-field>
+                                <mat-label>Amount:</mat-label>
+                                <input matInput type="number" formControlName="amount">
+                            </mat-form-field>
+                                <mat-form-field >
+                                    <mat-label>Type of reminder</mat-label>
+                                    <mat-select  [formControl]="selectFormControl" [(ngModel)]="selectedReminder" id="category" required>
+                                        <ng-container *ngFor="let option of optionsList">
+                                            <mat-option [value]="option">{{ option.displayText }}</mat-option>
+                                        </ng-container>
+                                    </mat-select>
+                                    <mat-error *ngIf="selectFormControl.hasError('required')">This field is required</mat-error>
+                                </mat-form-field>
+                        </div>
 
-                      <mat-form-field >
-                        <mat-label>Type of reminder</mat-label>
-                        <mat-select [formControl]="selectFormControl" [(ngModel)]="selectedReminder" id="category" required>
-                          <ng-container *ngFor="let option of optionsList">
-                            <mat-option [value]="option">{{ option.displayText }}</mat-option>
-                          </ng-container>
-                        </mat-select>
-                        <mat-error *ngIf="selectFormControl.hasError('required')">This field is required</mat-error>
-                      </mat-form-field>
-
-                        <button mat-raised-button color="primary" (click)="addExpense()">Add Expense</button>
                     </form>
                 </div>
             <div class="list-content">
-                <h2>Added expenses</h2>
-                <div class="expense-list" id="expenseListContainer">
-                    <p *ngFor="let expense of expenses">{{ expense.name }}: ${{ expense.amount }}</p>
+                <div class="position">
+                    <div class="contentino">
+                        <label id="added-label">Added expenses</label>
+                        <button mat-raised-button color="primary" class="add-button" (click)="addExpense()">Add new</button>
+                    </div>
                 </div>
+                    <div class="lista">
+                        <mat-list class="expense-list" id="expenseListContainer">
+                            <div class="items" *ngFor="let expense of expenses">
+                                <span id="name-span">Name: {{ expense.name }}</span><span id="value-span">Value: {{ expense.amount }}zł</span>
+                            </div>
+                        </mat-list>
+                    </div>
             </div>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
+            <div class="button-div">
+                    <button id="third-button-one" mat-button matStepperPrevious>Back</button>
+                    <button id="third-button-two" mat-button matStepperNext>Next</button>
             </div>
         </mat-step>
         <mat-step>
-            <ng-template matStepLabel>Done</ng-template>
-            <p>You are now done.</p>
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="sendConfiguration()">Finish configuration</button>
+            <ng-template matStepLabel>Finish</ng-template>
+            <div class="finish-box">
+                <label class="xdd">Great!</label>
+                <label class="xdd" id="great">You have finished account configuration</label>
+                <div class="button-div-finish">
+                    <button class="finish-button" mat-button matStepperPrevious>Back</button>
+                    <button class="finish-button" mat-button (click)="sendConfiguration()">Finish configuration</button>
+                </div>
             </div>
         </mat-step>
     </mat-stepper>

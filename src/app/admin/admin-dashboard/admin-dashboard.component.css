@@ -1,77 +1,194 @@
-/* admin-dashboard.component.css */
-.cockpit {
-  background-color: #C2C1C1;
-  padding: 15px 10px;
-  border-radius: 5px;
+.header {
+  background-color: #b7e4c7;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 0.5vh;
   width: 100%;
+  height: 8vh;
+  display: flex;
+  align-items: center;
 }
+
+.large-box {
+  background-color: #d8f3dc!important;
+  padding: 2vh;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 86.5vh;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 0.5vh;
+}
+
+
 .center {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .button {
-  background-color: #007bff;
+  background-color: #3ab779 !important;
+  color: #0c2c1f !important;
   font-weight: bold;
-  color: #fff;
   border: none;
-  padding: 10px 15px;
+  padding: 0px 15px;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  flex-grow: 1;
-  margin: 0 5px;
+  margin: 0.5vh;
+  width: 200px;
+  height: 5vh;
 }
+.double{
+    font-size: 15px;
+}
+.payments{
+  padding-left: 16px;
+  padding-right: 15px;
+}
+/*.mat-success{*/
+/*  background-color: bl !important;*/
+/*  color: white !important;*/
+/*}*/
 
-.button:hover {
-  background-color: #0056b3;
-}
+/*.button:hover {*/
+/*  background-color: #0056b3;*/
+/*}*/
 
 .logout-button {
-  float: right;
-}
-
-.admin-dashboard {
-  margin-top: 80px;
-  margin-left: 40px;
-  margin-right: 40px;
-}
-
-.user-table {
   width: 100%;
-  border-collapse: collapse;
-
-}
-
-.table-header, .table-row {
-  justify-content: space-between;
-  border-bottom: 1px solid #ddd;
-  padding: 8px;
   display: flex;
+  justify-content: flex-end;
 }
 
-.column {
-  margin-left: -30px;
-  flex: 2;
-  text-align: center;
+.lgout{
+  width: 120px;
+}
+
+.main-section {
+    display: flex;
+    height: 100%;
+}
+
+.tab-section{
+    height: 100%;
+    width: 100%;
+}
+
+.example-table{
+    background-color: #d8f3dc!important;
 
 }
 
-.column button{
-  width: 60px;
-  height: 35px;
-  margin-right: 10px;
+.mat-column-options,.mat-column-enabled,.mat-column-configured,.mat-column-email,.mat-column-username{
+    text-align: center;
+    align-items: center;
+}
+
+
+.option-column {
+    width: 16%;
+}
+
+.other-columns {
+    width: 21%;
 }
 
 
 
-.font-class {
-  font-size: 25px;
-  font-family: Calibri;
+.input-filder{
+    background-color: #d8f3dc;
+    border: none;
+    /* Optionally, you can also remove other border-related styles */
+    outline: none;
+    height: 50px;
+    font-size: 15px;
+}
+.filter-div{
+    margin: 20px;
+    margin-left: 15px;
+    font-size: 17px;
+    font-weight: bold;
 }
 
-.table-header{
-  font-size: 30px;
-  font-weight: bold;
-}
+/*!* admin-dashboard.component.css *!*/
+/*.cockpit {*/
+/*  background-color: #C2C1C1;*/
+/*  padding: 15px 10px;*/
+/*  border-radius: 5px;*/
+/*  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);*/
+/*  width: 100%;*/
+/*}*/
+/*.center {*/
+/*  display: flex;*/
+/*  justify-content: center;*/
+/*}*/
+
+/*.button {*/
+/*  background-color: #007bff;*/
+/*  font-weight: bold;*/
+/*  color: #fff;*/
+/*  border: none;*/
+/*  padding: 10px 15px;*/
+/*  border-radius: 4px;*/
+/*  cursor: pointer;*/
+/*  font-size: 16px;*/
+/*  flex-grow: 1;*/
+/*  margin: 0 5px;*/
+/*}*/
+
+/*.button:hover {*/
+/*  background-color: #0056b3;*/
+/*}*/
+
+/*.logout-button {*/
+/*  float: right;*/
+/*}*/
+
+/*.admin-dashboard {*/
+/*  margin-top: 80px;*/
+/*  margin-left: 40px;*/
+/*  margin-right: 40px;*/
+/*}*/
+
+/*.user-table {*/
+/*  width: 100%;*/
+/*  border-collapse: collapse;*/
+
+/*}*/
+
+/*.table-header, .table-row {*/
+/*  justify-content: space-between;*/
+/*  border-bottom: 1px solid #ddd;*/
+/*  padding: 8px;*/
+/*  display: flex;*/
+/*}*/
+
+/*.column {*/
+/*  margin-left: -30px;*/
+/*  flex: 2;*/
+/*  text-align: center;*/
+
+/*}*/
+
+/*.column button{*/
+/*  width: 60px;*/
+/*  height: 35px;*/
+/*  margin-right: 10px;*/
+/*}*/
+
+
+
+/*.font-class {*/
+/*  font-size: 25px;*/
+/*  font-family: Calibri;*/
+/*}*/
+
+/*.table-header{*/
+/*  font-size: 30px;*/
+/*  font-weight: bold;*/
+/*}*/
