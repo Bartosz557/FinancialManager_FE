@@ -3,6 +3,8 @@ import {Transaction} from "./history-interface";
 import {MatTableDataSource} from "@angular/material/table";
 import {WalletHistoryService} from "./wallet-history.service";
 import {Monthly} from "./monthly.interface";
+import {MatDialog} from "@angular/material/dialog";
+import {EditHistoryTransaction} from "./edit-history-transaction/edit-history-transaction";
 
 @Component({
   selector: 'app-wallet-history',
@@ -12,7 +14,7 @@ import {Monthly} from "./monthly.interface";
 })
 export class WalletHistoryComponent implements OnInit{
 
-  constructor( private walletHistoryService: WalletHistoryService) {}
+  constructor( private walletHistoryService: WalletHistoryService,public dialog: MatDialog) {}
 
   ngOnInit() {
     this.walletHistoryService.getTransHistoryData().subscribe(
@@ -55,7 +57,12 @@ export class WalletHistoryComponent implements OnInit{
       this.monthDataSource.filter = filterValue.trim().toLowerCase();
   }
   edit(row:any) {
-
+    const dialogRef = this.dialog.open(EditHistoryTransaction, {
+      width: '250px',
+      enterAnimationDuration: '0ms',
+      exitAnimationDuration: '0ms',
+      autoFocus: false,
+    });
   }
 
   delete(row:any) {

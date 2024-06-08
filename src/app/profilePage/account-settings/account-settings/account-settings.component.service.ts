@@ -23,5 +23,10 @@ export class AccountSettingsComponentService {
     return this.http.get('/api/v1/profile/get-username',{ responseType: 'text' })
 
   }
+
+
+  sendUpdateSettingsRequest(updateFieldName: string, fieldValue: string|null) {
+
+  }
 }
 

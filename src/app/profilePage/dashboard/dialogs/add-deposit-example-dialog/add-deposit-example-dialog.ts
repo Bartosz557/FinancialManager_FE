@@ -39,9 +39,9 @@ export class AddDepositExampleDialog implements OnInit{
   sendTransaction() {
     const requestBody = {
       expenseName: this.expenseName,
-      categoryName: "other",
+      categoryName: "deposit",
       transactionValue: this.expenseValue*(-1),
-      transactionType: "EXPENSE"
+      transactionType: "DEPOSIT"
     }
     this.dialogService.sendTransactionData(requestBody).subscribe(
       (success) => {

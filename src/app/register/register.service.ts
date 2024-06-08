@@ -6,7 +6,6 @@ import {logMessages} from "@angular-devkit/build-angular/src/tools/esbuild/utils
 @Injectable({providedIn: 'root'})
 export class RegisterService{
   constructor(private http: HttpClient,private router: Router) {}
-
   registerUser(username: string, email: string, password: string)
   {
     const requestBody = {
@@ -16,11 +15,8 @@ export class RegisterService{
     }
     this.registerRequest(requestBody)
   }
-
   registerRequest(requestBody: any)
   {
-    console.log("try to register")
-    console.log(requestBody)
     this.http.post('/api/v1/registration', requestBody).subscribe(
       (response) => {
         console.log('Successfully logged in')

@@ -172,11 +172,6 @@
   margin-left: 10px; /* Adjust margin as needed */
 }
 
-.button-container button {
-  /* Style your button as needed */
-}
-
-
 .accept-button{
   margin-top: 50px;
   margin-bottom: -100px;
@@ -186,7 +181,7 @@
   width: 170px;
   text-align: center;
   border-radius: 10px;
-  font-family: "Gill Sans MT";
+  font-family: "Gill Sans MT", serif;
   font-weight: bold;
   font-size: 20px;
   border: none;
@@ -199,7 +194,7 @@
 
 
 .question-text{
-  font-family: "Gill Sans MT";
+  font-family: "Gill Sans MT", serif;
   line-height: 35px;
   font-weight: bold;
   font-size: 27px;
@@ -208,7 +203,7 @@
 
 .guide-text{
   margin-top: -20px;
-  font-family: "Gill Sans MT";
+  font-family: "Gill Sans MT", serif;
   font-weight: bold;
   font-size: 37px;
 }
@@ -216,7 +211,7 @@
 .limit-text {
   margin-top: -100px;
   margin-bottom: 10px;
-  font-family: "Gill Sans MT";
+  font-family: "Gill Sans MT", serif;
   font-weight: bold;
   font-size: 50px;
 }

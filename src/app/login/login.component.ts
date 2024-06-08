@@ -13,23 +13,18 @@ import {MatIconModule} from "@angular/material/icon";
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  passwordValue: any;
+  constructor(private router: Router, private loginService: LoginService) {}
   errorMessage = '';
-  errorPassMessage = ';'
-  constructor(private router: Router,
-              private loginService: LoginService) {}
+  errorPassMessage = '';
   email = new FormControl('', [Validators.required, Validators.email]);
   emailValue: any;
   password = new FormControl('', [Validators.required, Validators.minLength(5)]);
-
-
-  register()
-  {
+  passwordValue: any;
+  hide = true;
+  register() {
     this.router.navigate(['/register']);
-
   }
-  login()
-  {
+  login() {
     this.loginService.loginUser(this.emailValue, this.passwordValue);
   }
   updatePasswordErrorMessage() {
@@ -41,7 +36,6 @@ export class LoginComponent {
       this.errorPassMessage = '';
     }
   }
-
   updateErrorMessage() {
     if (this.email.hasError('required')) {
       this.errorMessage = 'You must enter a value';
@@ -51,7 +45,6 @@ export class LoginComponent {
       this.errorMessage = '';
     }
   }
-  hide = true;
   clickEvent() {
     let passwordField = document.getElementById("password") as HTMLInputElement;
     if(passwordField!=null) {

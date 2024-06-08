@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Edit your transaction</h2>
+<mat-dialog-content>
+  <div class="input-container">
+    <div class="even-the-task">
+      <label for="name">Description:</label>
+      <mat-form-field appearance="outline" >
+        <mat-label>Nike Air Force</mat-label>
+      <input matInput type="text" id="name" name="name" placeholder="New description" [(ngModel)]="description ">
+        <span matTextSuffix>&nbsp;&nbsp;&nbsp;</span>
+      </mat-form-field>
+
+    </div>
+
+    <div class="even-the-task">
+      <label for="value" >Value:</label>
+      <mat-form-field appearance="outline"  class="example-full-width">
+        <mat-label>150</mat-label>
+        <input matInput type="number"  id="value" name="value" placeholder="New value" [(ngModel)]="value">
+        <span matTextSuffix>zł</span>
+      </mat-form-field>
+    </div>
+    <div class="even-the-task">
+      <label for="category">Category:</label>
+      <mat-form-field appearance="outline"  >
+        <mat-label>Clothes</mat-label>
+        <mat-select placeholder="New category"  panelClass="panel-color" [formControl]="selectFormControl" [(ngModel)]="selectedCategory" id="category">
+          <ng-container *ngFor="let option of optionsList">
+            <mat-option [value]="option">{{ option.text }}</mat-option>
+          </ng-container>
+        </mat-select>
+        <span matTextSuffix>&nbsp;&nbsp;&nbsp;</span>
+      </mat-form-field>
+    </div>
+  </div>
+</mat-dialog-content>
+<div class="buttons">
+  <mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button  (click)="sendTransaction() ">Ok</button>
+  </mat-dialog-actions>
+</div>
+

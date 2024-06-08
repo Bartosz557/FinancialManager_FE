@@ -39,10 +39,10 @@
         <ng-container matColumnDef="options">
           <th class="option-column" mat-header-cell *matHeaderCellDef>Options</th>
           <td class="option-column" mat-cell *matCellDef="let row">
-            <button mat-icon-button color="primary" (click)="edit(row)">
+            <button mat-icon-button color="primary" (click)="editUser(row)">
               <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="warn" (click)="delete(row)">
+            <button mat-icon-button color="warn" (click)="deleteUser(row)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
